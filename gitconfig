@@ -1,0 +1,9 @@
+[credential]
+	helper = cache --timeout=3600
+[user]
+	email = simon.podhajsky@gmail.com
+	name = Simon Podhajsky
+[core]
+	excludesfile = ~/.gitignore
+[push]
+	default = matching
