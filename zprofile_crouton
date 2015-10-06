@@ -1,0 +1,4 @@
+# Only start croutonwebsocket if this is the initial login shell
+if [ -z "$TMUX" ]; then
+  croutonwebsocket &
+fi

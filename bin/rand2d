@@ -1,0 +1,2 @@
+#!/usr/bin/zsh
+echo $(( ( RANDOM % 6 )  + 1)) + $(( ( RANDOM % 6 )  + 1 ))
