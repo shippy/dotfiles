@@ -14,8 +14,10 @@
         "mailcap_crouton":  "~/.mailcap",
         "oh-my-zsh/":  "~/.oh-my-zsh",
         "tmux.conf":  "~/.tmux.conf",
-        "tmux/":  "~/tmux",
-        "bin/yalevpn.sh": "~/bin/yalevpn.sh"
+        "tmux/":  "~/.tmux",
+        "bin/yalevpn.sh": "~/bin/yalevpn.sh",
+        "bin/rand2d.sh": "~/bin/rand2d.sh",
+        "Xmodmap":  "~/.Xmodmap"
     },
 
     "commands": ["chmod +x ~/bin/yalevpn.sh"]
