@@ -1,0 +1,20 @@
+{
+    "directories": [],
+    
+    "link": {
+        "zshrc":  "~/.zshrc",
+        "dotvim/vimrc":  "~/.vimrc",
+        "dotvim/":    "~/.vim",
+        "ackrc":  "~/.ackrc",
+        "gitconfig_osx":  "~/.gitconfig",
+        "gitignore":  "~/.gitignore",
+        "muttrc": "~/.muttrc",
+        "mutt/":   "~/.mutt",
+        "oh-my-zsh/":  "~/.oh-my-zsh",
+        "tmux.conf":  "~/.tmux.conf",
+        "tmux/":  "~/.tmux",
+        "bin/rand2d.sh": "~/bin/rand2d.sh",
+    },
+
+    "commands": []
+}

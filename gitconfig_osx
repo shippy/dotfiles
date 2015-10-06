@@ -1,0 +1,26 @@
+[user]
+	name = Simon Podhajsky
+	email = simon.podhajsky@gmail.com
+[core]
+	excludesfile = /Users/Simon/.gitignore
+	editor = atom --wait
+[color]
+	ui = auto
+[credential]
+	helper = osxkeychain
+[push]
+	default = tracking
+[help]
+	autocorrect = 3
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+	unstage = reset HEAD --
+	last = log -1 HEAD
+	staged = diff --cached
+[branch]
+	autosetupmerge = true
+[merge]
+	stat = true
