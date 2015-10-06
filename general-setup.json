@@ -1,0 +1,23 @@
+{
+    "directories": ["~/bin"],
+    
+    "link": {
+        "zshrc":  "~/.zshrc",
+        "zprofile_crouton": "~/.zprofile",
+        "dotvim/vimrc":  "~/.vimrc",
+        "dotvim/ackrc":  "~/.ackrc",
+        "dotvim/":    "~/.vim",
+        "gitconfig":  "~/.gitconfig",
+        "gitignore":  "~/.gitignore",
+        "muttrc": "~/.muttrc",
+        "mutt/":   "~/.mutt",
+        "offlineimaprc_crouton":  "~/.offlineimaprc",
+        "mailcap_crouton":  "~/.mailcap",
+        "oh-my-zsh/":  "~/.oh-my-zsh",
+        "tmux.conf":  "~/.tmux.conf",
+        "tmux/":  "~/tmux",
+        "bin/yalevpn.sh": "~/bin/yalevpn.sh"
+    },
+
+    "commands": ["chmod +x ~/bin/yalevpn.sh"]
+}

@@ -1,0 +1,9 @@
+[submodule "dotty"]
+	path = dotty
+	url = https://github.com/vibhavp/dotty
+[submodule "dotfiler"]
+	path = dotfiler
+	url = https://github.com/svetlyak40wt/dotfiler.git
+[submodule "dotvim"]
+	path = dotvim
+	url = git@github.com:shippy/dotvim.git
