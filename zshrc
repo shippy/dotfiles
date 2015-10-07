@@ -5,7 +5,7 @@ case `uname` in
     export PATH="/Users/Simon/bin:/usr/local/mysql/bin:$PATH"
     export PATH="/usr/local/bin:/usr/local/heroku/bin:$PATH"
     export PATH="//anaconda/bin:$PATH"
-    plugins=(git osx gem git-extras github sudo tmux common-aliases)
+    plugins=(git osx gem git-extras sudo tmux common-aliases)
     ;;
   Linux)
     export ZSH=/home/simon/.oh-my-zsh
