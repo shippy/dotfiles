@@ -1,2 +1,3 @@
 .credentials
 mutt/cache/*
+mutt/certificates/*

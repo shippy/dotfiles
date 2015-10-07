@@ -13,8 +13,8 @@
         "oh-my-zsh/":  "~/.oh-my-zsh",
         "tmux.conf":  "~/.tmux.conf",
         "tmux/":  "~/.tmux",
-        "bin/rand2d.sh": "~/bin/rand2d.sh",
+        "bin/rand2d.sh": "~/bin/rand2d.sh"
     },
 
-    "commands": []
+    "commands": ["#brew tap homebrew/bundle && brew bundle"]
 }

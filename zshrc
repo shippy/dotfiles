@@ -1,5 +1,26 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/home/simon/.oh-my-zsh
+case `uname` in
+  Darwin)
+    export ZSH=/Users/Simon/.oh-my-zsh
+    export PATH="/Users/Simon/bin:/usr/local/mysql/bin:$PATH"
+    export PATH="/usr/local/bin:/usr/local/heroku/bin:$PATH"
+    export PATH="//anaconda/bin:$PATH"
+    plugins=(git osx gem git-extras github sudo tmux common-aliases)
+    ;;
+  Linux)
+    export ZSH=/home/simon/.oh-my-zsh
+    export PATH="/home/simon/.rbenv/plugins/ruby-build/bin:/home/simon/.rbenv/shims:/home/simon/.rbenv/bin:/home/simon/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/home/simon/bin:/home/simon/.composer/vendor/bin"
+    export BROWSER="croutonurlhandler -n"
+    plugins=(git ubuntu gem git-extras github sudo tmux tmuxinator command-not-found common-aliases)
+    if [ -n "${DISPLAY+x}" ]; then
+    	xmodmap -e "keycode 133 = Escape"
+    fi
+    
+    # Navigating terminal color madness
+    export TERM=xterm-256color
+    [ -n "$TMUX" ] && export TERM=screen-256color
+    ;;
+esac
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -30,13 +51,9 @@ ENABLE_CORRECTION="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 #plugins=(git rails ruby rbenv bundler ubuntu gem git-extras github sudo tmux tmuxinator command-not-found common-aliases)
-plugins=(git ubuntu gem git-extras github sudo tmux tmuxinator command-not-found common-aliases)
 
 # User configuration
 
-export PATH="/home/simon/.rbenv/plugins/ruby-build/bin:/home/simon/.rbenv/shims:/home/simon/.rbenv/bin:/home/simon/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/home/simon/bin:/home/simon/.composer/vendor/bin"
-# export MANPATH="/usr/local/man:$MANPATH"
-export BROWSER="croutonurlhandler -n"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -67,16 +84,9 @@ setopt AUTO_CD
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias t='python ~/bin/t/t.py'
 
-if [ -n "${DISPLAY+x}" ]; then
-	xmodmap -e "keycode 133 = Escape"
-fi
-
 #Doesn't seem to work
 #export ZSH_TMUX_AUTOSTART=true
 
-# Navigating terminal color madness
-export TERM=xterm-256color
-[ -n "$TMUX" ] && export TERM=screen-256color
 
 # autorun tmux
 if [ "$TMUX" = "" ]; then tmux; fi
