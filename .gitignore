@@ -2,3 +2,4 @@
 mutt/cache/*
 mutt/certificates/*
 tmux/plugins/*
+tmux/resurrect/*
