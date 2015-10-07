@@ -65,7 +65,8 @@ set include
 set text_flowed = yes
 
 ### Bindings & macros
-macro pager \cb "<pipe-message> urlscan<Enter>" "Call urlscan to extract URLs from a message"
+# urlscan is not available on OSX -> use urlview as a failsafe
+macro pager \cb "<pipe-message> urlscan || <pipe-message> urlview<Enter>" "Extract URLs from a message"
 bind pager <up> previous-line 
 bind pager <down> next-line
 bind pager gg top

@@ -1,5 +1,6 @@
 .credentials
 mutt/cache/*
-mutt/certificates/*
+mutt/certificates
+certificates
 tmux/plugins/*
 tmux/resurrect/*
