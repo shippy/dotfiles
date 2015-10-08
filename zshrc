@@ -33,4 +33,6 @@ alias t='python ~/bin/t/t.py'
 
 ## Final commands
 # autorun tmux if it (1) is not running yet, (2) exists
-if [ "$TMUX" = "" ]; then command -v tmux >/dev/null 2>&1 || tmux; fi
+if [ "$TMUX" = "" ]; then 
+  command -v tmux >/dev/null 2>&1 && tmux;
+fi
