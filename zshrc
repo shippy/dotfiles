@@ -19,6 +19,7 @@ case `uname` in
     # Navigating terminal color madness
     export TERM=xterm-256color
     [ -n "$TMUX" ] && export TERM=screen-256color
+    setopt NO_CHECK_JOBS
     ;;
 esac
 
