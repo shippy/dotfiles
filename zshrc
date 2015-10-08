@@ -1,59 +1,18 @@
-# Path to your oh-my-zsh installation.
-case `uname` in
-  Darwin)
-    export ZSH=/Users/Simon/.oh-my-zsh
-    export PATH="/Users/Simon/bin:/usr/local/mysql/bin:$PATH"
-    export PATH="/usr/local/bin:/usr/local/heroku/bin:$PATH"
-    export PATH="//anaconda/bin:$PATH"
-    plugins=(git osx gem git-extras sudo tmux common-aliases)
-    ;;
-  Linux)
-    export ZSH=/home/simon/.oh-my-zsh
-    export PATH="/home/simon/.rbenv/plugins/ruby-build/bin:/home/simon/.rbenv/shims:/home/simon/.rbenv/bin:/home/simon/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/home/simon/bin:/home/simon/.composer/vendor/bin"
-    export BROWSER="croutonurlhandler -n"
-    plugins=(git ubuntu gem git-extras github sudo tmux tmuxinator command-not-found common-aliases)
-    if [ -n "${DISPLAY+x}" ]; then
-    	xmodmap -e "keycode 133 = Escape"
-    fi
-    
-    # Navigating terminal color madness
-    export TERM=xterm-256color
-    [ -n "$TMUX" ] && export TERM=screen-256color
-    ;;
-esac
+# Set distribution-specific things (ZSH, PATH, BROWSER, TERM, ...)
+# dotty takes care of the initial setup -- only sync the file to home
+# for a given distribution
+[ -f ~/.zshrc_osx ] && source ~/.zshrc_osx
+[ -f ~/.zshrc_crouton ] && source ~/.zshrc_crouton
+[ -f ~/.zshrc_hpc ] && source ~/.zshrc_hpc
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
+# Set name of the oh-my-zsh theme to load.
 ZSH_THEME="bira"
-
-# Uncomment the following line to use hyphen-insensitive completion. Case
-# sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
 # DISABLE_AUTO_TITLE="true"
 
-# Uncomment the following line to enable command auto-correction.
+# enable command auto-correction.
 ENABLE_CORRECTION="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-#plugins=(git rails ruby rbenv bundler ubuntu gem git-extras github sudo tmux tmuxinator command-not-found common-aliases)
-
-# User configuration
-
 
 source $ZSH/oh-my-zsh.sh
 
@@ -68,25 +27,12 @@ else
 fi
 
 setopt AUTO_CD
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
 
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+## Aliases
 alias t='python ~/bin/t/t.py'
 
-#Doesn't seem to work
-#export ZSH_TMUX_AUTOSTART=true
-
-
-# autorun tmux
-if [ "$TMUX" = "" ]; then tmux; fi
+## Final commands
+# autorun tmux if it (1) is not running yet, (2) exists
+if [ "$TMUX" = "" ]; then 
+  command -v tmux >/dev/null 2>&1 && tmux;
+fi
