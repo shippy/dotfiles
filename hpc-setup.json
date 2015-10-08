@@ -1,0 +1,15 @@
+{
+    "directories": [],
+    
+    "link": {
+        "zshrc":  "~/.zshrc",
+        "dotvim/vimrc":  "~/.vimrc",
+        "dotvim/":    "~/.vim",
+        "ackrc":  "~/.ackrc",
+        "gitconfig":  "~/.gitconfig",
+        "gitignore":  "~/.gitignore",
+        "oh-my-zsh/":  "~/.oh-my-zsh"
+    },
+
+    "commands": []
+}
