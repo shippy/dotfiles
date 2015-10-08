@@ -1,6 +1,6 @@
 export ZSH=/home/simon/.oh-my-zsh
 # crouton defaults
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/home/simon/bin$PATH"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/home/simon/bin:$PATH"
 # rbenv
 export PATH="/home/simon/.rbenv/plugins/ruby-build/bin:/home/simon/.rbenv/shims:/home/simon/.rbenv/bin:$PATH"
 # php composer
