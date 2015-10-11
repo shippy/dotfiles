@@ -77,7 +77,7 @@ macro index,pager > <next-thread><previous-entry> "Jump to last message of threa
 macro index,pager < <parent-message><parent-message><parent-message><parent-message><parent-message> "Jump to first message of thread"
 bind index - collapse-thread
 bind index _ collapse-all
-macro compose \e5 "F pandoc -s -f markdown -t html \ny^T^Utext/html; charset=us-ascii\n" # assumes Pandoc
+macro compose m "F pandoc -s -f markdown -t html \ny^T^Utext/html; charset=us-ascii\n"
 
 ### Gmail-specific bindings - per https://gist.github.com/kaleb/1289741
 bind editor <space> noop
