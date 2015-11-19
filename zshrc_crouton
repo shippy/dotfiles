@@ -1,4 +1,8 @@
+## zsh and oh-my-zsh setup
 export ZSH=/home/simon/.oh-my-zsh
+plugins=(git ubuntu gem git-extras github sudo tmux tmuxinator command-not-found common-aliases)
+
+## PATH setup
 # crouton defaults
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/home/simon/bin:$PATH"
 # rbenv
@@ -6,14 +10,17 @@ export PATH="/home/simon/.rbenv/plugins/ruby-build/bin:/home/simon/.rbenv/shims:
 # php composer
 export PATH="/home/simon/.composer/vendor/bin:$PATH"
 
+## Other variables
 export BROWSER="croutonurlhandler -n"
-
-plugins=(git ubuntu gem git-extras github sudo tmux tmuxinator command-not-found common-aliases)
 
 # Replacing search key with escape
 if [ -n "${DISPLAY+x}" ]; then
 	xmodmap -e "keycode 133 = Escape"
 fi
+
+# Aliases
+alias t='python ~/bin/t/t.py'
+alias xa='xiwi anki'
 
 # Navigating terminal color madness
 export TERM=xterm-256color

@@ -1,6 +1,7 @@
 # Set distribution-specific things (ZSH, PATH, BROWSER, TERM, ...)
 # dotty takes care of the initial setup -- only sync the file to home
 # for a given distribution
+# NB: It needs to define the location of oh-my-zsh in $ZSH
 [ -f ~/.zshrc_osx ] && source ~/.zshrc_osx
 [ -f ~/.zshrc_crouton ] && source ~/.zshrc_crouton
 [ -f ~/.zshrc_hpc ] && source ~/.zshrc_hpc
@@ -28,8 +29,9 @@ fi
 
 setopt AUTO_CD
 
-## Aliases
-alias t='python ~/bin/t/t.py'
+## General aliasess
+alias mldav='cadaver https://classesv2.yale.edu/dav/psyc376_f15'
+alias dpdav='cadaver https://classesv2.yale.edu/dav/art138_f15'
 
 ## Final commands
 # autorun tmux if it (1) is not running yet, (2) exists
