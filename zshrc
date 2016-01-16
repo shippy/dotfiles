@@ -7,7 +7,7 @@
 [ -f ~/.zshrc_hpc ] && source ~/.zshrc_hpc
 
 # Set name of the oh-my-zsh theme to load.
-ZSH_THEME="bira"
+ZSH_THEME="avit"
 
 # Uncomment the following line to disable auto-setting terminal title.
 # DISABLE_AUTO_TITLE="true"
