@@ -1,0 +1,26 @@
+
+"directories": ["~/bin"],
+
+  "link": {
+    "zshrc":  "~/.zshrc",
+    "crouton/zprofile": "~/.zprofile",
+    "dotvim/vimrc":  "~/.vimrc",
+    "dotvim/":    "~/.vim",
+    "ackrc":  "~/.ackrc",
+    "gitconfig":  "~/.gitconfig",
+    "gitignore":  "~/.gitignore",
+    "mutt/muttrc": "~/.muttrc",
+    "mutt/":   "~/.mutt",
+    "crouton/mailcap":  "~/.mailcap",
+    "oh-my-zsh/":  "~/.oh-my-zsh",
+    "tmux.conf":  "~/.tmux.conf",
+    "tmux/":  "~/.tmux",
+    "bin/yalevpn.sh": "~/bin/yalevpn.sh",
+    "bin/rand2d.sh": "~/bin/rand2d.sh",
+    "crouton/Xmodmap":  "~/.Xmodmap"
+  },
+
+  "commands": { 
+    "chmod +x ~/bin/yalevpn.sh",
+    "sudo apt-get install exuberant_ctags ssh vim mutt tmux"}
+

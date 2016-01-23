@@ -17,6 +17,9 @@ set smtp_authenticators = 'gssapi:login' # per https://github.com/Homebrew/homeb
 
 source "~/.mutt/.credentials" # TODO: Implement https://unix.stackexchange.com/questions/20570/mutt-how-to-safely-store-password
 
+set ssl_starttls = yes
+set ssl_force_tls = yes
+
 set folder = 'imaps://imap.gmail.com:993'
 set spoolfile = '+Primary' # opens curated Inbox
 set hostname = 'gmail.com'
@@ -40,6 +43,9 @@ folder-hook . "exec collapse-all"
 set uncollapse_jump
 set mark_old = no
 
+# Don't update read counts very frequently when loading large mailboxes
+set read_inc = 1000
+
 set date_format = "%Y/%m/%d"
 set index_format = "%2C | %Z [%d] %-25.25F (%-4.4c) %s"
 set pager_index_lines = 10
@@ -58,6 +64,7 @@ set copy = no
 set delete
 set quit
 set wait_key = no
+set auto_tag = yes
 
 set editor = 'vim -c "set spell spelllang=en_us,cs"' # csa
 set fast_reply
@@ -78,6 +85,9 @@ macro index,pager > <next-thread><previous-entry> "Jump to last message of threa
 macro index,pager < <parent-message><parent-message><parent-message><parent-message><parent-message> "Jump to first message of thread"
 bind index - collapse-thread
 bind index _ collapse-all
+macro compose m "F pandoc -s -f markdown -t html \ny^T^Utext/html; charset=us-ascii\n"
+# Open an HTML attachment in Chrome (from @garybernhardt)
+macro index,pager H <view-attachments>/html<enter><view-mailcap><exit>
 
 ### Gmail-specific bindings - per https://gist.github.com/kaleb/1289741
 bind editor <space> noop

@@ -5,5 +5,8 @@
 	name = Simon Podhajsky
 [core]
 	excludesfile = ~/.gitignore
+  editor = vim
 [push]
 	default = matching
+[color]
+  ui = auto

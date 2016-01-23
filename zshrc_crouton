@@ -1,4 +1,18 @@
+## zsh and oh-my-zsh setup
 export ZSH=/home/simon/.oh-my-zsh
+plugins=(vi-mode git ubuntu gem git-extras github sudo tmux tmuxinator command-not-found common-aliases)
+# vi-mode must precede sudo, otherwise it will wipe out the double-Esc
+
+# Clarify that you are in vim mode
+#zle-keymap-select () {
+  #case $KEYMAP in
+    #vicmd) print -rn '\e]12;pink\a';;
+    #viins|main) print -rn '\e]12;#abcdef\a';;
+  #esac
+#}
+
+
+## PATH setup
 # crouton defaults
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/home/simon/bin:$PATH"
 # rbenv
@@ -6,18 +20,25 @@ export PATH="/home/simon/.rbenv/plugins/ruby-build/bin:/home/simon/.rbenv/shims:
 # php composer
 export PATH="/home/simon/.composer/vendor/bin:$PATH"
 
+## Other variables
 export BROWSER="croutonurlhandler -n"
 
-plugins=(git ubuntu gem git-extras github sudo tmux tmuxinator command-not-found common-aliases)
+export LC_ALL="en_US.UTF-8"
+export LANG="en_US.UTF-8"
 
 # Replacing search key with escape
 if [ -n "${DISPLAY+x}" ]; then
 	xmodmap -e "keycode 133 = Escape"
 fi
 
+# Aliases
+alias t='python ~/bin/t/t.py'
+alias xa='xiwi anki'
+alias se_sync='when-changed ~/senior_essay/main.pdf "\cp ~/senior_essay/main.pdf ~/Downloads"'
+
 # Navigating terminal color madness
 export TERM=xterm-256color
-[ -n "$TMUX" ] && export TERM=screen-256color
+#[ -n "$TMUX" ] && export TERM=screen-256color
 
 # Ignore warning about croutonwebsocket
 setopt NO_CHECK_JOBS
