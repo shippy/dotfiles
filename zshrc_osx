@@ -3,4 +3,7 @@ export PATH="/Users/Simon/bin:/usr/local/mysql/bin:$PATH"
 export PATH="/usr/local/bin:/usr/local/heroku/bin:$PATH"
 export PATH="//anaconda/bin:$PATH"
 export PATH="/Users/Simon/bin/pybib:$PATH"
-plugins=(git osx gem git-extras sudo tmux common-aliases)
+plugins=(git mercurial osx gem git-extras sudo tmux brew pip bundler forklift common-aliases)
+# github git_remote_branch history jsontools laravel4 last-working-dir per-directory-history
+# python rails ruby
+# wd
