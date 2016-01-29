@@ -17,6 +17,18 @@ ENABLE_CORRECTION="true"
 
 source $ZSH/oh-my-zsh.sh
 
+## Editing oh-my-zsh ZLE bindings
+# Unbind Ctrl+Left/Right (forward/backward-word in ZLE interferes with tmux)
+bindkey -r '^[[C'
+bindkey -r '^[[1;5C'
+bindkey -r '^[[D'
+bindkey -r '^[[1;5D'
+
+# Edit the ls command binding to instead use ls -lFh
+#bindkey -r '\el'
+bindkey -s '\el' 'ls -lFh\n'
+
+
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
 
