@@ -1,6 +1,6 @@
 ## zsh and oh-my-zsh setup
 export ZSH=/home/simon/.oh-my-zsh
-plugins=(vi-mode git ubuntu gem git-extras github sudo tmux tmuxinator command-not-found common-aliases)
+plugins=(git ubuntu gem git-extras github sudo tmux tmuxinator command-not-found common-aliases)
 # vi-mode must precede sudo, otherwise it will wipe out the double-Esc
 
 # Clarify that you are in vim mode

@@ -27,6 +27,8 @@ bindkey -r '^[[1;5D'
 # Edit the ls command binding to instead use ls -lFh
 #bindkey -r '\el'
 bindkey -s '\el' 'ls -lFh\n'
+bindkey -s '\es' 'git status\n'
+bindkey -s '\ed' 'git diff\n'
 
 
 # You may need to manually set your language environment
