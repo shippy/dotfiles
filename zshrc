@@ -5,9 +5,10 @@
 [ -f ~/.zshrc_osx ] && source ~/.zshrc_osx
 [ -f ~/.zshrc_crouton ] && source ~/.zshrc_crouton
 [ -f ~/.zshrc_hpc ] && source ~/.zshrc_hpc
+[ -f ~/zshrc_babun ] && source ~/zshrc_babun
 
 # Set name of the oh-my-zsh theme to load.
-ZSH_THEME="avit"
+ZSH_THEME="babun"
 
 # Uncomment the following line to disable auto-setting terminal title.
 # DISABLE_AUTO_TITLE="true"
