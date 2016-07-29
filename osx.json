@@ -12,8 +12,7 @@
         "mutt/":   "~/.mutt",
         "oh-my-zsh/":  "~/.oh-my-zsh",
         "tmux.conf":  "~/.tmux.conf",
-        "tmux/":  "~/.tmux",
-        "bin/rand2d.sh": "~/bin/rand2d.sh"
+        "tmux/":  "~/.tmux"
     },
 
     "commands": ["#brew tap homebrew/bundle && brew bundle"]

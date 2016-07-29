@@ -8,7 +8,7 @@
 [ -f ~/zshrc_babun ] && source ~/zshrc_babun
 
 # Set name of the oh-my-zsh theme to load.
-ZSH_THEME="babun"
+ZSH_THEME="juanghurtado"
 
 # Uncomment the following line to disable auto-setting terminal title.
 # DISABLE_AUTO_TITLE="true"
@@ -44,9 +44,14 @@ fi
 
 setopt AUTO_CD
 
+# Execute ls on every dir change
+function chpwd() {
+  emulate -L zsh
+  ls -lFh
+}
+
 ## General aliasess
-alias mldav='cadaver https://classesv2.yale.edu/dav/psyc376_f15'
-alias dpdav='cadaver https://classesv2.yale.edu/dav/art138_f15'
+alias jn='jupyter notebook'
 
 ## Final commands
 # autorun tmux if it (1) is not running yet, (2) exists
