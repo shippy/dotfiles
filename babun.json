@@ -1,14 +1,8 @@
 {
-"link": {
-  "zshrc":  "~/.zshrc",
-  "zshrc_babun": "~/zshrc_babun",
-  "dotvim/vimrc":  "~/.vimrc",
-  "dotvim/":    "~/.vim",
-  "ackrc":  "~/.ackrc",
-  "gitconfig":  "~/.gitconfig",
-  "gitignore":  "~/.gitignore",
-  "oh-my-zsh/":  "~/.oh-my-zsh",
-  "tmux.conf":  "~/.tmux.conf",
-  "tmux/":  "~/.tmux"
-}
+  "link": {
+    "zshrc_babun": "~/.zshrc_babun"
+  },
+  "commands": { 
+    "sudo apt-get install zsh r-base exuberant_ctags ssh vim mutt tmux pandoc xclip"
+  }
 }
