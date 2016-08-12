@@ -1,14 +1,19 @@
 # Set distribution-specific things (ZSH, PATH, BROWSER, TERM, ...)
 # dotty takes care of the initial setup -- only sync the file to home
 # for a given distribution
+
+plugins=(git mercurial git-extras github sudo tmux pip common-aliases command-not-found python)
+# git_remote_branch history jsontools last-working-dir per-directory-history wd
+# zsh-history-substring-search? thefuck rather than sudo? zsh-navigation-tools?
+
 # NB: It needs to define the location of oh-my-zsh in $ZSH
 [ -f ~/.zshrc_osx ] && source ~/.zshrc_osx
 [ -f ~/.zshrc_crouton ] && source ~/.zshrc_crouton
 [ -f ~/.zshrc_hpc ] && source ~/.zshrc_hpc
-[ -f ~/zshrc_babun ] && source ~/zshrc_babun
+[ -f ~/.zshrc_babun ] && source ~/.zshrc_babun
 
 # Set name of the oh-my-zsh theme to load.
-ZSH_THEME="juanghurtado"
+ZSH_THEME="terminalparty" # terminalparty; kardan, if more customized; agnoster; juanghartado
 
 # Uncomment the following line to disable auto-setting terminal title.
 # DISABLE_AUTO_TITLE="true"
@@ -27,7 +32,7 @@ bindkey -r '^[[1;5D'
 
 # Edit the ls command binding to instead use ls -lFh
 #bindkey -r '\el'
-bindkey -s '\el' 'ls -lFh\n'
+bindkey -s '\el' 'ls -lAFh\n'
 bindkey -s '\es' 'git status\n'
 bindkey -s '\ed' 'git diff\n'
 
@@ -52,6 +57,7 @@ function chpwd() {
 
 ## General aliasess
 alias jn='jupyter notebook'
+alias sz='source ~/.zshrc'
 
 ## Final commands
 # autorun tmux if it (1) is not running yet, (2) exists

@@ -1,7 +1,4 @@
+plugins+=(ubuntu)
+
 export ZSH=/home/sp576/.oh-my-zsh
-
-plugins=(git git-extras ubuntu sudo tmux pip common-aliases python)
-# github git_remote_branch history jsontools last-working-dir per-directory-history
-# zsh-history-substring-search? thefuck rather than sudo? zsh-navigation-tools?
-
 export PATH="/home/sp576/anaconda3/bin:$PATH"

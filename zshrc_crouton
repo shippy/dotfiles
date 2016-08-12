@@ -1,18 +1,8 @@
-## zsh and oh-my-zsh setup
-export ZSH=/home/simon/.oh-my-zsh
-plugins=(git ubuntu gem git-extras github sudo tmux tmuxinator command-not-found common-aliases)
-# vi-mode must precede sudo, otherwise it will wipe out the double-Esc
-
-# Clarify that you are in vim mode
-#zle-keymap-select () {
-  #case $KEYMAP in
-    #vicmd) print -rn '\e]12;pink\a';;
-    #viins|main) print -rn '\e]12;#abcdef\a';;
-  #esac
-#}
-
+plugins+=(ubuntu gem bundler)
 
 ## PATH setup
+export ZSH=/home/simon/.oh-my-zsh
+
 # crouton defaults
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/home/simon/bin:$PATH"
 # rbenv
@@ -31,7 +21,7 @@ if [ -n "${DISPLAY+x}" ]; then
 	xmodmap -e "keycode 133 = Escape"
 fi
 
-# Aliases
+# Crouton-specific aliases
 alias t='python ~/bin/t/t.py'
 alias xa='xiwi anki'
 alias se_sync='when-changed ~/senior_essay/main.pdf "\cp ~/senior_essay/main.pdf ~/Downloads"'

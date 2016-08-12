@@ -1,3 +1,5 @@
+plugins+=(osx gem brew bundler forklift ruby rails laravel4)
+
 export ZSH=/Users/Simon/.oh-my-zsh
 export PATH="/Users/Simon/bin:/usr/local/mysql/bin:$PATH"
 export PATH="/usr/local/bin:/usr/local/heroku/bin:$PATH"
@@ -5,7 +7,3 @@ export PATH="//anaconda/bin:$PATH"
 export PATH="/Users/Simon/bin/pybib:$PATH"
 export PATH="/Applications/MATLAB_R2014b.app/bin:$PATH"
 export PATH="/Applications/MATLAB_R2014b.app/bin/maci64:$PATH"
-plugins=(git mercurial osx gem git-extras sudo tmux brew pip bundler forklift common-aliases)
-# github git_remote_branch history jsontools laravel4 last-working-dir per-directory-history
-# python rails ruby
-# wd
