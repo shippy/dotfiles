@@ -6,9 +6,13 @@
 [core]
 	excludesfile = ~/.gitignore
   editor = vim
+	attributesfile = ~/.gitattributes
 [push]
 	default = matching
 [color]
   ui = auto
 [fetch]
 	recurseSubmodules = true
+[filter "clean_ipynb"]
+	clean = ipynb_drop_output.py
+	smudge = cat
