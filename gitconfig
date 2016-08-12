@@ -1,18 +1,34 @@
-[credential]
-	helper = cache --timeout=3600
 [user]
 	email = simon.podhajsky@gmail.com
 	name = Simon Podhajsky
 [core]
 	excludesfile = ~/.gitignore
-  editor = vim
+	editor = vim
 	attributesfile = ~/.gitattributes
+	whitespace = trailing-space,space-before-tab
+[credential]
+	helper = cache --timeout=3600
+[color]
+	ui = auto
+[diff]
+	renames = copies
 [push]
 	default = matching
-[color]
-  ui = auto
+[help]
+	autocorrect = 3
+[branch]
+	autosetupmerge = always
+	autosetuprebase = always
 [fetch]
 	recurseSubmodules = true
 [filter "clean_ipynb"]
 	clean = ipynb_drop_output.py
 	smudge = cat
+[alias]
+	co = checkout
+	ci = commit
+	d = diff
+	st = status
+	unstage = reset HEAD --
+	last = log -1 HEAD
+	staged = diff --cached

@@ -3,24 +3,32 @@
 	email = simon.podhajsky@gmail.com
 [core]
 	excludesfile = /Users/Simon/.gitignore
-	editor = atom --wait
-[color]
-	ui = auto
+	editor = vim
+	attributesfile = ~/.gitattributes
+	whitespace = trailing-space,space-before-tab
 [credential]
 	helper = osxkeychain
+[color]
+	ui = auto
+[diff]
+	renames = copies
 [push]
-	default = tracking
+	default = matching
 [help]
 	autocorrect = 3
+[branch]
+	autosetupmerge = always
+	autosetuprebase = always
+[fetch]
+	recurseSubmodules = true
+[filter "clean_ipynb"]
+	clean = ipynb_drop_output.py
+	smudge = cat
 [alias]
 	co = checkout
-	br = branch
 	ci = commit
+	d = diff
 	st = status
 	unstage = reset HEAD --
 	last = log -1 HEAD
 	staged = diff --cached
-[branch]
-	autosetupmerge = true
-[merge]
-	stat = true
