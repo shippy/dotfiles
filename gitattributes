@@ -1,3 +1,3 @@
 # Use the output removal script when set in Jupyter Notebook metadata
 # See: http://pascalbugnion.net/blog/ipython-notebooks-and-git.html
-*.ipynb filter=clean_ipynb
+#*.ipynb filter=clean_ipynb
