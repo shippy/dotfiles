@@ -58,9 +58,10 @@ function chpwd() {
 ## General aliasess
 alias jn='jupyter notebook'
 alias sz='source ~/.zshrc'
+alias ez='vim ~/.zshrc'
 
 ## Final commands
-# autorun tmux if it (1) is not running yet, (2) exists
-if [ "$TMUX" = "" ]; then 
+# autorun tmux if it (1) is not running yet, (2) exists, (3) this session isn't running in ssh
+if [ "$TMUX" = "" ] && [ -z "$SSH_CLIENT" ] && [ -z "$SSH_TTY" ]; then 
   command -v tmux >/dev/null 2>&1 && tmux;
 fi
