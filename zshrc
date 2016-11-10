@@ -2,7 +2,7 @@
 # dotty takes care of the initial setup -- only sync the file to home
 # for a given distribution
 
-plugins=(git mercurial git-extras github sudo tmux pip common-aliases command-not-found python autojump) 
+plugins=(git mercurial git-extras github sudo tmux pip common-aliases command-not-found python autojump cp ssh-agent) 
 # git_remote_branch history jsontools last-working-dir per-directory-history wd
 # zsh-history-substring-search? thefuck rather than sudo? zsh-navigation-tools?
 
@@ -20,6 +20,9 @@ ZSH_THEME="terminalparty" # terminalparty; kardan, if more customized; agnoster;
 
 # enable command auto-correction.
 ENABLE_CORRECTION="true"
+
+# automatically update without prompting (DISABLE_AUTO_UPDATE for neither)
+DISABLE_UPDATE_PROMPT="true"
 
 source $ZSH/oh-my-zsh.sh
 
