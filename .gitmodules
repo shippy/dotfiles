@@ -1,15 +1,20 @@
 [submodule "dotty"]
 	path = dotty
 	url = https://github.com/vibhavp/dotty
+	branch = master
 [submodule "dotfiler"]
 	path = dotfiler
 	url = https://github.com/svetlyak40wt/dotfiler.git
+	branch = master
 [submodule "dotvim"]
 	path = dotvim
 	url = git@github.com:shippy/dotvim.git
+	branch = master
 [submodule "oh-my-zsh"]
 	path = oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh.git
+	branch = master
 [submodule "tmux/plugins/tpm"]
 	path = tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
+	branch = master
