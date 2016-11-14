@@ -78,8 +78,8 @@ bind pager <up> previous-line
 bind pager <down> next-line
 bind pager gg top
 bind pager G  bottom
-bind index gg first-entry
-bind index G  last-entry
+bind index,postpone gg first-entry
+bind index,postpone G  last-entry
 macro index,pager > <next-thread><previous-entry> "Jump to last message of thread"
 #macro index,pager < <previous-thread><next-entry> "Jump to first message of thread"
 macro index,pager < <parent-message><parent-message><parent-message><parent-message><parent-message> "Jump to first message of thread"
