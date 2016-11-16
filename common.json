@@ -6,6 +6,7 @@
     "dotvim/vimrc":  "~/.vimrc",
     "dotvim/":    "~/.vim",
     "ackrc":  "~/.ackrc",
+    "ctags":  "~/.ctags",
     "gitconfig":  "~/.gitconfig",
     "gitattributes":  "~/.gitattributes",
     "gitignore":  "~/.gitignore",
