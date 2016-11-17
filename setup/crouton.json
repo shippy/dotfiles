@@ -2,7 +2,8 @@
   "link": {
     "crouton/zprofile": "~/.zprofile",
     "crouton/Xmodmap":  "~/.Xmodmap",
-    "crouton/zshrc_crouton":    "~/.zshrc_local"
+    "crouton/zshrc_crouton":    "~/.zshrc_local",
+    "crouton/gitconfig": "~/.gitconfig_local"
   },
 
   "commands": [

@@ -1,6 +1,7 @@
 {
   "link": {
-    "osx/zshrc_osx":    "~/.zshrc_local"
+    "osx/zshrc_osx":    "~/.zshrc_local",
+    "osx/gitconfig":    "~/.gitconfig_local"
   },
 
   "commands": [

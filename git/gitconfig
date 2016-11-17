@@ -1,3 +1,5 @@
+[include]
+  path = ~/.gitconfig_local
 [user]
 	email = simon.podhajsky@gmail.com
 	name = Simon Podhajsky
@@ -6,10 +8,8 @@
 	editor = vim
 	attributesfile = ~/.gitattributes
 	whitespace = trailing-space,space-before-tab
-[credential]
-	helper = cache --timeout=3600
 [color]
-	ui = auto
+  ui = auto
 [diff]
 	renames = copies
 [push]
@@ -21,6 +21,8 @@
 	autosetuprebase = always
 [fetch]
 	recurseSubmodules = true
+[merge]
+  stat = true
 [filter "clean_ipynb"]
 	clean = ipynb_drop_output.py
 	smudge = cat
