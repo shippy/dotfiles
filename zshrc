@@ -6,11 +6,9 @@ plugins=(git mercurial git-extras github sudo tmux pip common-aliases command-no
 # git_remote_branch history jsontools last-working-dir per-directory-history wd
 # zsh-history-substring-search? thefuck rather than sudo? zsh-navigation-tools?
 
+# Local zshrc, whatever it is
 # NB: It needs to define the location of oh-my-zsh in $ZSH
-[ -f ~/.zshrc_osx ] && source ~/.zshrc_osx
-[ -f ~/.zshrc_crouton ] && source ~/.zshrc_crouton
-[ -f ~/.zshrc_hpc ] && source ~/.zshrc_hpc
-[ -f ~/.zshrc_babun ] && source ~/.zshrc_babun
+[ -f ~/.zshrc_local ] && source ~/.zshrc_local
 
 # Set name of the oh-my-zsh theme to load.
 ZSH_THEME="terminalparty" # terminalparty; kardan, if more customized; agnoster; juanghartado

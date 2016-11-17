@@ -1,0 +1,11 @@
+{
+  "link": {
+    "crouton/zprofile": "~/.zprofile",
+    "crouton/Xmodmap":  "~/.Xmodmap",
+    "crouton/zshrc_crouton":    "~/.zshrc_local"
+  },
+
+  "commands": [
+    "sudo apt-get install zsh r-base exuberant-ctags ssh vim mutt tmux pandoc"
+  ]
+}

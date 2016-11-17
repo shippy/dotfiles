@@ -6,8 +6,8 @@
         "dotvim/vimrc":  "~/.vimrc",
         "dotvim/":    "~/.vim",
         "ackrc":  "~/.ackrc",
-        "gitconfig":  "~/.gitconfig",
-        "gitignore":  "~/.gitignore",
+        "git/gitconfig":  "~/.gitconfig",
+        "git/gitignore":  "~/.gitignore",
         "oh-my-zsh/":  "~/.oh-my-zsh"
     },
 

@@ -7,22 +7,21 @@
     "dotvim/":    "~/.vim",
     "ackrc":  "~/.ackrc",
     "ctags":  "~/.ctags",
-    "gitconfig":  "~/.gitconfig",
-    "gitattributes":  "~/.gitattributes",
-    "gitignore":  "~/.gitignore",
+    "git/gitconfig":  "~/.gitconfig",
+    "git/gitattributes":  "~/.gitattributes",
+    "git/gitignore":  "~/.gitignore",
     "jupyter/ipynb_drop_output.py": "~/bin/ipynb_drop_output.py",
     "jupyter/jupyter_notebook_config.py": "~/.jupyter/jupyter_notebook_config.py",
     "mutt/muttrc": "~/.muttrc",
     "mutt/":   "~/.mutt",
-    "crouton/mailcap":  "~/.mailcap",
+    "mailcap":  "~/.mailcap",
     "oh-my-zsh/":  "~/.oh-my-zsh",
-    "tmux.conf":  "~/.tmux.conf",
+    "tmux/tmux.conf":  "~/.tmux.conf",
     "tmux/":  "~/.tmux",
-    "bin/rand2d.sh": "~/bin/rand2d.sh",
     "crouton/Xmodmap":  "~/.Xmodmap"
   },
 
-  "commands": { 
+  "commands": [ 
     "chmod u+x ~/bin/ipynb_drop_output.py"
-  }
+  ]
 }

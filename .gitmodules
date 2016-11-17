@@ -1,6 +1,6 @@
 [submodule "dotty"]
 	path = dotty
-	url = https://github.com/vibhavp/dotty
+	url = https://github.com/shippy/dotty.git
 	branch = master
 [submodule "dotfiler"]
 	path = dotfiler

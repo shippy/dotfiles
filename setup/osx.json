@@ -1,10 +1,10 @@
 {
   "link": {
-    "zshrc_osx":    "~/.zshrc_osx"
+    "osx/zshrc_osx":    "~/.zshrc_local"
   },
 
-  "commands": {
+  "commands": [
     "#brew tap homebrew/bundle && brew bundle",
     "git config --global credential.helper osxkeychain"
-  }
+  ]
 }
