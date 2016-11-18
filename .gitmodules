@@ -2,19 +2,24 @@
 	path = dotty
 	url = https://github.com/shippy/dotty.git
 	branch = master
+	ignore = all
 [submodule "dotfiler"]
 	path = dotfiler
 	url = https://github.com/svetlyak40wt/dotfiler.git
 	branch = master
+	ignore = all
 [submodule "dotvim"]
 	path = dotvim
 	url = git@github.com:shippy/dotvim.git
 	branch = master
+	ignore = all
 [submodule "oh-my-zsh"]
 	path = oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh.git
 	branch = master
+	ignore = all
 [submodule "tmux/plugins/tpm"]
 	path = tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
 	branch = master
+	ignore = all
