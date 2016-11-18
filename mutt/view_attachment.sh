@@ -89,5 +89,14 @@ if [ $debug = "yes" ]; then
     echo "Open With:" $open_with >> $debug_file
 fi
 
-# Throw the file at Chrome -- it will handle it
-croutonurlhandler -n "file:///home/chronos/user/Downloads/mutt/$newfile"
+if [[  "$OSTYPE" =~ darwin* ]]; then
+    if [ -z $open_with ]; then
+        open $fullpath
+    else
+        open -a "$open_with" $fullpath
+    fi
+else
+    # TODO: Specific check for crouton
+    # Throw the file at Chrome -- it will handle it
+    croutonurlhandler -n "file:///home/chronos/user/Downloads/mutt/$newfile"
+fi
