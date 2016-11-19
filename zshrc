@@ -61,6 +61,15 @@ alias jn='jupyter notebook'
 alias sz='source ~/.zshrc'
 alias ez='vim ~/.zshrc'
 
+# Courtesy of junngunn & fzf
+fe() {
+  local files
+  IFS=$'\n' files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0))
+  [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
+}
+alias v='fe'
+bindkey -s '\ef' 'fe\n'
+
 ## Final commands
 # autorun tmux if it (1) is not running yet, (2) exists, (3) this session isn't running in ssh
 if [ "$TMUX" = "" ] && [ -z "$SSH_CLIENT" ] && [ -z "$SSH_TTY" ]; then 
