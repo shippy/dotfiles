@@ -68,7 +68,6 @@ fe() {
   [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
 }
 alias v='fe'
-bindkey -s '\ef' 'fe\n'
 
 ## Final commands
 # autorun tmux if it (1) is not running yet, (2) exists, (3) this session isn't running in ssh
