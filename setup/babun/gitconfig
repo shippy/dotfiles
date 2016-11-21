@@ -1,5 +1,8 @@
 [core]
-    preloadindex = true
-    fscache = true
+  preloadindex = true
+  fscache = true
+  trustctime = false
 [gc]
-    auto = 256
+  auto = 256
+[credential]
+  helper = cache --timeout=3600
