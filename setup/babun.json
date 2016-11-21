@@ -1,6 +1,7 @@
 {
   "link": {
-    "babun/zshrc_babun": "~/.zshrc_local"
+    "babun/zshrc_babun": "~/.zshrc_local",
+    "babun/gitconfig": "~/.gitconfig_local"
   },
   "commands": [
     "sudo apt-get install zsh r-base exuberant_ctags ssh vim mutt tmux pandoc xclip"
