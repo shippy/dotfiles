@@ -2,7 +2,7 @@
 # dotty takes care of the initial setup -- only sync the file to home
 # for a given distribution
 
-plugins=(git mercurial git-extras github sudo tmux pip common-aliases command-not-found python autojump cp ssh-agent heroku fancy-ctrl-z) 
+plugins=(git mercurial git-extras github sudo tmux pip common-aliases command-not-found python autojump cp ssh-agent heroku fancy-ctrl-z)
 # git_remote_branch history jsontools last-working-dir per-directory-history wd
 # zsh-history-substring-search? thefuck rather than sudo? zsh-navigation-tools?
 
@@ -68,6 +68,7 @@ alias sz='source ~/.zshrc'
 alias ez='vim ~/.zshrc'
 
 # Courtesy of junngunn & fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 fe() {
   local files
   IFS=$'\n' files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0))
@@ -77,6 +78,6 @@ alias v='fe'
 
 ## Final commands
 # autorun tmux if it (1) is not running yet, (2) exists, (3) this session isn't running in ssh
-if [ "$TMUX" = "" ] && [ -z "$SSH_CLIENT" ] && [ -z "$SSH_TTY" ]; then 
+if [ "$TMUX" = "" ] && [ -z "$SSH_CLIENT" ] && [ -z "$SSH_TTY" ]; then
   command -v tmux >/dev/null 2>&1 && tmux;
 fi
