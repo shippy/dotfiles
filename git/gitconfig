@@ -1,36 +1,37 @@
 [include]
   path = ~/.gitconfig_local
 [user]
-	email = simon.podhajsky@gmail.com
-	name = Simon Podhajsky
+  email = simon.podhajsky@gmail.com
+  name = Simon Podhajsky
 [core]
-	excludesfile = ~/.gitignore
-	editor = vim
-	attributesfile = ~/.gitattributes
-	whitespace = trailing-space,space-before-tab
+  excludesfile = ~/.gitignore
+  editor = vim
+  attributesfile = ~/.gitattributes
+  whitespace = trailing-space,space-before-tab
 [color]
   ui = auto
 [diff]
-	renames = copies
+  renames = copies
+  algorithm = patience
 [push]
-	default = matching
+  default = matching
 [help]
-	autocorrect = 3
+  autocorrect = 3
 [branch]
-	autosetupmerge = always
-	autosetuprebase = always
+  autosetupmerge = always
+  autosetuprebase = always
 [fetch]
-	recurseSubmodules = true
+  recurseSubmodules = true
 [merge]
   stat = true
 [filter "clean_ipynb"]
-	clean = ipynb_drop_output.py
-	smudge = cat
+  clean = ipynb_drop_output.py
+  smudge = cat
 [alias]
-	co = checkout
-	ci = commit
-	d = diff
-	st = status
-	unstage = reset HEAD --
-	last = log -1 HEAD
-	staged = diff --cached
+  co = checkout
+  ci = commit
+  d = diff
+  st = status
+  unstage = reset HEAD --
+  last = log -1 HEAD
+  staged = diff --cached
