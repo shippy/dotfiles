@@ -24,6 +24,10 @@ DISABLE_UPDATE_PROMPT="true"
 
 source $ZSH/oh-my-zsh.sh
 
+# enable zmv
+autoload -U zmv
+alias zmv="noglob zmv -W"
+
 ## Editing oh-my-zsh ZLE bindings
 # Unbind Ctrl+Left/Right (forward/backward-word in ZLE interferes with tmux)
 bindkey -r '^[[C'
@@ -36,6 +40,9 @@ bindkey -r '^[[1;5D'
 bindkey -s '\el' 'ls -lAFh\n'
 bindkey -s '\es' 'git status\n'
 bindkey -s '\ed' 'git diff\n'
+
+# Unbind aliases that interfere
+unalias ag
 
 # Enable editing complex commands (or use `fc`)
 autoload -U edit-command-line
@@ -66,6 +73,7 @@ function chpwd() {
 alias jn='jupyter notebook'
 alias sz='source ~/.zshrc'
 alias ez='vim ~/.zshrc'
+alias aG='alias G'
 
 # Courtesy of junngunn & fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
