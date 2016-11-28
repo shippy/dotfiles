@@ -1,0 +1,19 @@
+#!/bin/bash
+# Power-saver
+# per http://stackoverflow.com/questions/3510673/find-and-kill-a-process-in-one-line-using-bash-and-regex
+
+pkill -f 'Box'
+pkill -f '/Applications/Dropbox.app/Contents/MacOS/Dropbox'
+pkill -f 'Simon.+/Library/DropboxHelperTools/Dropbox_u501/dbfseventsd'
+pkill -f 'Caffeine'
+pkill -f 'CrashPlanService'
+pkill -f 'Battery'
+pkill -f 'ElementsAutoAnalyzer'
+pkill -f 'SpotifyWebHelper'
+
+
+
+
+
+
+
