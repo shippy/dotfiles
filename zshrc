@@ -41,9 +41,6 @@ bindkey -s '\el' 'ls -lAFh\n'
 bindkey -s '\es' 'git status\n'
 bindkey -s '\ed' 'git diff\n'
 
-# Unbind aliases that interfere
-unalias ag
-
 # Enable editing complex commands (or use `fc`)
 autoload -U edit-command-line
 zle -N edit-command-line
@@ -66,13 +63,27 @@ setopt AUTO_CD
 # Execute ls on every dir change
 function chpwd() {
   emulate -L zsh
-  ls -lFh
+  detailedlslines=`ls -laFh | wc -l`
+  summarylslines=`ls -C | wc -l`
+  termlines=`expr $(tput lines) - 2`
+  if [[ detailedlslines -ge termlines ]]; then
+    if [[ summarylslines -ge termlines ]]; then
+      CLICOLOR_FORCE=1 ls -a | head -n termlines
+      echo '\n(...)'
+    else
+      echo 'less'
+      ls -a
+    fi
+  else
+    ls -laFh
+  fi
 }
 
 ## General aliasess
+[[ `type -w ag` =~ "alias$" ]] && unalias ag # ubuntu plugin enables it, zshrc_local loads too early to overrule
 alias jn='jupyter notebook'
 alias sz='source ~/.zshrc'
-alias ez='vim ~/.zshrc'
+alias ez='vim ~/.zshrc && source ~/.zshrc'
 alias aG='alias G'
 
 # Courtesy of junngunn & fzf

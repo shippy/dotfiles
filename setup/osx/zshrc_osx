@@ -7,3 +7,5 @@ export PATH="//anaconda/bin:$PATH"
 export PATH="/Users/Simon/bin/pybib:$PATH"
 export PATH="/Applications/MATLAB_R2014b.app/bin:$PATH"
 export PATH="/Applications/MATLAB_R2014b.app/bin/maci64:$PATH"
+
+fpath=(/usr/local/share/zsh-completions $fpath)

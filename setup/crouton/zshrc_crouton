@@ -28,6 +28,9 @@ alias se_sync='when-changed ~/senior_essay/main.pdf "\cp ~/senior_essay/main.pdf
 alias mldav='cadaver https://classesv2.yale.edu/dav/psyc376_f15'
 alias dpdav='cadaver https://classesv2.yale.edu/dav/art138_f15'
 
+# Unbind aliases that interfere
+unalias ag
+
 # Navigating terminal color madness
 export TERM=xterm-256color
 #[ -n "$TMUX" ] && export TERM=screen-256color
