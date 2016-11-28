@@ -1,0 +1,10 @@
+### IMAP
+set imap_user = 'simon.podhajsky@gmail.com'
+set timeout = 600 # poll every ten minutes
+set imap_keepalive = 900
+set folder = 'imaps://imap.gmail.com:993'
+set hostname = 'gmail.com'
+set postponed = '+[Gmail]/Drafts'
+
+macro index,pager gs '<change-folder>=[Gmail]/Sent Mail<enter>' 'Go to Sent Mail'
+macro index,pager gd '<change-folder>=[Gmail]/Drafts<enter>' 'Go to drafts'

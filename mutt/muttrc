@@ -1,33 +1,32 @@
 # Consider applying https://jcs.org/notaweblog/2008/09/29/making_mutt_useful_offline/
 # TODO: http://tlattimore.com/blog/distraction-free-writing-in-vim/
 
+### Load colors
+source "~/.mutt/colors.muttrc"
+
 ### Basic setup
 set from = 'simon.podhajsky@yale.edu'
 my_hdr Reply-To: simon.podhajsky@yale.edu
 # set reverse_name
 set realname = 'Simon Podhajsky'
 
-### IMAP & SMTP
-set imap_user = 'simon.podhajsky@gmail.com'
-set timeout = 600 # poll every ten minutes
-set imap_keepalive = 900
+### Load local setup (mailbox or straight IMAP)
+source "~/.mutt_setup"
 
+# Common setup (but postponed differs)
+set spoolfile = '+Primary' # opens curated Inbox
+set trash = '+PrimaryArchive' # Folder which a Gmail script regularly archives (workaround to archive e-mail in multiple folders)
+
+mailboxes "=Primary" "=NonPrimary" "=Plusmail" "=Yale"
+
+### SMTP
 set smtp_url = 'smtp://simon.podhajsky@smtp.gmail.com:587/'
 set smtp_authenticators = 'gssapi:login' # per https://github.com/Homebrew/homebrew/issues/33419
-
-source "~/.mutt/.credentials" # TODO: Implement https://unix.stackexchange.com/questions/20570/mutt-how-to-safely-store-password
 
 set ssl_starttls = yes
 set ssl_force_tls = yes
 
-set folder = 'imaps://imap.gmail.com:993'
-set spoolfile = '+Primary' # opens curated Inbox
-set hostname = 'gmail.com'
-set postponed = '+[Gmail]/Drafts'
-set trash = '+PrimaryArchive' # Folder which a Gmail script regularly archives (workaround to archive e-mail in multiple folders)
-
-mailboxes "=Primary" "=NonPrimary" "=Plusmail" "=Yale"
-#set imap_check_subscribed # Watches all IMAP folders
+source "~/.mutt/.credentials" # TODO: Implement https://unix.stackexchange.com/questions/20570/mutt-how-to-safely-store-password
 
 ### Local cache
 set header_cache =~/.mutt/cache/headers
@@ -58,18 +57,21 @@ set wrap = 80
 alternative_order text/plain text/enriched text text/html
 auto_view text/html
 
-### Interaction
+### Interaction / writing e-mail
 set move = no
 set copy = no
 set delete
 set quit
 set wait_key = no
 set auto_tag = yes
+set recall = no # Don't ask me if I want to continue drafting an e-mail
 
 set editor = 'vim -c "set spell spelllang=en_us,cs"' # csa
 set fast_reply
 set include
 set text_flowed = yes
+
+set query_command = "lbdbq '%s'"
 
 ### Bindings & macros
 # urlscan is not available on OSX -> use urlview as a failsafe
@@ -96,107 +98,13 @@ macro index,pager e "<save-message>=PrimaryArchive<enter><enter>" "Archive" # sa
 bind  generic     x  tag-entry    #Select Conversation
 bind  index       x  tag-thread   #Select Conversation
 bind  pager       x  tag-message  #Select Conversation
-#bind  index,pager s  flag-message #Star a message
-#macro index,pager +  <save-message>=[Gmail]/Important<enter><enter> "Mark as important"
 macro index,pager !  <save-message>=[Gmail]/Spam<enter><enter> "Report spam"
 bind  index,pager a  group-reply  #Reply all
-macro index,pager ga '<change-folder>=INBOX<enter>' 'Go to inbox'
-macro index,pager gs '<change-folder>=[Gmail]/Sent Mail<enter>' 'Go to Sent Mail'
-macro index,pager gd '<change-folder>=[Gmail]/Drafts<enter>' 'Go to drafts'
+
+#macro index,pager ga '<change-folder>=INBOX<enter>' 'Go to inbox'
+macro index,pager gs '<change-folder>=Sent<enter>' 'Go to Sent Mail'
+macro index,pager gd '<change-folder>=Drafts<enter>' 'Go to drafts'
 macro index,pager gi '<change-folder>=Primary<enter>' 'Go to Primary'
 macro index,pager gn '<change-folder>=NonPrimary<enter>' 'Go to NonPrimary'
 macro index,pager gy '<change-folder>=Yale<enter>' 'Go to Yale'
 macro index,pager gp '<change-folder>=Plusmail<enter>' 'Go to Plusmail'
-
-### Colors
-## Theme inspired by http://nongeekshandbook.blogspot.ie/2009/03/mutt-color-configuration.html
-
-## Colours for items in the index
-color index brightcyan black ~N
-color index brightred black ~O
-color index brightyellow black ~F
-color index black green ~T
-color index brightred black ~D
-mono index bold ~N
-mono index bold ~F
-mono index bold ~T
-mono index bold ~D
-
-# Collapsed thread coloring
-color index yellow  default "~v~(!~N)~(!~F)" # collapsed thread with no New or Flagged
-color index red     default "~v~(~F)~(!~N)"  # collapsed thread with Flagged but no New
-color index green   default "~v~(~N)"        # collapsed thread with New
-
-## Highlights inside the body of a message.
-## URLs 
-color body brightgreen black "(http|ftp|news|telnet|finger)://[^ \"\t\r\n]*"
-color body brightgreen black "mailto:[-a-z_0-9.]+@[-a-z_0-9.]+"
-mono body bold "(http|ftp|news|telnet|finger)://[^ \"\t\r\n]*"
-mono body bold "mailto:[-a-z_0-9.]+@[-a-z_0-9.]+"
-
-## Email addresses.
-color body brightgreen black "[-a-z_0-9.%$]+@[-a-z_0-9.]+\\.[-a-z][-a-z]+"
-
-## Header
-color header green black "^from:"
-color header green black "^to:"
-color header green black "^cc:"
-color header green black "^date:"
-color header yellow black "^newsgroups:"
-color header yellow black "^reply-to:"
-color header brightcyan black "^subject:"
-color header red black "^x-spam-rule:"
-color header green black "^x-mailer:"
-color header yellow black "^message-id:"
-color header yellow black "^Organization:"
-color header yellow black "^Organisation:"
-color header yellow black "^User-Agent:"
-color header yellow black "^message-id: .*pine"
-color header yellow black "^X-Fnord:"
-color header yellow black "^X-WebTV-Stationery:"
-
-color header red black "^x-spam-rule:"
-color header green black "^x-mailer:"
-color header yellow black "^message-id:"
-color header yellow black "^Organization:"
-color header yellow black "^Organisation:"
-color header yellow black "^User-Agent:"
-color header yellow black "^message-id: .*pine"
-color header yellow black "^X-Fnord:"
-color header yellow black "^X-WebTV-Stationery:"
-color header yellow black "^X-Message-Flag:"
-color header yellow black "^X-Spam-Status:"
-color header yellow black "^X-SpamProbe:"
-color header red black "^X-SpamProbe: SPAM"
-
-## Coloring quoted text - coloring the first 7 levels:
-color quoted cyan black
-color quoted1 yellow black
-color quoted2 red black
-color quoted3 green black
-color quoted4 cyan black
-color quoted5 yellow black
-color quoted6 red black
-color quoted7 green black
-
-## Default color definitions
-#color hdrdefault white green
-color signature brightmagenta black
-color indicator black cyan
-color attachment black green
-color error red black
-color message white black
-color search brightwhite magenta
-color status brightyellow blue
-color tree brightblue black
-color normal white black
-color tilde green black
-color bold brightyellow black
-#color underline magenta black
-color markers brightcyan black
-
-## Colour definitions when on a mono screen
-mono bold bold
-mono underline underline
-mono indicator reverse
-
