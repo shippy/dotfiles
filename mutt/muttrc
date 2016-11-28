@@ -57,6 +57,15 @@ set wrap = 80
 alternative_order text/plain text/enriched text text/html
 auto_view text/html
 
+# Sidebar
+set sidebar_delim   = '  │'
+set sidebar_visible = yes
+set sidebar_width   = 24
+color sidebar_new color221 color233
+bind index <down>   sidebar-next
+bind index <up>     sidebar-prev
+bind index <right>  sidebar-open
+
 ### Interaction / writing e-mail
 set move = no
 set copy = no
@@ -76,7 +85,7 @@ set query_command = "lbdbq '%s'"
 ### Bindings & macros
 # urlscan is not available on OSX -> use urlview as a failsafe
 macro pager \cb "<pipe-message> urlscan || <pipe-message> urlview<Enter>" "Extract URLs from a message"
-bind pager <up> previous-line 
+bind pager <up> previous-line
 bind pager <down> next-line
 bind pager gg top
 bind pager G  bottom

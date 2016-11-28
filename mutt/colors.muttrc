@@ -18,7 +18,7 @@ color index red     default "~v~(~F)~(!~N)"  # collapsed thread with Flagged but
 color index green   default "~v~(~N)"        # collapsed thread with New
 
 ## Highlights inside the body of a message.
-## URLs 
+## URLs
 color body brightgreen black "(http|ftp|news|telnet|finger)://[^ \"\t\r\n]*"
 color body brightgreen black "mailto:[-a-z_0-9.]+@[-a-z_0-9.]+"
 mono body bold "(http|ftp|news|telnet|finger)://[^ \"\t\r\n]*"
@@ -77,7 +77,7 @@ color attachment black green
 color error red black
 color message white black
 color search brightwhite magenta
-color status brightyellow blue
+color status brightyellow black
 color tree brightblue black
 color normal white black
 color tilde green black
