@@ -1,6 +1,6 @@
 # HTML
 text/html; ~/.mutt/view_attachment.sh %s html
-# text/html;   lynx -dump %s | more ; copiousoutput ; nametemplate=%s.html
+text/html;   lynx -dump %s | more ; copiousoutput ; nametemplate=%s.html
 
 # MS Word documents
 application/msword; ~/.mutt/view_attachment.sh %s doc
