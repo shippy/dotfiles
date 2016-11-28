@@ -1,0 +1,59 @@
+## Mailbox settings
+IMAPAccount gmail
+Host imap.gmail.com
+User simon.podhajsky@gmail.com
+PassCmd "security find-generic-password -s mbsync-gmail-password -w"
+AuthMechs LOGIN
+UseIMAPS yes
+CertificateFile /Users/Simon/gmail/gmail.pem
+PipelineDepth 3
+
+IMAPStore gmail-remote
+Account gmail
+
+MaildirStore gmail-local
+Path ~/gmail/
+Inbox ~/gmail/Inbox
+Trash ~/gmail/PrimaryArchive
+
+## Global options
+Sync Pull
+Create Slave
+CopyArrivalDate yes
+SyncState *
+FSync no
+
+## Channels
+# Necessary channels
+Channel gmail-Inbox
+Master :gmail-remote:
+Slave :gmail-local:
+Patterns "NonPrimary" "Primary" "PrimaryArchive" "Yale"
+Sync All
+Expunge Both
+
+# Drafts -- those should be sync'd, but contain canned responses, so be careful
+Channel gmail-Drafts
+Master :gmail-remote:[Gmail]/Drafts
+Slave :gmail-local:Drafts
+Sync All
+Expunge Slave
+
+# Gmail automatically stores messages sent with its SMTP -> never push
+Channel gmail-Sent
+Master ":gmail-remote:[Gmail]/Sent Mail"
+Slave :gmail-local:Sent
+Sync Pull
+
+# First experiment with dual sync
+Channel gmail-Plusmail
+Master :gmail-remote:Plusmail
+Slave :gmail-local:Plusmail
+MaxMessages 1000
+Sync All
+
+Group gmail
+Channel gmail-Inbox
+Channel gmail-Drafts
+Channel gmail-Sent
+Channel gmail-Plusmail

@@ -13,6 +13,7 @@
     "jupyter/ipynb_drop_output.py": "~/bin/ipynb_drop_output.py",
     "jupyter/jupyter_notebook_config.py": "~/.jupyter/jupyter_notebook_config.py",
     "mutt/muttrc": "~/.muttrc",
+    "mutt/setup-imap.muttrc": "~/.mutt_setup",
     "mutt/":   "~/.mutt",
     "mailcap":  "~/.mailcap",
     "oh-my-zsh/":  "~/.oh-my-zsh",
