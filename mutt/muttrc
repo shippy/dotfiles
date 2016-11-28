@@ -53,7 +53,7 @@ set pager_stop
 
 set markers=no
 set smart_wrap
-set wrap = 80
+set wrap = 104
 alternative_order text/plain text/enriched text text/html
 auto_view text/html
 
@@ -65,6 +65,10 @@ color sidebar_new color221 color233
 bind index <down>   sidebar-next
 bind index <up>     sidebar-prev
 bind index <right>  sidebar-open
+
+# Status (taken from Steve Losh)
+set status_chars  = " *%A"
+set status_format = "───[ Folder: %f ]───[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>─%?p?( %p postponed )?───"
 
 ### Interaction / writing e-mail
 set move = no
@@ -112,7 +116,8 @@ bind  index,pager a  group-reply  #Reply all
 
 #macro index,pager ga '<change-folder>=INBOX<enter>' 'Go to inbox'
 macro index,pager gs '<change-folder>=Sent<enter>' 'Go to Sent Mail'
-macro index,pager gd '<change-folder>=Drafts<enter>' 'Go to drafts'
+# You can't actually send messages from the Drafts folder
+macro index,pager gd <recall-message>
 macro index,pager gi '<change-folder>=Primary<enter>' 'Go to Primary'
 macro index,pager gn '<change-folder>=NonPrimary<enter>' 'Go to NonPrimary'
 macro index,pager gy '<change-folder>=Yale<enter>' 'Go to Yale'

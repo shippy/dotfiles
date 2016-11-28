@@ -5,4 +5,5 @@ set postponed = '+Drafts'
 set record = "+Sent" # This prevents a duplicate? Unclear
 
 macro index,pager gs '<change-folder>=Sent<enter>' 'Go to Sent Mail'
-macro index,pager gd '<change-folder>=Drafts<enter>' 'Go to drafts'
+
+macro index \Cr "<shell-escape>notmuch new<enter>"
