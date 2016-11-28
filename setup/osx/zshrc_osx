@@ -1,11 +1,12 @@
 plugins+=(osx gem brew bundler forklift ruby rails laravel4)
 
 export ZSH=/Users/Simon/.oh-my-zsh
-export PATH="/Users/Simon/bin:/usr/local/mysql/bin:$PATH"
-export PATH="/usr/local/bin:/usr/local/heroku/bin:$PATH"
-export PATH="//anaconda/bin:$PATH"
-export PATH="/Users/Simon/bin/pybib:$PATH"
-export PATH="/Applications/MATLAB_R2014b.app/bin:$PATH"
-export PATH="/Applications/MATLAB_R2014b.app/bin/maci64:$PATH"
+export PATH="/Users/Simon/.rbenv/shims:$PATH"
+export PATH="$PATH:/Users/Simon/bin:/usr/local/mysql/bin"
+export PATH="$PATH:/usr/local/bin:/usr/local/heroku/bin"
+export PATH="$PATH://anaconda/bin"
+export PATH="$PATH:/Users/Simon/bin/pybib"
+export PATH="$PATH:/Applications/MATLAB_R2014b.app/bin"
+export PATH="$PATH:/Applications/MATLAB_R2014b.app/bin/maci64"
 
 fpath=(/usr/local/share/zsh-completions $fpath)
