@@ -22,11 +22,7 @@ if [ -n "${DISPLAY+x}" ]; then
 fi
 
 # Crouton-specific aliases
-alias t='python ~/bin/t/t.py'
-alias xa='xiwi anki'
-alias se_sync='when-changed ~/senior_essay/main.pdf "\cp ~/senior_essay/main.pdf ~/Downloads"'
-alias mldav='cadaver https://classesv2.yale.edu/dav/psyc376_f15'
-alias dpdav='cadaver https://classesv2.yale.edu/dav/art138_f15'
+alias mutt='BROWSER=croutonurlhandler mutt'
 
 # Unbind aliases that interfere
 unalias ag
