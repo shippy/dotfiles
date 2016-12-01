@@ -62,9 +62,8 @@ set sidebar_delim   = '  │'
 set sidebar_visible = yes
 set sidebar_width   = 24
 color sidebar_new color221 color233
-bind index <down>   sidebar-next
-bind index <up>     sidebar-prev
-bind index <right>  sidebar-open
+macro index,pager <left> <sidebar-prev><sidebar-open> "Go to previous mailbox"
+macro index,pager <right> <sidebar-next><sidebar-open> "Go to next mailbox"
 
 # Status (taken from Steve Losh)
 set status_chars  = " *%A"
@@ -100,6 +99,9 @@ macro index,pager > <next-thread><previous-entry> "Jump to last message of threa
 macro index,pager < <parent-message><parent-message><parent-message><parent-message><parent-message> "Jump to first message of thread"
 bind index - collapse-thread
 bind index _ collapse-all
+# Overwriting the next-undeleted and previous-undeleted default
+bind index,pager j next-entry
+bind index,pager k previous-entry
 macro compose m "F pandoc -s -f markdown -t html \ny^T^Utext/html; charset=us-ascii\n"
 # Open an HTML attachment in Chrome (from @garybernhardt)
 macro index,pager H <view-attachments>/html<enter><view-mailcap><exit>
@@ -107,7 +109,9 @@ macro index,pager H <view-attachments>/html<enter><view-mailcap><exit>
 ### Gmail-specific bindings - per https://gist.github.com/kaleb/1289741
 bind editor <space> noop
 bind  index,pager c  mail
-macro index,pager e "<save-message>=PrimaryArchive<enter><enter>" "Archive" # same as delete
+# macro index,pager e "<save-message>=PrimaryArchive<enter><enter>" "Archive" # same as delete
+bind  index,pager E  delete-thread # Archive
+macro index,pager e  <read-thread><previous-thread><delete-thread> "Mark as read and archive"
 bind  generic     x  tag-entry    #Select Conversation
 bind  index       x  tag-thread   #Select Conversation
 bind  pager       x  tag-message  #Select Conversation

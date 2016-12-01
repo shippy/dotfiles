@@ -1,0 +1,5 @@
+#!/bin/bash
+date >> ~/gmail/mbsync.log
+security find-generic-password -g -s mbsync-gmail-password 2>&1 |\
+    sed -n -e '1s/password: "\(.*\)"/\1/;1p' |\
+    /usr/local/bin/mbsync -a 2>&1 >> ~/gmail/mbsync.log

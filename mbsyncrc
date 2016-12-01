@@ -3,8 +3,8 @@ IMAPAccount gmail
 Host imap.gmail.com
 User simon.podhajsky@gmail.com
 PassCmd "security find-generic-password -s mbsync-gmail-password -w"
+SSLType IMAPS
 AuthMechs LOGIN
-UseIMAPS yes
 CertificateFile /Users/Simon/gmail/gmail.pem
 PipelineDepth 3
 
