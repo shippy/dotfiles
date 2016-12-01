@@ -1,0 +1,18 @@
+# .bash_profile
+
+# Get the aliases and functions
+if [ -f ~/.bashrc ]; then
+	. ~/.bashrc
+fi
+
+# User specific environment and startup programs
+
+PATH=$PATH:$HOME/.local/bin:$HOME/bin
+
+export PATH
+
+# Always attach to screen, if it isn't already running
+## if $STY is not set...
+if [ -z "$STY" ]; then
+  screen  -d -RR -A
+fi
