@@ -3,7 +3,8 @@
     "crouton/zprofile": "~/.zprofile",
     "crouton/Xmodmap":  "~/.Xmodmap",
     "crouton/zshrc_crouton":    "~/.zshrc_local",
-    "crouton/gitconfig": "~/.gitconfig_local"
+    "crouton/gitconfig": "~/.gitconfig_local",
+    "../mutt/setup-imap.muttrc":   "~/.mutt_setup"
   },
 
   "commands": [
