@@ -4,8 +4,6 @@
   <dict>
     <key>Label</key>
     <string>com.simpod.gmail.sync</string>
-    <key>Description</key>
-    <string>Per-user script that updates the local notmuch database</string>
     <key>ProgramArguments</key>
     <array>
       <string>/usr/local/bin/notmuch</string>
