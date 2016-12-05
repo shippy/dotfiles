@@ -68,7 +68,7 @@ function chpwd() {
   termlines=`expr $(tput lines) - 2`
   if [[ detailedlslines -ge termlines ]]; then
     if [[ summarylslines -ge termlines ]]; then
-      CLICOLOR_FORCE=1 ls -a | head -n termlines
+      CLICOLOR_FORCE=1 ls -a | head -n $termlines
       echo '\n(...)'
     else
       echo 'less'
