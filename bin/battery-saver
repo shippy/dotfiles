@@ -10,6 +10,8 @@ pkill -f 'CrashPlanService'
 pkill -f 'Battery'
 pkill -f 'ElementsAutoAnalyzer'
 pkill -f 'SpotifyWebHelper'
+pkill -f 'Fitbit'
+pkill -f 'Adobe'
 
 
 
