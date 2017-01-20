@@ -5,7 +5,10 @@ User simon.podhajsky@gmail.com
 PassCmd "security find-generic-password -s mbsync-gmail-password -w"
 SSLType IMAPS
 AuthMechs LOGIN
-CertificateFile /Users/Simon/gmail/gmail.pem
+# CertificateFile /Users/Simon/gmail/gmail.pem
+CertificateFile /Users/Simon/gmail/gmail.crt
+# CertificateFile /Users/Simon/gmail/google.crt
+# CertificateFile /Users/Simon/gmail/Equifax.crt
 PipelineDepth 3
 
 IMAPStore gmail-remote
