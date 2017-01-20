@@ -8,5 +8,6 @@ export PATH="$PATH://anaconda/bin"
 export PATH="$PATH:/Users/Simon/bin/pybib"
 export PATH="$PATH:/Applications/MATLAB_R2014b.app/bin"
 export PATH="$PATH:/Applications/MATLAB_R2014b.app/bin/maci64"
+export MATLAB_EXECUTABLE="/Applications/MATLAB_R2014b.app/bin/matlab"
 
 fpath=(/usr/local/share/zsh-completions $fpath)

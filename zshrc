@@ -85,6 +85,7 @@ alias jn='jupyter notebook'
 alias sz='source ~/.zshrc'
 alias ez='vim ~/.zshrc && source ~/.zshrc'
 alias aG='alias G'
+alias g='googler'
 
 # Courtesy of junngunn & fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -94,6 +95,19 @@ fe() {
   [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
 }
 alias v='fe'
+
+# Run jupyter notebook in Docker with PWD as mounted volume
+jnd() {
+  # TODO: Find available port (cycle through `lsof -i tcp:$PORT` until output empty / non-zero exit status?)
+  # https://stackoverflow.com/questions/6942097/finding-next-open-port
+  # https://unix.stackexchange.com/questions/55913/whats-the-easiest-way-to-find-an-unused-local-port
+  # TODO: Launch localhost:$PORT upon successful completion?
+  # TODO: Voluntary argument for name, otherwise omit the `--name` argument?
+  # (Argument for status quo: this forces exactly one instance of jupyter notebook)
+  # (Related: should we try to stop & rm the previous instance?)
+  # TODO: Just pass through all arguments?
+  docker run -d --name jn -v $(pwd -P):/home/jovyan/work -p 8888:8888 jupyter/datascience-notebook
+}
 
 ## Final commands
 # autorun tmux if it (1) is not running yet, (2) exists, (3) this session isn't running in ssh
