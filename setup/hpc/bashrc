@@ -26,3 +26,4 @@ shopt -s nocaseglob
 shopt -s nocasematch
 
 alias l="ls -la --color=always"
+alias interactive="srun --pty -p interactive -c 1 -t 01:00:00 --mem-per-cpu=4096 bash"

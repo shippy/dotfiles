@@ -1,0 +1,91 @@
+" Minimal vimrc
+" Basics
+set nocompatible
+
+filetype on
+filetype plugin on
+filetype indent on
+syntax on
+
+" #Appearance
+set number " Always show line numbers
+set modelines=1
+set scrolloff=7
+set cursorline                      " Highlight current line
+set showcmd    " Shows incomplete command
+
+try
+  colorscheme ron
+catch
+endtry
+
+" Behavior
+set hidden            " Useful for auto setting hidden buffers
+set ffs=unix,dos,mac
+set noerrorbells
+set novisualbell
+set t_vb=
+set timeoutlen=500
+set splitbelow " New window goes below
+set splitright " New windows goes right
+set wildignore+=*.jpg,*.jpeg,*.gif,*.png,*.gif,*.psd,*.o,*.obj,*.min.js
+set wildignore+=*/smarty/*,*/vendor/*,*/node_modules/*,*/.git/*,*/.hg/*,*/.svn/*,*/.sass-cache/*,*/log/*,*/tmp/*,*/build/*,*/ckeditor/*
+set wildmode=longest:full,full
+
+" Tabs and indent
+set tabstop=2 softtabstop=2 shiftwidth=2 " Default tab stops
+set expandtab
+set autoindent
+set smartindent
+
+" #Searching
+set gdefault   " Add the g flag to search/replace by default
+set hlsearch
+set ignorecase " Ignore case when searching
+set smartcase  " Try and be smart about cases
+set magic
+nnoremap // :nohlsearch<cr>
+
+" #Moving
+set nostartofline     " Don't reset cursor to start of line when moving around
+set whichwrap+=<,>,h,l,[,] " Wrap over end-of-line to next
+set iskeyword+=_
+
+nnoremap j gj
+nnoremap k gk
+
+nnoremap <CR> G
+nnoremap <BS> gg
+
+" Automatically leave insert mode after `updatetime` ms of inaction (Vimtips)
+if has("autocmd")
+  au CursorHoldI * stopinsert
+  au InsertEnter * let updaterestore=&updatetime | set updatetime=20000
+  au InsertLeave * let &updatetime=updaterestore
+endif
+
+" #Mappings
+let mapleader ="\<Space>"
+inoremap jj <ESC>
+
+" Cribbed from @marcgg -- quick switch to previous file
+nnoremap <Leader><Leader> :e#<CR>
+nmap <leader>w :w!<cr>
+nmap <leader>x :x<cr>
+nmap <leader>q :q!<cr>
+command! W w !sudo tee % > /dev/null
+
+" Yank to end of line with Y
+nnoremap Y y$
+
+" Visually select the text that was last edited/pasted
+nmap gV `[v`]
+
+" Remove F1 and Q mappings
+inoremap <F1> <ESC>
+nnoremap <F1> <ESC>
+vnoremap <F1> <ESC>
+nnoremap Q <nop>
+
+" Edit various important files
+nnoremap <leader>ev :tabedit $MYVIMRC<cr>
