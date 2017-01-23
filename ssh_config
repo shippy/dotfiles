@@ -1,0 +1,8 @@
+# Not to be symlinked, as host aliases provide an attack vector
+
+ControlPersist 2h
+ControlMaster auto
+ControlPath /tmp/ssh_mux_%h_%p_%r
+TCPKeepAlive no
+ServerAliveInterval 60
+ServerAliveCountMax 10
