@@ -10,7 +10,7 @@
 	ignore = all
 [submodule "dotvim"]
 	path = dotvim
-	url = git@github.com:shippy/dotvim.git
+	url = https://github.com/shippy/dotvim.git
 	branch = master
 	ignore = all
 [submodule "oh-my-zsh"]
