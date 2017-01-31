@@ -1,5 +1,5 @@
 {
-  "directories": ["~/bin"],
+  "directories": ["~/bin", "~/.jupyter"],
 
   "link": {
     "zshrc":  "~/.zshrc",
@@ -22,7 +22,7 @@
     "crouton/Xmodmap":  "~/.Xmodmap"
   },
 
-  "commands": [ 
+  "commands": [
     "chmod u+x ~/bin/ipynb_drop_output.py"
   ]
 }

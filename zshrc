@@ -9,6 +9,8 @@ plugins=(git mercurial git-extras github sudo tmux pip common-aliases command-no
 # Local zshrc, whatever it is
 # NB: It needs to define the location of oh-my-zsh in $ZSH
 [ -f ~/.zshrc_local ] && source ~/.zshrc_local
+# [ -f ~/.zshrc_system ] && source ~/.zshrc_system
+# [ -f ~/.zshrc_machine ] && source ~/.zshrc_machine
 
 # Set name of the oh-my-zsh theme to load.
 ZSH_THEME="terminalparty" # terminalparty; kardan, if more customized; agnoster; juanghartado

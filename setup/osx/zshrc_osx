@@ -1,13 +1,17 @@
 plugins+=(osx gem brew bundler forklift ruby rails laravel4)
 
-export ZSH=/Users/Simon/.oh-my-zsh
-export PATH="/Users/Simon/.rbenv/shims:$PATH"
-export PATH="$PATH:/Users/Simon/bin:/usr/local/mysql/bin"
-export PATH="$PATH:/usr/local/bin:/usr/local/heroku/bin"
-export PATH="$PATH://anaconda/bin"
-export PATH="$PATH:/Users/Simon/bin/pybib"
-export PATH="$PATH:/Applications/MATLAB_R2014b.app/bin"
-export PATH="$PATH:/Applications/MATLAB_R2014b.app/bin/maci64"
-export MATLAB_EXECUTABLE="/Applications/MATLAB_R2014b.app/bin/matlab"
-
+export ZSH=/Users/$(whoami)/.oh-my-zsh
 fpath=(/usr/local/share/zsh-completions $fpath)
+
+if [ -d "/Users/Simon" ]; then
+  # Stopgap solution -- set up a machine-specific switch
+  # ~/.zshrc_system, ~/.zshrc_machine
+  export PATH="/Users/Simon/.rbenv/shims:$PATH"
+  export PATH="$PATH:/Users/Simon/bin:/usr/local/mysql/bin"
+  export PATH="$PATH:/usr/local/bin:/usr/local/heroku/bin"
+  export PATH="$PATH://anaconda/bin"
+  export PATH="$PATH:/Users/Simon/bin/pybib"
+  export PATH="$PATH:/Applications/MATLAB_R2014b.app/bin"
+  export PATH="$PATH:/Applications/MATLAB_R2014b.app/bin/maci64"
+  export MATLAB_EXECUTABLE="/Applications/MATLAB_R2014b.app/bin/matlab"
+fi
