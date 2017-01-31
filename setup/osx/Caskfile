@@ -1,75 +1,54 @@
-install caskroom/cask/brew-cask
+tap "caskroom/cask"
 
-# brew cask packages
-cask install node
-cask install amazon-cloud-drive
-cask install amazon-music
-#cask install atom
-cask install anki
-cask install adobe-photoshop-lightroom
-cask install adobe-reader
-cask install airdisplay
-cask install alfred
-cask install box-sync
-cask install box-edit
-cask install better-window-manager
-cask install caffeine
-cask install disk-inventory-x
-cask install cyberduck
-cask install day-o
-cask install dropbox
-cask install flux
-cask install forklift
-#cask install emacs
-cask install flash-player
-cask install evernote
-cask install flickr-uploadr
-cask install google-chrome
-cask install google-drive
-cask install google-hangouts
-cask install git
-cask install github
-cask install growlnotify
-cask install heroku-toolbelt
-cask install iterm2
-cask install kindle
-cask install karabiner
-cask install lastpass
-cask install lyx
-cask install matplotlib
-cask install macvim
-cask install messenger
-cask install microsoft-office
-cask install noizio
-cask install octave
-cask install mou
-cask install prey
-cask install r
-cask install rstudio
-cask install rubymine
-cask install python3
-cask install rescuetime
-cask install seil
-cask install selfcontrol
-cask install skim
-cask install skype
-cask install slack
-cask install spotify
-cask install silverlight
-cask install steam
-cask install tex-live-utility
-cask install texmaker
-cask install texshop
-cask install the-unarchiver
-cask install textmate
-cask install vlc
-cask install utorrent
-cask install xee
-cask install zotero
+## General-purpose apps
+cask "adobe-reader"
+cask "google-chrome"
+cask "flash-player"
+cask "rescuetime"
+cask "selfcontrol"
+cask "skim"
+cask "slack"
+cask "mactex"
+cask "tex-live-utility"
+cask "the-unarchiver"
+cask "vlc"
+cask "xee"
 
-# cask install raw-photo-processor
-# cask install trello-x
-# cask install android-studio
-# cask install bowery
-# cask install ember
-# cask install fish
+## File sync
+cask "google-drive"
+cask "dropbox"
+cask "expandrive"
+# FIXME: Box seems to struggle
+cask "box-sync"
+cask "box-edit"
+
+## Virtualization
+cask "docker"
+cask "virtualbox"
+cask "vagrant"
+
+## Development
+cask "cyberduck"
+cask "rstudio"
+# cask "anaconda" # Starting with Sierra, I should have python3, and virtualize environments with Docker instead?
+# cask "macvim"
+# cask "github-desktop"
+
+## Customization
+cask "flux"
+cask "hyperswitch"
+cask "iterm2"
+cask "karabiner"
+cask "seil"
+
+## Fonts
+tap "caskroom/fonts"
+cask "font-inconsolata"
+cask "font-andale-mono"
+cask "font-fontawesome"
+cask "font-hack"
+cask "font-maven-pro"
+cask "font-monofur"
+cask "font-quattrocento"
+cask "font-source-code-pro"
+
