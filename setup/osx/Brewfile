@@ -53,6 +53,8 @@ brew "pandoc"
 brew "pandoc-crossref"
 brew "pandoc-citeproc"
 brew "heroku-toolbelt"
+brew "sshrc"
+brew "wifi-password"
 
 # brew "cadaver"
 # brew "editorconfig"
