@@ -30,6 +30,7 @@ cask "vagrant"
 ## Development
 cask "cyberduck"
 cask "rstudio"
+cask "dash"
 # cask "anaconda" # Starting with Sierra, I should have python3, and virtualize environments with Docker instead?
 # cask "macvim"
 # cask "github-desktop"
