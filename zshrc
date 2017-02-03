@@ -9,8 +9,8 @@ plugins=(git mercurial git-extras github sudo tmux pip common-aliases command-no
 # Local zshrc, whatever it is
 # NB: It needs to define the location of oh-my-zsh in $ZSH
 [ -f ~/.zshrc_local ] && source ~/.zshrc_local
-# [ -f ~/.zshrc_system ] && source ~/.zshrc_system
-# [ -f ~/.zshrc_machine ] && source ~/.zshrc_machine
+[ -f ~/.zshrc_system ] && source ~/.zshrc_system
+[ -f ~/.zshrc_machine ] && source ~/.zshrc_machine
 
 # Set name of the oh-my-zsh theme to load.
 ZSH_THEME="terminalparty" # terminalparty; kardan, if more customized; agnoster; juanghartado
@@ -108,7 +108,7 @@ jnd() {
   # (Argument for status quo: this forces exactly one instance of jupyter notebook)
   # (Related: should we try to stop & rm the previous instance?)
   # TODO: Just pass through all arguments?
-  docker run -d --name jn -v $(pwd -P):/home/jovyan/work -p 8888:8888 jupyter/datascience-notebook
+  docker run -d --name jn -v $(pwd -P):/home/jovyan/work -p 8888:8888 jupyter/datascience-notebook start-notebook.sh --NotebookApp.token=''
 }
 
 ## Final commands
@@ -116,3 +116,5 @@ jnd() {
 if [ "$TMUX" = "" ] && [ -z "$SSH_CLIENT" ] && [ -z "$SSH_TTY" ] && [ "$ITERM_PROFILE" != "Hotkey Window" ]; then
   command -v tmux >/dev/null 2>&1 && tmux;
 fi
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
