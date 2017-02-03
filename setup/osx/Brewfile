@@ -2,10 +2,11 @@
 brew "git"
 brew "hub"
 brew "tmux"
-brew "reattach-to-user-namespace"
+brew "reattach-to-user-namespace", args: ['with-wrap-launchctl', 'with-wrap-pbcopy-and-pbpaste']
 brew "mercurial"
 brew "python3"
-brew "ruby"
+brew "ruby", args: ['with-doc']
+brew "ruby-build"
 brew "rbenv"
 brew "rbenv-ctags"
 
@@ -42,7 +43,7 @@ brew "vagrant-completion"
 ## Tools
 ### General / Misc
 brew "wget"
-brew "curl"
+brew "curl", args: ['with-openssl']
 brew "googler"
 brew "dos2unix"
 brew "ssh-copy-id"
@@ -66,12 +67,11 @@ brew "wifi-password"
 brew "ack"
 brew "the_silver_searcher"
 brew "fzf"
-brew "vim"
+brew "vim", args: ['with-override-system-vi', 'with-client-server']
 brew "ctags"
 brew "cscope"
 
 ### Mutt
-tap "kevwil/patches"
 brew "kevwil/patches/mutt" # with trash patch
 brew "abook"
 brew "lbdb"
