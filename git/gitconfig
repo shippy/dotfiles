@@ -8,8 +8,10 @@
   editor = vim
   attributesfile = ~/.gitattributes
   whitespace = trailing-space,space-before-tab
+  pager = less
 [color]
   ui = auto
+  interactive = auto
 [diff]
   renames = copies
   algorithm = patience
@@ -30,7 +32,7 @@
 [alias]
   co = checkout
   ci = commit
-  d = diff
+  d = diff --color-words
   st = status
   unstage = reset HEAD --
   last = log -1 HEAD
