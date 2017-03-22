@@ -87,7 +87,7 @@ alias jn='jupyter notebook'
 alias sz='source ~/.zshrc'
 alias ez='vim ~/.zshrc && source ~/.zshrc'
 alias aG='alias G'
-alias g='googler'
+alias go='googler'
 
 # Courtesy of junngunn & fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

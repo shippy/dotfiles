@@ -15,3 +15,11 @@ if [ -d "/Users/Simon" ]; then
   export PATH="$PATH:/Applications/MATLAB_R2014b.app/bin/maci64"
   export MATLAB_EXECUTABLE="/Applications/MATLAB_R2014b.app/bin/matlab"
 fi
+
+if [ -d "/Users/sp576" ]; then
+  # added by Anaconda3 4.3.0 installer
+  export PATH="/Users/sp576/anaconda/bin:$PATH"
+fi
+if !type hub &> /dev/null; then
+  eval "$(hub alias -s)"
+fi

@@ -37,3 +37,7 @@
   unstage = reset HEAD --
   last = log -1 HEAD
   staged = diff --cached
+[hub]
+  protocol = https
+  host = git.yale.edu
+  host = git-external.yale.edu
