@@ -11,9 +11,9 @@ if [ -d "/Users/Simon" ]; then
   export PATH="$PATH:/usr/local/bin:/usr/local/heroku/bin"
   export PATH="$PATH://anaconda/bin"
   export PATH="$PATH:/Users/Simon/bin/pybib"
-  export PATH="$PATH:/Applications/MATLAB_R2014b.app/bin"
-  export PATH="$PATH:/Applications/MATLAB_R2014b.app/bin/maci64"
-  export MATLAB_EXECUTABLE="/Applications/MATLAB_R2014b.app/bin/matlab"
+  export PATH="$PATH:/Applications/MATLAB_R2016b.app/bin"
+  export PATH="$PATH:/Applications/MATLAB_R2016b.app/bin/maci64"
+  export MATLAB_EXECUTABLE="/Applications/MATLAB_R2016b.app/bin/matlab"
 fi
 
 if [ -d "/Users/sp576" ]; then
