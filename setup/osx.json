@@ -2,6 +2,7 @@
   "link": {
     "osx/zshrc_osx":    "~/.zshrc_local",
     "osx/gitconfig":    "~/.gitconfig_local",
+    "osx/sleepwatcher": "~/.config/sleepwatcher",
     "../mutt/setup-local.muttrc":   "~/.mutt_setup",
     "../mbsyncrc":      "~/.mbsyncrc",
     "../bin/battery-saver": "~/bin/battery-saver",

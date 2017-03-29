@@ -13,7 +13,16 @@ pkill -f 'SpotifyWebHelper'
 pkill -f 'Fitbit'
 pkill -f 'Adobe'
 
-
+# Others to kill (maybe):
+# Adobe Desktop Service
+# Core Sync
+# CCLibrary
+# CCXProcess
+# AdobeIPCBroker
+# (make sure that the above don't kill Lightroom / Photoshop, too)
+#
+# Google Drive
+# Amazon Drive
 
 
 
