@@ -17,7 +17,6 @@ cask "xee"
 ## File sync
 cask "google-drive"
 cask "dropbox"
-cask "expandrive"
 # FIXME: Box seems to struggle
 cask "box-sync"
 cask "box-edit"
@@ -31,16 +30,20 @@ cask "vagrant"
 cask "cyberduck"
 cask "rstudio"
 cask "dash"
+cask "forklift"
+cask "macdown"
 # cask "anaconda" # Starting with Sierra, I should have python3, and virtualize environments with Docker instead?
-# cask "macvim"
-# cask "github-desktop"
+cask "macvim"
+cask "github-desktop"
 
 ## Customization
 cask "flux"
 cask "hyperswitch"
 cask "iterm2"
-cask "karabiner"
-cask "seil"
+cask "transquility"
+cask "quicksilver"
+# cask "karabiner" # no longer functional on Sierra
+# cask "seil"
 
 ## Fonts
 tap "caskroom/fonts"
@@ -53,3 +56,16 @@ cask "font-monofur"
 cask "font-quattrocento"
 cask "font-source-code-pro"
 
+## QuickLook plugins
+cask "qlcolorcode"
+cask "qlimagesize"
+cask "qlmarkdown"
+cask "qlmobi"
+cask "qlprettypatch"
+cask "qlstephen"
+cask "qlvideo"
+cask "quicklook-csv"
+cask "quicklook-json"
+cask "quicklookase"
+cask "suspicious-package"
+cask "betterzipql"
