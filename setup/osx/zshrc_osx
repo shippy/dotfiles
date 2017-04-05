@@ -23,3 +23,5 @@ fi
 if !type hub &> /dev/null; then
   eval "$(hub alias -s)"
 fi
+# Copy last git commit (src: https://maxschmeling.me/2014/03/17/git-protip-copy-most-recent-commit-hash/)
+alias glc="git log -n 1 --pretty=format:"%H" | pbcopy"
