@@ -15,10 +15,19 @@
 [diff]
   renames = copies
   algorithm = patience
+[log]
+	decorate = full
+[pull]
+	ff = only
 [push]
-  default = matching
+  default = tracking
+	followTags = true
 [help]
   autocorrect = 3
+[status]
+	showUntrackedFiles = all
+[stash]
+	showPatch = true
 [branch]
   autosetupmerge = always
   autosetuprebase = always
@@ -26,6 +35,11 @@
   recurseSubmodules = true
 [merge]
   stat = true
+	ff = only
+[rebase]
+	autostash = true
+[rerere]
+	enabled = true
 [filter "clean_ipynb"]
   clean = ipynb_drop_output.py
   smudge = cat
@@ -37,6 +51,9 @@
   unstage = reset HEAD --
   last = log -1 HEAD
   staged = diff --cached
+	prune = fetch --prune
+	undo = reset --soft HEAD^
+	stash-all = stash save --include-untracked
 [hub]
   protocol = https
   host = git.yale.edu
