@@ -1,17 +1,32 @@
 #!/bin/bash
 # Power-saver
-# per http://stackoverflow.com/questions/3510673/find-and-kill-a-process-in-one-line-using-bash-and-regex
 
-pkill -f 'Box'
-pkill -f '/Applications/Dropbox.app/Contents/MacOS/Dropbox'
-pkill -f 'Simon.+/Library/DropboxHelperTools/Dropbox_u501/dbfseventsd'
-pkill -f 'Caffeine'
-pkill -f 'CrashPlanService'
-pkill -f 'Battery'
-pkill -f 'ElementsAutoAnalyzer'
-pkill -f 'SpotifyWebHelper'
-pkill -f 'Fitbit'
-pkill -f 'Adobe'
+## Kill non-essential apps
+# per http://stackoverflow.com/questions/3510673/find-and-kill-a-process-in-one-line-using-bash-and-regex
+declare -a cloud_apps=('Amazon Drive' 'Google Drive' 'Dropbox' 'Box Sync')
+declare -a other_apps=('Creative Cloud' 'f.lux' 'Magnet' 'Caffeine' 'Fitbit')
+declare -a killapps
+killapps+=("${cloud_apps[@]}" "${other_apps[@]}")
+for app in "${killapps[@]}"
+do
+	osascript -e "tell application \"$app\" to quit"
+done
+
+## Turn off WiFi and Bluetooth
+networksetup -setairportpower en0 off
+blueutil power 0
+echo "Consider killing your Chrome instance. (If reading, you can print the page to PDF.)"
+echo "Consider killing one or more of your tmux sessions."
+
+## TODO: Kill daemons with high energy utilization, too?
+# - https://helpx.adobe.com/creative-cloud/kb/high-cpu-power-idle-cloud.html
+
+# pkill -f 'Simon.+/Library/DropboxHelperTools/Dropbox_u501/dbfseventsd'
+# pkill -f 'CrashPlanService'
+# pkill -f 'Battery'
+# pkill -f 'ElementsAutoAnalyzer'
+# pkill -f 'SpotifyWebHelper'
+# pkill -f 'Adobe'
 
 # Others to kill (maybe):
 # Adobe Desktop Service
@@ -20,11 +35,3 @@ pkill -f 'Adobe'
 # CCXProcess
 # AdobeIPCBroker
 # (make sure that the above don't kill Lightroom / Photoshop, too)
-#
-# Google Drive
-# Amazon Drive
-
-
-
-
-

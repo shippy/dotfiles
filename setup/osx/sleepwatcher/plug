@@ -1,0 +1,3 @@
+#!/bin/bash
+# Start all cloud storage providers and sync away
+/Users/Simon/bin/cloud-sync.sh

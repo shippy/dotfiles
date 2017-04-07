@@ -1,0 +1,3 @@
+#!/bin/sh
+# maybe this is a bit much, and should be employed manually?
+~/bin/battery-saver
