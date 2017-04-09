@@ -4,3 +4,4 @@ mutt/certificates
 certificates
 tmux/plugins/*
 tmux/resurrect/*
+Gemfile.lock

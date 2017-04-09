@@ -1,0 +1,97 @@
+# Get the bundle ID with
+#   osascript -e 'id of app "APPNAME"'
+#
+# open FTP with CyberDuck (or Forklift)
+# open HTTP(s) with Chrome
+# org.google.Chrome http
+# org.google.Chrome https
+org.google.Chrome mailto
+ch.sudo.cyberduck ftp
+
+# .txt, .text, and plain text files without an extension
+org.vim.MacVim public.plain-text all
+
+# executable scripts
+org.vim.MacVim public.unix-executable all
+
+# Pictures
+cx.c3.Xee3 .jpg all
+cx.c3.Xee3 .jpeg all
+cx.c3.Xee3 .png all
+cx.c3.Xee3 .gif all
+cx.c3.Xee3 .tif all
+cx.c3.Xee3 .tiff all
+
+# VLC
+com.videolan.vlc .3gp all
+com.videolan.vlc .avi all
+com.videolan.vlc .flac all
+com.videolan.vlc .flv all
+com.videolan.vlc .m4v all
+com.videolan.vlc .mkv all
+com.videolan.vlc .mov all
+com.videolan.vlc .mp4 all
+com.videolan.vlc .mpg all
+com.videolan.vlc .wmv all
+
+# Archives
+cx.c3.theunarchiver .rar all
+cx.c3.theunarchiver .zip all
+
+net.sourceforge.skim-app.skim .pdf all
+net.sourceforge.skim-app.skim .ps all
+
+org.vim.MacVim .as all
+org.vim.MacVim .aslquery all
+org.vim.MacVim .ass all
+org.vim.MacVim .bash all
+org.vim.MacVim .bom all
+org.vim.MacVim .c all
+org.vim.MacVim .cfm all
+org.vim.MacVim .cfml all
+org.vim.MacVim .class all
+org.vim.MacVim .conf all
+org.vim.MacVim .cpp all
+org.vim.MacVim .css all
+org.vim.MacVim .csv all
+org.vim.MacVim .ctp all
+org.vim.MacVim .dat all
+org.vim.MacVim .data all
+org.vim.MacVim .dict all
+org.vim.MacVim .doc all
+org.vim.MacVim .el all
+org.vim.MacVim .h all
+org.vim.MacVim .java all
+org.vim.MacVim .js all
+org.vim.MacVim .json all
+org.vim.MacVim .less all
+org.vim.MacVim .log all
+org.vim.MacVim .m all
+org.vim.MacVim .manifest all
+org.vim.MacVim .md all
+org.vim.MacVim .mm all
+org.vim.MacVim .nfo all
+org.vim.MacVim .opml all
+org.vim.MacVim .org all
+org.vim.MacVim .pg all
+org.vim.MacVim .php all
+org.vim.MacVim .pl all
+org.vim.MacVim .plist all
+org.vim.MacVim .py all
+org.vim.MacVim .r all
+org.vim.MacVim .R all
+org.vim.MacVim .rb all
+org.vim.MacVim .rd all
+org.vim.MacVim .readme all
+org.vim.MacVim .rst all
+org.vim.MacVim .sb all
+org.vim.MacVim .scss all
+org.vim.MacVim .sh all
+org.vim.MacVim .srt all
+org.vim.MacVim .strings all
+org.vim.MacVim .sub all
+org.vim.MacVim .tex all
+org.vim.MacVim .tsv all
+org.vim.MacVim .utf all
+org.vim.MacVim .xml all
+org.vim.MacVim .yaml all

@@ -44,6 +44,8 @@ brew "vagrant-completion"
 
 ## Tools
 ### General / Misc
+brew "duti"
+brew "blueutil"
 brew "wget"
 brew "curl", args: ['with-openssl']
 brew "googler"
@@ -77,7 +79,9 @@ brew "ctags"
 brew "cscope"
 
 ### Mutt
-brew "kevwil/patches/mutt" # with trash patch
+# tap "kevwil/patches"
+# brew "kevwil/patches/mutt" # with trash patch
+brew "mutt"
 brew "abook"
 brew "lbdb"
 brew "isync"

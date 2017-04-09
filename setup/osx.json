@@ -7,11 +7,12 @@
     "../mbsyncrc":      "~/.mbsyncrc",
     "../bin/battery-saver": "~/bin/battery-saver",
     "../bin/sync-gmail": "~/bin/sync-gmail",
+    "../bin/cloud-sync.sh": "~/bin/cloud-sync.sh",
     "osx/com.simpod.gmail.sync.plist": "~/Library/LaunchAgents/com.simpod.gmail.sync.plist"
   },
 
   "commands": [
-    "#brew tap homebrew/bundle && brew bundle",
-    "git config --global credential.helper osxkeychain"
+    "mkdir -p ~/.config/sleepwatcher",
+    "mkdir ~/bin"
   ]
 }

@@ -1,23 +1,50 @@
 tap "caskroom/cask"
 
-# Apps to on a personal computer
-# TODO: Wrap Noizio, AnyDo in a recipe
+# Apps to go on a personal computer
+## Cloud sync
 cask "amazon-drive"
+
+## Writing / productivity
+cask "microsoft-office"
+cask "macvim"
+cask "pomotodo"
+cask "anki"
+cask "adobe-creative-cloud" # Downloads installer only, need to run it
+cask "vimr" # Macvim, but for neovim
+
+## Fun and games
+cask "kindle"
+cask "skype"
+cask "spotify"
+cask "steam"
+cask "gog-downloader"
+cask "deluge"
+
+## Maintenance & tools
+cask "disk-inventory-x"
+cask "onyx"
+cask "xquartz"
+cask "superduper"
+cask "chrome-remote-desktop-host"
+cask "day-o"
+cask "android-file-transfer"
+cask "caffeine"
+cask "flickr-uploadr"
+
+## Need to install without Homebrew / otherwise
+# Creative Cloud -> Lightroom, Photoshop
+# API_KEY="abcdef123456" brew cask install prey && open /usr/local/Caskroom/prey
+#   (because Prey also only downloads an installer)
+# MATLAB and Psychtoolbox
+
+## Deprecated, for one reason or another
 # cask "amazon-music"
 # cask "amethyst"
 # cask "anaconda"
-cask "android-file-transfer"
-cask "anki"
-cask "adobe-creative-cloud"
-cask "adobe-photoshop-lightroom"
-cask "adobe-photoshop-cc"
-# cask "gimp"
-# cask "airdisplay"
-cask "google-refine"
-# cask "hammerspoon"
-# cask "alfred"
-# cask "hocus-focus"
-cask "caffeine"
+# cask "fitbit-connect"
+# cask "growlnotify"
+# cask "whatsapp"
+# cask "wineskin-winery"
 # cask "cakebrew"
 # cask "intellij-idea-ce"
 # cask "eclipse"
@@ -26,26 +53,9 @@ cask "caffeine"
 # cask "openoffice"
 # cask "recordit"
 # cask "taskwarrior-pomodoro"
-cask "vimr" # Macvim, but for neovim
-# cask "whatsapp"
-# cask "wineskin-winery"
-cask "chrome-remote-desktop-host"
-cask "pomotodo"
-cask "disk-inventory-x"
-cask "day-o"
-cask "flickr-uploadr"
-# cask "fitbit-connect"
-cask "growlnotify"
-cask "kindle"
-cask "lastpass"
-cask "macvim"
-cask "microsoft-office"
-cask "onyx"
-cask "prey"
-cask "skype"
-cask "spotify"
-cask "steam"
-cask "superduper"
-cask "gog-downloader"
-cask "utorrent"
-cask "xquartz"
+# cask "gimp"
+# cask "airdisplay"
+# cask "google-refine"
+# cask "hammerspoon"
+# cask "alfred"
+# cask "hocus-focus"

@@ -1,25 +1,26 @@
 tap "caskroom/cask"
 
 ## General-purpose apps
-cask "adobe-reader"
 cask "google-chrome"
-cask "flash-player"
-cask "rescuetime"
-cask "selfcontrol"
+
+## Handle files
+cask "adobe-reader"
 cask "skim"
-cask "slack"
 cask "mactex"
 cask "tex-live-utility"
-cask "the-unarchiver"
 cask "vlc"
 cask "xee"
+cask "the-unarchiver"
+cask "flash-player"
 
 ## File sync
 cask "google-drive"
 cask "dropbox"
-# FIXME: Box seems to struggle
 cask "box-sync"
-cask "box-edit"
+# FIXME: box-edit struggles:
+# Error: It seems the App source '/usr/local/Caskroom/box-edit/latest/Install Box Edit.app/Contents/Resources/Box Edit.app' is not there.
+# Error: nothing to install
+# cask "box-edit"
 
 ## Virtualization
 cask "docker"
@@ -30,9 +31,7 @@ cask "vagrant"
 cask "cyberduck"
 cask "rstudio"
 cask "dash"
-cask "forklift"
 cask "macdown"
-# cask "anaconda" # Starting with Sierra, I should have python3, and virtualize environments with Docker instead?
 cask "macvim"
 cask "github-desktop"
 
@@ -40,10 +39,13 @@ cask "github-desktop"
 cask "flux"
 cask "hyperswitch"
 cask "iterm2"
-cask "transquility"
+cask "tranquility"
 cask "quicksilver"
-# cask "karabiner" # no longer functional on Sierra
-# cask "seil"
+
+## Personal productivity
+cask "rescuetime"
+cask "selfcontrol"
+cask "slack"
 
 ## Fonts
 tap "caskroom/fonts"
@@ -69,3 +71,26 @@ cask "quicklook-json"
 cask "quicklookase"
 cask "suspicious-package"
 cask "betterzipql"
+
+## App Store / mas
+# TODO: Give gatekeeper benefits, mayber it would be better to re-investigate
+#   the casks and replace them with App Store versions when possible?
+brew 'mas'
+mas 'Xcode', id: 497799835
+mas 'Noizio', id: 928871589
+mas 'LastPass: Password Manager and Secure Vault', id: 926036361
+mas 'Magnet', id: 441258766
+mas 'Any.do - To-Do List, Daily Task Manager & Checklist Organizer', id: 944960179
+mas 'Pocket', id: 568494494
+# mas 'GarageBand', id: 682658836
+# mas 'Kindle', id: 405399194
+# mas 'ForkLift - File Manager and FTP/SFTP/WebDAV/Amazon S3 client', id: 412448059
+# mas 'The Unarchiver', id: 425424353
+# mas 'Microsoft OneNote', id: 784801555
+
+## Deprecated
+# cask "forklift" # This downloads forklift 3, for which I don't have a license
+# NOTE: Possibly check out 0bc4d90f01add4fe5efaccc7ece9bcb34b393751, which still downloads 2.6.1?
+# cask "anaconda" # Starting with Sierra, I should have python3, and virtualize environments with Docker instead?
+# cask "karabiner" # no longer functional on Sierra
+# cask "seil" # no longer functional on Sierra

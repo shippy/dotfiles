@@ -3,6 +3,7 @@
 
   "link": {
     "zshrc":  "~/.zshrc",
+    "Gemfile": "~/Gemfile",
     "dotvim/vimrc":  "~/.vimrc",
     "dotvim/":    "~/.vim",
     "ackrc":  "~/.ackrc",
