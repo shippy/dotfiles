@@ -2,5 +2,7 @@ Session.vim
 .DS_Store
 docs/tags
 tags
+tags.lock
+tags.temp
 .ipynb_checkpoints
 .ipynb_checkpoints/*

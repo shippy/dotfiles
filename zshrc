@@ -2,7 +2,7 @@
 # dotty takes care of the initial setup -- only sync the file to home
 # for a given distribution
 
-plugins=(git mercurial git-extras github sudo tmux pip common-aliases command-not-found python autojump cp ssh-agent heroku fancy-ctrl-z)
+plugins=(git sudo tmux pip common-aliases python autojump cp ssh-agent heroku fancy-ctrl-z)
 # git_remote_branch history jsontools last-working-dir per-directory-history wd
 # zsh-history-substring-search? thefuck rather than sudo? zsh-navigation-tools?
 
@@ -89,6 +89,37 @@ alias ez='vim ~/.zshrc && source ~/.zshrc'
 alias aG='alias G'
 alias go='googler'
 
+# Homebrew aliases
+function b() {
+  exec brew "$@"
+}
+function bi() {
+  exec brew install "$@"
+}
+function bu() {
+  exec brew uninstall "$@"
+}
+function bf() {
+  exec brew info "$@"
+}
+function bs() {
+  exec brew search "$@"
+}
+function bci() {
+  exec brew cask install "$@"
+}
+function bcu() {
+  exec brew cask uninstall "$@"
+}
+function bcf() {
+  exec brew cask info "$@"
+}
+function bcs() {
+  exec brew cask search "$@"
+}
+
+alias bl='brew leaves'
+alias bcl='brew cask list'
 # Courtesy of junngunn & fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 fe() {
@@ -114,7 +145,8 @@ jnd() {
 ## Final commands
 # autorun tmux if it (1) is not running yet, (2) exists, (3) this session isn't running in ssh
 if [ "$TMUX" = "" ] && [ -z "$SSH_CLIENT" ] && [ -z "$SSH_TTY" ] && [ "$ITERM_PROFILE" != "Hotkey Window" ]; then
-  command -v tmux >/dev/null 2>&1 && tmux;
+  # always attach to 'main' or create it
+  command -v tmux >/dev/null 2>&1 && tmux new -A -s "home";
 fi
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
