@@ -2,6 +2,8 @@
 # Taken mostly from donnemartin/dev-setup and siyelo/laptop
 # (which, I assume, also means significant credit to mathiasbynens/dotfiles)
 # Feel free to run osx_defaults.sh first
+#
+# TODO: Integrate https://github.com/jasonrudolph/keyboard
 
 # Ask for the administrator password for the duration of this script
 sudo -v

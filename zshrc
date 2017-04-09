@@ -1,6 +1,8 @@
 # Set distribution-specific things (ZSH, PATH, BROWSER, TERM, ...)
 # dotty takes care of the initial setup -- only sync the file to home
 # for a given distribution
+#
+# TODO: Try zim [https://github.com/zimframework/zim]
 
 plugins=(git sudo tmux pip common-aliases python autojump cp ssh-agent heroku fancy-ctrl-z)
 # git_remote_branch history jsontools last-working-dir per-directory-history wd
