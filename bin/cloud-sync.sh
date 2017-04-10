@@ -1,4 +1,21 @@
 #!/bin/bash
+
+# During n minutes, check every m seconds that UNPLUGGED has not been unset
+# FIXME: This will not work, because the unplug script cannot set a global.
+# Workarounds: unplug touches a file (that plug will initially remove?)
+check_duration=600
+check_freq=10
+while [ $check_duration -gt 0 ]
+do
+	sleep $check_freq
+	if [ $UNPLUGGED ]; then
+		echo "Aborting cloud-sync" >> /Users/Simon/cloud-sync.log
+		exit 1
+	fi
+	check_duration=$((check_duration-check_freq))
+done
+echo "Starting cloud-sync" >> /Users/Simon/cloud-sync.log
+
 # TODO: Use AppleScript instead?
 root_path=/Applications
 suffix=.app

@@ -1,3 +1,5 @@
 #!/bin/bash
 # Start all cloud storage providers and sync away
+
+unset UNPLUGGED
 /Users/Simon/bin/cloud-sync.sh
