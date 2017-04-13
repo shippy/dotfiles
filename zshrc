@@ -92,36 +92,19 @@ alias aG='alias G'
 alias go='googler'
 
 # Homebrew aliases
-function b() {
-  exec brew "$@"
-}
-function bi() {
-  exec brew install "$@"
-}
-function bu() {
-  exec brew uninstall "$@"
-}
-function bf() {
-  exec brew info "$@"
-}
-function bs() {
-  exec brew search "$@"
-}
-function bci() {
-  exec brew cask install "$@"
-}
-function bcu() {
-  exec brew cask uninstall "$@"
-}
-function bcf() {
-  exec brew cask info "$@"
-}
-function bcs() {
-  exec brew cask search "$@"
-}
+alias b='brew'
+alias bi='brew install'
+alias bu='brew uninstall'
+alias bf='brew info'
+alias bs='brew search'
+alias bci='brew cask install'
+alias bcu='brew cask uninstall'
+alias bcf='brew cask info'
+alias bcs='brew cask search'
 
 alias bl='brew leaves'
 alias bcl='brew cask list'
+
 # Courtesy of junngunn & fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 fe() {
