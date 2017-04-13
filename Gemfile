@@ -24,3 +24,6 @@ gem 'irbtools-more', require: 'irbtools/binding'
 gem 'rspec'
 gem 'minitest'
 gem 'test-unit'
+
+# Tools
+gem 'maid'

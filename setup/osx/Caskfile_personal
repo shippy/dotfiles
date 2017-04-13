@@ -3,6 +3,7 @@ tap "caskroom/cask"
 # Apps to go on a personal computer
 ## Cloud sync
 cask "amazon-drive"
+cask "duplicati"
 
 ## Writing / productivity
 cask "microsoft-office"
