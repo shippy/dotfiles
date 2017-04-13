@@ -4,8 +4,8 @@
   "link": {
     "zshrc":  "~/.zshrc",
     "Gemfile": "~/Gemfile",
-    "dotvim/vimrc":  "~/.vimrc",
     "dotvim/gvimrc":  "~/.gvimrc",
+    "dotvim/git-hooks/post-checkout": ".git/modules/dotvim/hooks/post-checkout",
     "dotvim/":    "~/.vim",
     "ackrc":  "~/.ackrc",
     "ctags":  "~/.ctags",
