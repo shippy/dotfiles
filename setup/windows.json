@@ -2,14 +2,10 @@
     "directories": [],
     
     "link": {
-        "../dotvim/vimrc":  "~/_vimrc",
-        "../dotvim/":    "~/vimfiles", 
-        "../ackrc":  "~/.ackrc",
         "../git/gitconfig":  "~/.gitconfig",
         "windows/gitconfig":    "~/.gitconfig_local",
         "../git/gitattributes":  "~/.gitattributes",
-        "../git/gitignore":  "~/.gitignore",
-        "../oh-my-zsh/":  "~/.oh-my-zsh"
+        "../git/gitignore":  "~/.gitignore"
     },
 
     "commands": []
