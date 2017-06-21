@@ -6,3 +6,4 @@ tags.lock
 tags.temp
 .ipynb_checkpoints
 .ipynb_checkpoints/*
+*.swp
