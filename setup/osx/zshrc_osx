@@ -12,9 +12,9 @@ rbenv() {
 if [ -d "/Users/Simon" ]; then
   # Stopgap solution -- set up a machine-specific switch
   # ~/.zshrc_system, ~/.zshrc_machine
-  path="$PATH:/Users/Simon/bin:/usr/local/mysql/bin"
+  path="/Users/Simon/anaconda/bin:$PATH"
+  path+=":/Users/Simon/bin:/usr/local/mysql/bin"
   path+=":/usr/local/bin:/usr/local/heroku/bin"
-  path+="://anaconda/bin"
   path+=":/Users/Simon/bin/pybib"
   path+=":/Applications/MATLAB_R2016b.app/bin"
   path+=":/Applications/MATLAB_R2016b.app/bin/maci64"
