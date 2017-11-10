@@ -1,33 +1,20 @@
 plugins+=(osx gem brew bundler forklift ruby rails laravel4)
 
-export ZSH=/Users/$(whoami)/.oh-my-zsh
-fpath=(/usr/local/share/zsh-completions $fpath)
-
 # Only initialize rbenv on demand
 rbenv() {
   eval "$(command rbenv init -)";
   rbenv "$@"
 }
 
-if [ -d "/Users/Simon" ]; then
-  # Stopgap solution -- set up a machine-specific switch
-  # ~/.zshrc_system, ~/.zshrc_machine
-  path="/Users/Simon/anaconda/bin:$PATH"
-  path+=":/Users/Simon/bin:/usr/local/mysql/bin"
-  path+=":/usr/local/bin:/usr/local/heroku/bin"
-  path+=":/Users/Simon/bin/pybib"
-  path+=":/Applications/MATLAB_R2016b.app/bin"
-  path+=":/Applications/MATLAB_R2016b.app/bin/maci64"
-  export PATH=$path
-  export MATLAB_EXECUTABLE="/Applications/MATLAB_R2016b.app/bin/matlab"
-fi
-
 if [ -d "/Users/sp576" ]; then
   # added by Anaconda3 4.3.0 installer
-  export PATH="/Users/sp576/anaconda/bin:$PATH"
+  path=(/Users/sp576/anaconda/bin
+        $path)
 fi
 if !type hub &> /dev/null; then
   eval "$(hub alias -s)"
 fi
-# Copy last git commit (src: https://maxschmeling.me/2014/03/17/git-protip-copy-most-recent-commit-hash/)
+
+# Copy last git commit 
+# (src: https://maxschmeling.me/2014/03/17/git-protip-copy-most-recent-commit-hash/)
 alias glc="git log -n 1 --pretty=format:"%H" | pbcopy"
