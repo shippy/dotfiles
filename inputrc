@@ -1,0 +1,19 @@
+$include /etc/inputrc
+
+# Config
+set colored-stats On
+set visible-stats On
+set completion-ignore-case On
+set mark-symlinked-directories On
+set show-all-if-ambiguous On
+set show-all-if-unmodified On
+
+# Partial history search, courtesy of https://askubuntu.com/a/59855
+## arrow up
+"\e[A": history-search-backward
+## arrow down
+"\e[B": history-search-forward
+
+# Instead of alt-f and alt-b, alt-right and alt-left
+"\e[1;5C": forward-word
+"\e[1;5D": backward-word

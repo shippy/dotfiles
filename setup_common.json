@@ -3,6 +3,7 @@
 
   "link": {
     "zshrc":  "~/.zshrc",
+    "zshenv":  "~/.zshenv",
     "Gemfile": "~/Gemfile",
     "dotvim/gvimrc":  "~/.gvimrc",
     "dotvim/git-hooks/post-checkout": ".git/modules/dotvim/hooks/post-checkout",

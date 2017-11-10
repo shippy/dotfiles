@@ -3,6 +3,8 @@
     
     "link": {
         "zshrc":  "~/.zshrc",
+        "zshenv":  "~/.zshenv",
+        "inputrc":  "~/.inputrc",
         "dotvim/vimrc":  "~/.vimrc",
         "dotvim/":    "~/.vim",
         "ackrc":  "~/.ackrc",
