@@ -9,7 +9,7 @@ plugins=(git sudo tmux pip common-aliases python autojump cp ssh-agent heroku fa
 # zsh-history-substring-search? thefuck rather than sudo? zsh-navigation-tools?
 
 # Local zshrc, whatever it is
-# NB: It needs to define the location of oh-my-zsh in $ZSH
+# NB: It needs to define the location of oh-my-zsh in $ZSH, if it isn't set in zshenv already
 [ -f ~/.zshrc_local ] && source ~/.zshrc_local
 [ -f ~/.zshrc_system ] && source ~/.zshrc_system
 [ -f ~/.zshrc_machine ] && source ~/.zshrc_machine
@@ -83,6 +83,9 @@ function chpwd() {
   fi
 }
 
+# Hook direnv
+eval "$(direnv hook zsh)"
+
 ## General aliasess
 [[ `type -w ag` =~ "alias$" ]] && unalias ag # ubuntu plugin enables it, zshrc_local loads too early to overrule
 alias jn='jupyter notebook'
@@ -129,9 +132,10 @@ jnd() {
 
 ## Final commands
 # autorun tmux if it (1) is not running yet, (2) exists, (3) this session isn't running in ssh
-if [ "$TMUX" = "" ] && [ -z "$SSH_CLIENT" ] && [ -z "$SSH_TTY" ] && [ "$ITERM_PROFILE" != "Hotkey Window" ]; then
-  # always attach to 'main' or create it
-  command -v tmux >/dev/null 2>&1 && tmux new -A -s "home";
-fi
+# if [ "$TMUX" = "" ] && [ -z "$SSH_CLIENT" ] && [ -z "$SSH_TTY" ] && [ "$ITERM_PROFILE" != "Hotkey Window" ]; then
+#   # always attach to 'main' or create it
+#   command -v tmux >/dev/null 2>&1 && tmux new -A -s "home";
+# fi
+# Commented out in favor of executing this for iTerm default session
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
