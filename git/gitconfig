@@ -38,6 +38,7 @@
 [merge]
   stat = true
   ff = only
+  tool = vimdiff
 [rebase]
   autostash = true
 [rerere]
@@ -56,7 +57,13 @@
   prune = fetch --prune
   undo = reset --soft HEAD^
   stash-all = stash save --include-untracked
+  pr = "!f() { git fetch origin pull/$1/head:pr-$1 && git checkout pr-$1;  }; f"
 [hub]
   protocol = https
   host = git.yale.edu
   host = git-external.yale.edu
+[filter "lfs"]
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
