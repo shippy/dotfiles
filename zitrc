@@ -1,0 +1,27 @@
+# load zit
+export ZIT_MODULES_PATH="${HOME}/.zit.d"
+if [[ ! -d "${ZIT_MODULES_PATH}/zit" ]]; then
+  git clone "https://github.com/m45t3r/zit" "${ZIT_MODULES_PATH}/zit"
+fi
+source "${ZIT_MODULES_PATH}/zit/zit.zsh"
+
+# let zit manage zit
+zit-in "https://github.com/m45t3r/zit" "zit"
+
+# zim
+# export ZIM_HOME="${ZIT_MODULES_PATH}/zim"
+# zit-il "https://github.com/Eriner/zim" "zim" "init.zsh"
+
+# misc
+zit-il "https://github.com/supercrabtree/k" "k" "k.sh"
+zit-il "https://github.com/djui/alias-tips" "alias-tips" "alias-tips.plugin.zsh"
+zit-il "https://github.com/Tarrasch/zsh-autoenv" \
+  "zsh-autoenv" "autoenv.zsh"
+zit-il "https://github.com/desyncr/auto-ls" "auto-ls" "auto-ls.zsh"
+zit-il "https://github.com/willghatch/zsh-saneopt" "sane-defaults" "saneopt.plugin.zsh"
+
+# script to compile ZSH files
+# should be called last
+zit-lo "zit" "extras/compile-zsh-files.zsh"
+
+# vim: ft=zsh

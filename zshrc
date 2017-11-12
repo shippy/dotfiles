@@ -1,10 +1,20 @@
+## Load zit (plugin manager)
+source "${HOME}/.zitrc"
+
+## Load zim
+# Change default zim location 
+export ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
+
+# Source zim
+if [[ -s ${ZIM_HOME}/init.zsh ]]; then
+  source ${ZIM_HOME}/init.zsh
+fi
+
 # Set distribution-specific things (ZSH, PATH, BROWSER, TERM, ...)
 # dotty takes care of the initial setup -- only sync the file to home
 # for a given distribution
-#
-# TODO: Try zim [https://github.com/zimframework/zim]
 
-plugins=(git sudo tmux pip common-aliases python autojump cp ssh-agent heroku fancy-ctrl-z)
+# plugins=(git sudo tmux pip common-aliases python autojump cp ssh-agent heroku fancy-ctrl-z)
 # git_remote_branch history jsontools last-working-dir per-directory-history wd
 # zsh-history-substring-search? thefuck rather than sudo? zsh-navigation-tools?
 
@@ -14,19 +24,8 @@ plugins=(git sudo tmux pip common-aliases python autojump cp ssh-agent heroku fa
 [ -f ~/.zshrc_system ] && source ~/.zshrc_system
 [ -f ~/.zshrc_machine ] && source ~/.zshrc_machine
 
-# Set name of the oh-my-zsh theme to load.
-ZSH_THEME="terminalparty" # terminalparty; kardan, if more customized; agnoster; juanghartado
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# enable command auto-correction.
-ENABLE_CORRECTION="true"
-
-# automatically update without prompting (DISABLE_AUTO_UPDATE for neither)
-DISABLE_UPDATE_PROMPT="true"
-
-source $ZSH/oh-my-zsh.sh
+# use emacs-style bindings
+set -o emacs
 
 # enable zmv
 autoload -U zmv
@@ -62,29 +61,18 @@ else
   export EDITOR='vim'
 fi
 
-setopt AUTO_CD
-
-# Execute ls on every dir change
-function chpwd() {
-  emulate -L zsh
-  detailedlslines=`ls -laFh | wc -l`
-  summarylslines=`ls -C | wc -l`
-  termlines=`expr $(tput lines) - 2`
-  if [[ detailedlslines -ge termlines ]]; then
-    if [[ summarylslines -ge termlines ]]; then
-      CLICOLOR_FORCE=1 ls -a | head -n $termlines
-      echo '\n(...)'
-    else
-      echo 'less'
-      ls -a
-    fi
-  else
-    ls -laFh
-  fi
-}
+# try to cd if the command is not found
+setopt auto_cd
+# share commands between sessions
+setopt share_history 
+setopt hist_expire_dups_first
+setopt nobeep
 
 # Hook direnv
 eval "$(direnv hook zsh)"
+
+# Hook autojump
+[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 
 ## General aliasess
 [[ `type -w ag` =~ "alias$" ]] && unalias ag # ubuntu plugin enables it, zshrc_local loads too early to overrule
@@ -107,6 +95,81 @@ alias bcs='brew cask search'
 
 alias bl='brew leaves'
 alias bcl='brew cask list'
+
+alias ka='k -A'
+
+# Commonly used aliases from oh-my-zsh/common-aliases
+alias -g H='| head'
+alias -g T='| tail'
+alias -g G='| grep'
+alias -g L="| less"
+alias -g M="| most"
+
+# Commonly used aliases from oh-my-zsh/git
+alias ga='git add'
+alias gaa='git add --all'
+alias gapa='git add --patch'
+
+alias gc='git commit -v'
+alias gc!='git commit -v --amend'
+alias gcn!='git commit -v --no-edit --amend'
+alias gca='git commit -v -a'
+alias gca!='git commit -v -a --amend'
+alias gcan!='git commit -v -a --no-edit --amend'
+alias gcam='git commit -a -m'
+
+alias gcm='git checkout master'
+alias gcd='git checkout develop'
+alias gcmsg='git commit -m'
+
+alias gd='git diff'
+alias gdc='git diff --cached'
+alias gdca='git diff --cached'
+alias gdcw='git diff --cached --word-diff'
+alias gdw='git diff --word-diff'
+
+alias glg='git log --stat'
+alias glga='git log --oneline --decorate --graph --all'
+
+alias gup='git pull --rebase'
+alias gl='git pull'
+
+alias gp='git push'
+alias gpd='git push --dry-run'
+
+alias grb='git rebase'
+alias grba='git rebase --abort'
+alias grbc='git rebase --continue'
+alias grbi='git rebase -i'
+alias grbm='git rebase master'
+
+alias grhh='git reset HEAD --hard'
+alias gru='git reset --'
+
+alias gsb='git status -sb'
+alias gst='git status'
+
+alias stash='git stash'
+alias unstash='git stash pop'
+
+alias glum='git pull upstream master'
+
+## Fancy Ctrl-Z (courtesy of Oh-my-zsh / Sheerun)
+fancy-ctrl-z () {
+  if [[ $#BUFFER -eq 0 ]]; then
+    BUFFER="fg"
+    zle accept-line -w
+  else
+    zle push-input -w
+    zle clear-screen -w
+  fi
+}
+zle -N fancy-ctrl-z
+bindkey '^Z' fancy-ctrl-z
+
+## FZF
+export FZF_DEFAULT_COMMAND='ag --hidden -g ""'
+# Blacklisted useless folders in .ignore
 
 # Courtesy of junngunn & fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
