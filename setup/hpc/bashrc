@@ -1,4 +1,12 @@
 # .bashrc
+# Missing:
+# - aliases
+# - fancy ctrl-z
+# - up-arrow-delimited history search / other fancy history substring search
+# - git-status in PS1
+# - auto-ls / auto-gst
+# - sane defaults
+# - framework?
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then

@@ -2,14 +2,12 @@
 
 # Get the aliases and functions
 if [ -f ~/.bashrc ]; then
-	. ~/.bashrc
+  . ~/.bashrc
 fi
 
 # User specific environment and startup programs
 
-PATH=$PATH:$HOME/.local/bin:$HOME/bin
-
-export PATH
+export PATH=$PATH:$HOME/.local/bin:$HOME/bin
 
 # Always attach to screen, if it isn't already running
 ## if $STY is not set...
