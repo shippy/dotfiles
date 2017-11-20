@@ -8,10 +8,14 @@
   editor = vim
   attributesfile = ~/.gitattributes
   whitespace = trailing-space,space-before-tab
-  pager = less
+  pager = diff-so-fancy | less --tabs=4 -RFX --pattern '^(Date|added|deleted|modified): '
 [color]
   ui = auto
   interactive = auto
+[color "diff"]
+  meta = 227
+  frag = magenta bold
+  commit = 227 bold
 [diff]
   renames = copies
   algorithm = patience

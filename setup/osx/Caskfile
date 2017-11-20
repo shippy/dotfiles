@@ -57,7 +57,13 @@ cask "font-hack"
 cask "font-maven-pro"
 cask "font-monofur"
 cask "font-quattrocento"
+cask "font-menlo-for-powerline"
+cask "font-dejavu-sans-mono"
+cask "font-dejavu-sans-mono-for-powerline"
+cask "font-meslo-lg"
+cask "font-inconsolata-for-powerline"
 cask "font-source-code-pro"
+cask "font-source-code-pro-for-powerline"
 
 ## QuickLook plugins
 cask "qlcolorcode"
