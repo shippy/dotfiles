@@ -1,3 +1,10 @@
+# TODO: https://dougblack.io/words/zsh-vi-mode.html
+
+# Loaded emacs-style bindings first, in order to prevent
+# clobbering new zit/zim bindings
+# set -o emacs
+bindkey -e
+
 ## Load zit (plugin manager)
 source "${HOME}/.zitrc"
 
@@ -14,10 +21,6 @@ fi
 # dotty takes care of the initial setup -- only sync the file to home
 # for a given distribution
 
-# plugins=(git sudo tmux pip common-aliases python autojump cp ssh-agent heroku fancy-ctrl-z)
-# git_remote_branch history jsontools last-working-dir per-directory-history wd
-# zsh-history-substring-search? thefuck rather than sudo? zsh-navigation-tools?
-
 # Local zshrc, whatever it is
 # NB: It needs to define the location of oh-my-zsh in $ZSH, if it isn't set in zshenv already
 [ -f ~/.zshrc_local ] && source ~/.zshrc_local
@@ -32,12 +35,6 @@ autoload -U zmv
 alias zmv="noglob zmv -W"
 
 ## Editing oh-my-zsh ZLE bindings
-# Unbind Ctrl+Left/Right (forward/backward-word in ZLE interferes with tmux)
-bindkey -r '^[[C'
-bindkey -r '^[[1;5C'
-bindkey -r '^[[D'
-bindkey -r '^[[1;5D'
-
 # Edit the ls command binding to instead use ls -lFh
 #bindkey -r '\el'
 bindkey -s '\el' 'ls -lAFh\n'

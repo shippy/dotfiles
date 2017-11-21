@@ -11,18 +11,18 @@
 # Select what modules you would like enabled.
 # The second line of modules may depend on options set by modules in the first
 # line. These dependencies are noted on the respective module's README.md.
-zmodules=(directory \
+zmodules=(input \
+          syntax-highlighting \
+          history-substring-search \
+          directory \
           environment \
           git \
           git-info \
           ssh \
           history \
-          input \
           utility \
           meta \
           custom \
-          syntax-highlighting \
-          history-substring-search 
           prompt \
           completion)
 
@@ -36,7 +36,7 @@ zmodules=(directory \
 #
 
 # Set your desired prompt here
-zprompt_theme='minimal'
+zprompt_theme='eriner'
 
 #
 # Completion

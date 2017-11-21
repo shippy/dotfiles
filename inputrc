@@ -1,3 +1,5 @@
+# Note: ZSH uses ZLE instead of readline, so this
+# shouldn't affect it at all
 $include /etc/inputrc
 
 # Config
@@ -7,13 +9,16 @@ set completion-ignore-case On
 set mark-symlinked-directories On
 set show-all-if-ambiguous On
 set show-all-if-unmodified On
+set bell-style none
 
 # Partial history search, courtesy of https://askubuntu.com/a/59855
-## arrow up
+# arrow up
 "\e[A": history-search-backward
-## arrow down
+# arrow down
 "\e[B": history-search-forward
 
 # Instead of alt-f and alt-b, alt-right and alt-left
 "\e[1;5C": forward-word
 "\e[1;5D": backward-word
+"\e\e[C": forward-word
+"\e\e[D": backward-word
