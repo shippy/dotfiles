@@ -177,6 +177,14 @@ fe() {
 }
 alias v='fe'
 
+# Taken from sodiumjoe/dotfiles
+fbr() {
+  local branches branch
+  branches=$(git branch --format="%(refname:short)" --sort=-committerdate) &&
+    branch=$(echo "$branches" | fzf) &&
+    git checkout $branch
+}
+
 # Run jupyter notebook in Docker with PWD as mounted volume
 jnd() {
   # TODO: Find available port (cycle through `lsof -i tcp:$PORT` until output empty / non-zero exit status?)
