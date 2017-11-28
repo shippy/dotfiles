@@ -6,7 +6,13 @@
 # - git-status in PS1
 # - auto-ls / auto-gst
 # - sane defaults
+# - autocompletion?
 # - framework?
+#
+# TODO: Integrate features from https://github.com/barryclark/bashstrap
+# ...or the updated fork, https://github.com/andystanton/bashstrap
+#
+# ...or migrate to Bash-It? https://github.com/Bash-it/bash-it
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
