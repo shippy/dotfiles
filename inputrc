@@ -7,9 +7,18 @@ set colored-stats On
 set visible-stats On
 set completion-ignore-case On
 set mark-symlinked-directories On
+set skip-completed-text on
 set show-all-if-ambiguous On
 set show-all-if-unmodified On
 set bell-style none
+
+# From https://github.com/hvhaugwitz/readline-config/blob/master/.inputrc - 8-bit cleanness
+set input-meta on
+set output-meta on
+
+set editing-mode emacs
+set colored-completion-prefix on
+set enable-bracketed-paste on
 
 # Partial history search, courtesy of https://askubuntu.com/a/59855
 # arrow up
