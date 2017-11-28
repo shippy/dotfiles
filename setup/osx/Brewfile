@@ -29,6 +29,8 @@ brew "findutils"
 brew "osxutils"
 brew "most"
 brew "tree"
+brew "grc"
+brew "safe-rm"
 
 ### Completions
 brew "brew-cask-completion"

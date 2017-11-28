@@ -71,6 +71,10 @@ eval "$(direnv hook zsh)"
 # Hook autojump
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 
+# Hook grc (colorify standard commands)
+unalias grc
+[ -f /usr/local/etc/grc.zsh ] && . /usr/local/etc/grc.zsh
+
 ## General aliasess
 [[ `type -w ag` =~ "alias$" ]] && unalias ag # ubuntu plugin enables it, zshrc_local loads too early to overrule
 alias jn='jupyter notebook'
