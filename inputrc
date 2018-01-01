@@ -11,6 +11,7 @@ set skip-completed-text on
 set show-all-if-ambiguous On
 set show-all-if-unmodified On
 set bell-style none
+set keyseq-timeout 0.01
 
 # From https://github.com/hvhaugwitz/readline-config/blob/master/.inputrc - 8-bit cleanness
 set input-meta on

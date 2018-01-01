@@ -89,6 +89,7 @@ alias bi='brew install'
 alias bu='brew uninstall'
 alias bf='brew info'
 alias bs='brew search'
+alias buu='brew update && brew upgrade'
 alias bci='brew cask install'
 alias bcu='brew cask uninstall'
 alias bcf='brew cask info'
@@ -97,7 +98,8 @@ alias bcs='brew cask search'
 alias bl='brew leaves'
 alias bcl='brew cask list'
 
-alias ka='k -A'
+alias k='k -h'
+alias ka='k -Ah'
 
 # Commonly used aliases from oh-my-zsh/common-aliases
 alias -g H='| head'
@@ -132,16 +134,6 @@ alias gdw='git diff --word-diff'
 alias glg='git log --stat'
 alias glga='git log --oneline --decorate --graph --all'
 
-alias gup='git pull --rebase'
-alias gl='git pull'
-
-alias gp='git push'
-alias gpd='git push --dry-run'
-
-alias grb='git rebase'
-alias grba='git rebase --abort'
-alias grbc='git rebase --continue'
-alias grbi='git rebase -i'
 alias grbm='git rebase master'
 
 alias grhh='git reset HEAD --hard'
