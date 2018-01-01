@@ -1,12 +1,13 @@
 # Consider applying https://jcs.org/notaweblog/2008/09/29/making_mutt_useful_offline/
 # TODO: http://tlattimore.com/blog/distraction-free-writing-in-vim/
+# TODO: Set up with msmtp to create multipart e-mails in Markdown: http://nosubstance.me/post/mutt-secret-sauce/
 
 ### Load colors
 source "~/.mutt/colors.muttrc"
 
 ### Basic setup
-set from = 'simon.podhajsky@yale.edu'
-my_hdr Reply-To: simon.podhajsky@yale.edu
+set from = 'Simon Podhajsky <simon.podhajsky@gmail.com>'
+my_hdr Reply-To: Simon Podhajsky <simon.podhajsky@gmail.com>
 # set reverse_name
 set realname = 'Simon Podhajsky'
 
@@ -17,7 +18,7 @@ source "~/.mutt_setup"
 set spoolfile = '+Primary' # opens curated Inbox
 set trash = '+PrimaryArchive' # Folder which a Gmail script regularly archives (workaround to archive e-mail in multiple folders)
 
-mailboxes "=Primary" "=NonPrimary" "=Plusmail" "=Yale"
+mailboxes "=Primary" "=NonPrimary" "=Plusmail" #"=Yale"
 
 ### SMTP
 set smtp_url = 'smtp://simon.podhajsky@smtp.gmail.com:587/'
@@ -58,7 +59,7 @@ alternative_order text/plain text/enriched text text/html
 auto_view text/html
 
 # Sidebar
-set sidebar_delim   = '  │'
+# set sidebar_delim   = '  │'
 set sidebar_visible = yes
 set sidebar_width   = 24
 color sidebar_new color221 color233
@@ -87,7 +88,7 @@ set query_command = "lbdbq '%s'"
 
 ### Bindings & macros
 # urlscan is not available on OSX -> use urlview as a failsafe
-macro pager \cb "<pipe-message> urlscan || <pipe-message> urlview<Enter>" "Extract URLs from a message"
+macro pager \cb "<pipe-message> urlview<Enter>" "Extract URLs from a message"
 bind pager <up> previous-line
 bind pager <down> next-line
 bind pager gg top
