@@ -6,8 +6,7 @@
     <string>com.simpod.gmail.sync</string>
     <key>ProgramArguments</key>
     <array>
-      <string>/usr/local/bin/notmuch</string>
-      <string>new</string>
+      <string>/Users/Simon/dotfiles/bin/sync-gmail</string>
     </array>
     <key>RunAtLoad</key>
     <true/>

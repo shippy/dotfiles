@@ -12,6 +12,8 @@ my_hdr Reply-To: Simon Podhajsky <simon.podhajsky@gmail.com>
 set realname = 'Simon Podhajsky'
 
 ### Load local setup (mailbox or straight IMAP)
+# The file symlinked to .mutt_setup will contain the
+# chosen setup for the machine
 source "~/.mutt_setup"
 
 # Common setup (but postponed differs)
@@ -23,11 +25,10 @@ mailboxes "=Primary" "=NonPrimary" "=Plusmail" #"=Yale"
 ### SMTP
 set smtp_url = 'smtp://simon.podhajsky@smtp.gmail.com:587/'
 set smtp_authenticators = 'gssapi:login' # per https://github.com/Homebrew/homebrew/issues/33419
+set smtp_pass = `security find-generic-password -s mutt-gmail-pw -w`
 
 set ssl_starttls = yes
 set ssl_force_tls = yes
-
-source "~/.mutt/.credentials" # TODO: Implement https://unix.stackexchange.com/questions/20570/mutt-how-to-safely-store-password
 
 ### Local cache
 set header_cache =~/.mutt/cache/headers

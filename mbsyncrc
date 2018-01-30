@@ -2,22 +2,20 @@
 IMAPAccount gmail
 Host imap.gmail.com
 User simon.podhajsky@gmail.com
-PassCmd "security find-generic-password -s mbsync-gmail-password -w"
+PassCmd "security find-generic-password -s mutt-gmail-pw -w"
 SSLType IMAPS
 AuthMechs LOGIN
-# CertificateFile /Users/Simon/gmail/gmail.pem
-CertificateFile /Users/Simon/gmail/gmail.crt
-# CertificateFile /Users/Simon/gmail/google.crt
-# CertificateFile /Users/Simon/gmail/Equifax.crt
+CertificateFile /Users/Simon/Mail/gmail.crt
 PipelineDepth 3
 
 IMAPStore gmail-remote
 Account gmail
 
 MaildirStore gmail-local
-Path ~/gmail/
-Inbox ~/gmail/Inbox
-Trash ~/gmail/PrimaryArchive
+SubFolders Legacy
+Path ~/Mail/
+Inbox ~/Mail/Inbox
+Trash ~/Mail/PrimaryArchive
 
 ## Global options
 Sync Pull
@@ -31,7 +29,7 @@ FSync no
 Channel gmail-Inbox
 Master :gmail-remote:
 Slave :gmail-local:
-Patterns "NonPrimary" "Primary" "PrimaryArchive" "Yale"
+Patterns "NonPrimary" "Primary" "PrimaryArchive"
 Sync All
 Expunge Both
 
@@ -53,6 +51,7 @@ Channel gmail-Plusmail
 Master :gmail-remote:Plusmail
 Slave :gmail-local:Plusmail
 MaxMessages 1000
+ExpireUnread no
 Sync All
 
 Group gmail
