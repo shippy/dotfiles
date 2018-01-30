@@ -1,0 +1,53 @@
+# .bashrc
+# Note: a lot of magic is happening in .inputrc
+# Missing:
+# - fancy ctrl-z
+# - fancy history substring search
+# - git-status in PS1
+# - auto-ls / auto-gst
+# - sane defaults
+# - autocompletion?
+# - framework?
+#
+# TODO: Integrate features from https://github.com/barryclark/bashstrap
+# ...or the updated fork, https://github.com/andystanton/bashstrap
+#
+# ...or migrate to Bash-It? https://github.com/Bash-it/bash-it
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+
+# If this isn't an interactive prompt, abort:
+[ -z "$PS1" ] && return
+
+# Uncomment the following line if you don't like systemctl's auto-paging feature:
+# export SYSTEMD_PAGER=
+
+# Env setup
+export EDITOR=vim
+export PS1="\[\033[35m\]\t\[\033[m\] \[\033[36m\]\u\[\033[m\]@\[\033[36m\]\h: \[\033[33;1m\]\w\[\033[m\]\$ "
+
+## Option setup (assuming bash 4+)
+shopt -s autocd
+shopt -s cdspell
+shopt -s checkjobs
+shopt -s cmdhist
+shopt -s direxpand
+shopt -s dirspell
+shopt -s dotglob
+shopt -s extglob
+shopt -s globstar
+shopt -s nocaseglob
+shopt -s nocasematch
+
+## Load aliases
+if [ -f ~/dotfiles/shell/aliases.sh ]; then
+	. ~/dotfiles/shell/aliases.sh
+fi
+
+## Implement custom functions
+function cd {
+	builtin cd "$@" && ls -F
+}
