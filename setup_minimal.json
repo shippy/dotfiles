@@ -1,16 +1,18 @@
 {
-    "directories": [],
+    "directories": ["~/.sshrc.d"],
     
     "link": {
         "zshrc":  "~/.zshrc",
+        "shell/bashrc":  "~/.bashrc",
+        "sshrc": "~/.sshrc",
+        "shell":  "~/.sshrc.d/shell",
+        "dotvim/vimrc_minimal": "~/.sshrc.d/vimrc_minimal",
         "zshenv":  "~/.zshenv",
         "inputrc":  "~/.inputrc",
-        "dotvim/vimrc":  "~/.vimrc",
         "dotvim/":    "~/.vim",
         "ackrc":  "~/.ackrc",
         "git/gitconfig":  "~/.gitconfig",
         "git/gitignore":  "~/.gitignore",
-        "oh-my-zsh/":  "~/.oh-my-zsh"
     },
 
     "commands": []

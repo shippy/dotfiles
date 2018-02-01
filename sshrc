@@ -1,0 +1,2 @@
+source $SSHHOME/.sshrc.d/shell/bashrc
+export VIMINIT="let \$MYVIMRC='$SSHHOME/.sshrc.d/vimrc_minimal' | source \$MYVIMRC"

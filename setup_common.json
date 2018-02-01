@@ -1,11 +1,14 @@
 {
-  "directories": ["~/bin", "~/.jupyter"],
+  "directories": ["~/bin", "~/.jupyter", "~/.sshrc.d"],
 
   "link": {
     "zshrc":  "~/.zshrc",
     "zshenv":  "~/.zshenv",
     "zitrc": "~/.zitrc",
     "zimrc": "~/.zimrc",
+    "sshrc": "~/.sshrc",
+    "shell":  "~/.sshrc.d/shell",
+    "dotvim/vimrc_minimal": "~/.sshrc.d/vimrc_minimal",
     "Gemfile": "~/Gemfile",
     "dotvim/gvimrc":  "~/.gvimrc",
     "dotvim/git-hooks/post-checkout": ".git/modules/dotvim/hooks/post-checkout",
@@ -22,7 +25,6 @@
     "mutt/setup-imap.muttrc": "~/.mutt_setup",
     "mutt/":   "~/.mutt",
     "mailcap":  "~/.mailcap",
-    "oh-my-zsh/":  "~/.oh-my-zsh",
     "tmux/tmux.conf":  "~/.tmux.conf",
     "tmux/":  "~/.tmux",
     "crouton/Xmodmap":  "~/.Xmodmap"

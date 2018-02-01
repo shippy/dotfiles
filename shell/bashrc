@@ -46,6 +46,10 @@ shopt -s nocasematch
 if [ -f ~/dotfiles/shell/aliases.sh ]; then
 	. ~/dotfiles/shell/aliases.sh
 fi
+# TODO: define dotfile home with -z $SSHHOME
+if [ ! -z "$SSHHOME" ] && [ -f $SSHHOME/.sshrc.d/shell/aliases.sh ]; then
+  . $SSHHOME/.sshrc.d/shell/aliases.sh
+fi
 
 ## Implement custom functions
 function cd {
