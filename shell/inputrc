@@ -32,3 +32,13 @@ set enable-bracketed-paste on
 "\e[1;5D": backward-word
 "\e\e[C": forward-word
 "\e\e[D": backward-word
+
+# alt-<key> to do various common operations
+# \015 = Enter (equivalent to \n on most systems)
+"\el": "ls -a\015"
+"\es": "git status -sb\015"
+"\ed": "git diff --word-diff\015"
+"\eD": "git diff\015"
+"\ec": "git diff --cached\015"
+
+# other cool ideas: http://brettterpstra.com/2015/07/09/shell-tricks-inputrc-binding-fun/
