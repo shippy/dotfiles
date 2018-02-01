@@ -1,8 +1,14 @@
 # These aliases should be readable by any shell rc file
 
 # General aliases
-alias l="ls -la --color=always"
+alias l="ls -la"
 alias jn='jupyter notebook'
+alias reload='source ~/.bashrc'
+
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ......="cd ../../../../.."
 
 # Git aliases
 alias ga='git add'

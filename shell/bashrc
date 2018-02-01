@@ -27,12 +27,42 @@ fi
 
 # Env setup
 export EDITOR=vim
-export PS1="\[\033[35m\]\t\[\033[m\] \[\033[36m\]\u\[\033[m\]@\[\033[36m\]\h: \[\033[33;1m\]\w\[\033[m\]\$ "
+# This somehow prevents conda env modification from messing up PS1:
+PROMPT_COMMAND="history -a; printf ''"
+parse_git_branch() {
+	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+COLOR_RED="\033[0;31m"
+COLOR_YELLOW="\033[0;33m"
+COLOR_GREEN="\033[0;32m"
+COLOR_OCHRE="\033[38;5;95m"
+COLOR_BLUE="\033[0;34m"
+COLOR_WHITE="\033[0;37m"
+COLOR_RESET="\033[0m"
+COLOR_BOLD="\033[1m"
+function git_color {
+  local git_status="$(git status 2> /dev/null)"
+  if [[ ! $git_status =~ "working directory clean" ]]; then
+    echo -e $COLOR_RED
+  elif [[ $git_status =~ "Your branch is ahead of" ]]; then
+    echo -e $COLOR_YELLOW
+  elif [[ $git_status =~ "nothing to commit" ]]; then
+    echo -e $COLOR_GREEN
+  else
+    echo -e $COLOR_OCHRE
+  fi
+}
+PS1="\[$COLOR_GREEN\]\u\[$COLOR_RESET\]@"
+# TODO: possible conditional on what the hostname is
+PS1+="\[$COLOR_GREEN\]\[$COLOR_BOLD\]\h: \[$COLOR_RESET\]"
+PS1+="\[$COLOR_YELLOW\]\[$COLOR_BOLD\]\w\[$COLOR_RESET\]\$(git_color)\$(parse_git_branch)\[$COLOR_RESET\]$ "
+export PS1
 
 ## Option setup (assuming bash 4+)
 shopt -s autocd
 shopt -s cdspell
 shopt -s checkjobs
+shopt -s checkwinsize
 shopt -s cmdhist
 shopt -s direxpand
 shopt -s dirspell
@@ -41,6 +71,19 @@ shopt -s extglob
 shopt -s globstar
 shopt -s nocaseglob
 shopt -s nocasematch
+shopt -s histappend
+
+HISTFILESIZE=1000000
+HISTSIZE=1000000
+HISTCONTROL=ignoreboth # don't store duplicates, commands that start w/ space
+HISTIGNORE='ls:bs:fg:history'
+
+## Load autocompletion
+if [ -f /usr/share/bash-completion/bash_completion ]; then
+	. /usr/share/bash-completion/bash_completion
+elif [ -f /etc/bash_completion ]; then
+	. /etc/bash_completion
+fi
 
 ## Load aliases
 if [ -f ~/dotfiles/shell/aliases.sh ]; then
@@ -51,7 +94,24 @@ if [ ! -z "$SSHHOME" ] && [ -f $SSHHOME/.sshrc.d/shell/aliases.sh ]; then
   . $SSHHOME/.sshrc.d/shell/aliases.sh
 fi
 
-## Implement custom functions
+## Load autojump
+if [ -f /usr/share/autojump/autojump.sh ]; then
+	. /usr/share/autojump/autojump.sh
+fi
+
+## Modify common commands
 function cd {
-	builtin cd "$@" && ls -F
+	builtin cd "$@" && ls -F --color=always
 }
+if [ -x /usr/bin/dircolors ]; then
+	alias ls='ls --color=auto'
+	alias grep='grep --color=auto'
+	alias fgrep='fgrep --color=auto'
+	alias egrep='egrep --color=auto'
+fi
+
+## Local adjustments
+if [ -f ~/.bashrc_local ]; then
+	. ~/.bashrc_local
+fi
+module load miniconda >/dev/null 2>&1
