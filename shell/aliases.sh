@@ -20,6 +20,8 @@ alias gc!='git commit -v --amend'
 alias gcam='git commit -a -m'
 
 alias gcm='git checkout master'
+alias gco='git checkout'
+alias gc-='git checkout --'
 alias gcd='git checkout develop'
 alias gcmsg='git commit -m'
 
