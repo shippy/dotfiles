@@ -1,7 +1,10 @@
 # These aliases should be readable by any shell rc file
 
 # General aliases
-alias l="ls -la"
+alias l="ls -ABGGh --group-directories-first"
+alias ll="ls -ABGGhl --group-directories-first"
+alias lt="ls -ABGGhlt --group-directories-first"
+alias lr="ls -ABGGh --group-directories-first | less"
 alias jn='jupyter notebook'
 alias reload='source ~/.bashrc'
 
@@ -9,6 +12,13 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ......="cd ../../../../.."
+
+alias jsonpp="python -m json.tool"
+
+# Self-referential
+alias ez="vim ~/.zshrc && source ~/.zshrc"
+alias eb="vim ~/.bashrc && source ~/.bashrc"
+alias ea="vim ~/dotfiles/shell/aliases.sh && source ~/dotfiles/shell/aliases.sh"
 
 # Git aliases
 alias ga='git add'
