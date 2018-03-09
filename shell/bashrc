@@ -3,10 +3,7 @@
 # Missing:
 # - fancy ctrl-z
 # - fancy history substring search
-# - git-status in PS1
-# - auto-ls / auto-gst
 # - sane defaults
-# - autocompletion?
 # - framework?
 #
 # TODO: Integrate features from https://github.com/barryclark/bashstrap
@@ -27,19 +24,23 @@ fi
 
 # Env setup
 export EDITOR=vim
+
+## Prompt setup
+# TODO: Use https://github.com/RichVel/nicer-bash-prompt
 # This somehow prevents conda env modification from messing up PS1:
 PROMPT_COMMAND="history -a; printf ''"
 parse_git_branch() {
 	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
-COLOR_RED="\033[0;31m"
-COLOR_YELLOW="\033[0;33m"
-COLOR_GREEN="\033[0;32m"
+COLOR_RED=$(tput setaf 1)
+COLOR_GREEN=$(tput setaf 2)
+COLOR_YELLOW=$(tput setaf 3)
+COLOR_BLUE=$(tput setaf 4)
+COLOR_PURPLE=$(tput setaf 5)
 COLOR_OCHRE="\033[38;5;95m"
-COLOR_BLUE="\033[0;34m"
-COLOR_WHITE="\033[0;37m"
-COLOR_RESET="\033[0m"
-COLOR_BOLD="\033[1m"
+COLOR_WHITE=$(tput setaf 7)
+COLOR_RESET=$(tput sgr0)
+COLOR_BOLD=$(tput bold)
 function git_color {
   local git_status="$(git status 2> /dev/null)"
   if [[ ! $git_status =~ "working directory clean" ]]; then
@@ -55,7 +56,9 @@ function git_color {
 PS1="\[$COLOR_GREEN\]\u\[$COLOR_RESET\]@"
 # TODO: possible conditional on what the hostname is
 PS1+="\[$COLOR_GREEN\]\[$COLOR_BOLD\]\h: \[$COLOR_RESET\]"
-PS1+="\[$COLOR_YELLOW\]\[$COLOR_BOLD\]\w\[$COLOR_RESET\]\$(git_color)\$(parse_git_branch)\[$COLOR_RESET\]$ "
+PS1+="\[$COLOR_YELLOW\]\[$COLOR_BOLD\]\w\[$COLOR_RESET\]"
+PS1+="\[\$(git_color)\]\$(parse_git_branch)\[$COLOR_RESET\]"
+PS1+="\\$ "
 export PS1
 
 ## Option setup (assuming bash 4+)
@@ -64,7 +67,8 @@ shopt -s cdspell
 shopt -s checkjobs
 shopt -s checkwinsize
 shopt -s cmdhist
-shopt -s direxpand
+# direxpand unavailable for bash < 4.2
+shopt -s direxpand 2> /dev/null
 shopt -s dirspell
 shopt -s dotglob
 shopt -s extglob
@@ -76,7 +80,7 @@ shopt -s histappend
 HISTFILESIZE=1000000
 HISTSIZE=1000000
 HISTCONTROL=ignoreboth # don't store duplicates, commands that start w/ space
-HISTIGNORE='ls:bs:fg:history'
+HISTIGNORE='ls:bs:fg:history:clear'
 
 ## Load autocompletion
 if [ -f /usr/share/bash-completion/bash_completion ]; then
@@ -99,6 +103,9 @@ if [ -f /usr/share/autojump/autojump.sh ]; then
 	. /usr/share/autojump/autojump.sh
 fi
 
+## Load FZF
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
 ## Modify common commands
 function cd {
 	builtin cd "$@" && ls -F --color=always
@@ -115,3 +122,7 @@ if [ -f ~/.bashrc_local ]; then
 	. ~/.bashrc_local
 fi
 module load miniconda >/dev/null 2>&1
+
+## Disable ctrl-s (freezes the terminal, resumption with ctrl-q)
+# Credit: https://unix.stackexchange.com/a/332793
+stty -ixon
