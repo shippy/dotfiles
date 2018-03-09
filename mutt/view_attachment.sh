@@ -96,7 +96,10 @@ if [[  "$OSTYPE" =~ darwin* ]]; then
         open -a "$open_with" $fullpath
     fi
 else
-    # TODO: Specific check for crouton
-    # Throw the file at Chrome -- it will handle it
-    croutonurlhandler -n "file:///home/chronos/user/Downloads/mutt/$newfile"
+    if [ command -v croutonurlhandler >/dev/null 2>&1 ]; then
+        # Throw the file at Chrome -- it will handle it
+        croutonurlhandler -n "file:///home/chronos/user/Downloads/mutt/$newfile"
+    else
+        xdg-open $fullpath
+    fi
 fi
