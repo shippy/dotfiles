@@ -1,3 +1,11 @@
-source $SSHHOME/.sshrc.d/shell/bashrc
-export INPUTRC=$SSHHOME/.sshrc.d/shell/inputrc
-export VIMINIT="let \$MYVIMRC='$SSHHOME/.sshrc.d/vimrc_minimal' | source \$MYVIMRC"
+if [ ! -z "$SSHHOME" ]; then
+  DOTHOME="$SSHHOME/.sshrc.d"
+elif [ ! -z "$SHHOME" ]; then
+  DOTHOME="$SHHOME/.dockershrc.d"
+fi
+
+if [ ! -z "$DOTHOME" ]; then
+  source $DOTHOME/shell/bashrc
+  export INPUTRC=$DOTHOME/shell/inputrc
+  export VIMINIT="let \$MYVIMRC='$DOTHOME/vimrc_minimal' | source \$MYVIMRC"
+fi
