@@ -16,15 +16,22 @@ if is-at-least 5.2; then
   export ZIM_HOME="${ZIT_MODULES_PATH}/zim"
   zit-il "https://github.com/Eriner/zim" "zim" "init.zsh"
 elif is-at-least 4.3.9; then
+  # The plan was to use antigen as a poor man's zim, but the setup seems more
+  # involved than I'd like.
+
   # export ADOTDIR="${ZIT_MODULES_PATH}/antigen"
   # zit-il "https://github.com/zsh-users/antigen" "antigen" "antigen.zsh"
   # antigen init "${HOME}/.antigenrc"
 fi
 
-## Fallback theme
+## Fallback theme & plugins
 if [ -z "$ZIM_HOME" ]; then
   zit-il "https://github.com/dotcode/multi-shell-repo-prompt" \
     "theme-multi" "prompt.sh"
+  zit-il "https://github.com/zdharma/fast-syntax-highlighting" \
+    "fast-syntax-highlighting" "fast-syntax-highlighting.plugin.zsh"
+  zit-il "https://github.com/zsh-users/zsh-history-substring-search" \
+    "zsh-history-substring-search" "zsh-history-substring-search.zsh"
 fi
 
 # misc
