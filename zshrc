@@ -2,7 +2,6 @@
 
 # Loaded emacs-style bindings first, in order to prevent
 # clobbering new zit/zim bindings
-# set -o emacs
 bindkey -e
 
 ## Load zit (plugin manager)
@@ -22,19 +21,15 @@ fi
 # for a given distribution
 
 # Local zshrc, whatever it is
-# NB: It needs to define the location of oh-my-zsh in $ZSH, if it isn't set in zshenv already
 [ -f ~/.zshrc_local ] && source ~/.zshrc_local
 [ -f ~/.zshrc_system ] && source ~/.zshrc_system
 [ -f ~/.zshrc_machine ] && source ~/.zshrc_machine
-
-# use emacs-style bindings
-set -o emacs
 
 # enable zmv
 autoload -U zmv
 alias zmv="noglob zmv -W"
 
-## Editing oh-my-zsh ZLE bindings
+## Editing ZLE bindings
 # Edit the ls command binding to instead use ls -lFh
 #bindkey -r '\el'
 bindkey -s '\el' 'ls -lAFh\n'

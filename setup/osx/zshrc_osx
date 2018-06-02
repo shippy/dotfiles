@@ -6,11 +6,6 @@ rbenv() {
   rbenv "$@"
 }
 
-if [ -d "/Users/sp576" ]; then
-  # added by Anaconda3 4.3.0 installer
-  path=(/Users/sp576/anaconda/bin
-        $path)
-fi
 if !type hub &> /dev/null; then
   eval "$(hub alias -s)"
 fi

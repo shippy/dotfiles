@@ -1,8 +1,5 @@
 plugins+=(ubuntu gem bundler)
 
-## PATH setup
-export ZSH=/home/simon/.oh-my-zsh
-
 # crouton defaults
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/home/simon/bin:$PATH"
 # rbenv

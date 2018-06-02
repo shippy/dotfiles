@@ -1,4 +1,3 @@
 plugins+=(ubuntu)
 
-export ZSH=/home/sp576/.oh-my-zsh
 export PATH="/home/sp576/anaconda3/bin:$PATH"

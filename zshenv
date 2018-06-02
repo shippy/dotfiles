@@ -2,7 +2,6 @@
 skip_global_compinit=1
 
 # zsh-related globals
-export ZSH=/Users/$(whoami)/.oh-my-zsh
 fpath=(/usr/local/share/zsh-completions $fpath)
 
 # Various globals
