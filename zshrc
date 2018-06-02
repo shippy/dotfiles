@@ -36,9 +36,7 @@ bindkey '^xe' edit-command-line
 bindkey '^x^e' edit-command-line
 #bindkey -M vicmd v edit-command-line
 
-# You may need to manually set your language environment
 export LANG=en_US.UTF-8
-
 export EDITOR='vim'
 
 # try to cd if the command is not found

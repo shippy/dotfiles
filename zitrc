@@ -30,10 +30,10 @@ if [ -z "$ZIM_HOME" ]; then
     "theme-multi" "prompt.sh"
   zit-il "https://github.com/zdharma/fast-syntax-highlighting" \
     "fast-syntax-highlighting" "fast-syntax-highlighting.plugin.zsh"
-  zit-il "https://github.com/zsh-users/zsh-history-substring-search" \
-    "zsh-history-substring-search" "zsh-history-substring-search.zsh"
-  bindkey '^[[A' history-substring-search-up
-  bindkey '^[[B' history-substring-search-down
+  # zit-il "https://github.com/zsh-users/zsh-history-substring-search" \
+  #   "zsh-history-substring-search" "zsh-history-substring-search.zsh"
+  # bindkey '^[[A' history-substring-search-up
+  # bindkey '^[[B' history-substring-search-down
 fi
 
 # misc
@@ -47,6 +47,15 @@ zit-il "https://github.com/desyncr/auto-ls" \
   "auto-ls" "auto-ls.zsh"
 zit-il "https://github.com/willghatch/zsh-saneopt" \
   "sane-defaults" "saneopt.plugin.zsh"
+
+# zsh-async is a prereq for fuzzy search
+# zit-il "https://github.com/mafredri/zsh-async" \
+#   "zsh-async" "async.zsh"
+# zit-il "https://github.com/seletskiy/zsh-fuzzy-search-and-edit" \
+#   "zsh-fuzzy-search" "plugin.zsh"
+#
+# Courtesy of zsh-fuzzy-search-and-edit
+# bindkey '^P' fuzzy-search-and-edit
 
 # script to compile ZSH files
 # should be called last
