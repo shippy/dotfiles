@@ -2,6 +2,7 @@
 
 # General aliases
 alias l="ls -ABGGh --group-directories-first"
+alias ls='ls -GFh --color=auto'
 alias ll="ls -ABGGhl --group-directories-first"
 alias lt="ls -ABGGhlt --group-directories-first"
 alias lr="ls -ABGGh --group-directories-first | less"
@@ -17,7 +18,6 @@ alias ......="cd ../../../../.."
 alias jsonpp="python -m json.tool"
 
 # Self-referential
-alias ez="vim ~/.zshrc && source ~/.zshrc"
 alias eb="vim ~/.bashrc && source ~/.bashrc"
 alias ea="vim ~/dotfiles/shell/aliases.sh && source ~/dotfiles/shell/aliases.sh"
 
@@ -57,3 +57,22 @@ alias stash='git stash'
 alias unstash='git stash pop'
 
 alias gp='git push'
+
+alias glum='git pull upstream master'
+
+# Homebrew aliases
+if [[ `type brew 2> /dev/null` ]]; then
+  alias b='brew'
+  alias bi='brew install'
+  alias bu='brew uninstall'
+  alias bf='brew info'
+  alias bs='brew search'
+  alias buu='brew update && brew upgrade'
+  alias bci='brew cask install'
+  alias bcu='brew cask uninstall'
+  alias bcf='brew cask info'
+  alias bcs='brew cask search'
+
+  alias bl='brew leaves'
+  alias bcl='brew cask list'
+fi
