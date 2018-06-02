@@ -13,11 +13,6 @@
 	url = https://github.com/shippy/dotvim.git
 	branch = master
 	ignore = all
-[submodule "oh-my-zsh"]
-	path = oh-my-zsh
-	url = https://github.com/robbyrussell/oh-my-zsh.git
-	branch = master
-	ignore = all
 [submodule "tmux/plugins/tpm"]
 	path = tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
