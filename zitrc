@@ -30,10 +30,14 @@ if [ -z "$ZIM_HOME" ]; then
     "theme-multi" "prompt.sh"
   zit-il "https://github.com/zdharma/fast-syntax-highlighting" \
     "fast-syntax-highlighting" "fast-syntax-highlighting.plugin.zsh"
-  # zit-il "https://github.com/zsh-users/zsh-history-substring-search" \
-  #   "zsh-history-substring-search" "zsh-history-substring-search.zsh"
-  # bindkey '^[[A' history-substring-search-up
-  # bindkey '^[[B' history-substring-search-down
+
+  # Without zim, still need a history search
+  autoload -U up-line-or-beginning-search
+  autoload -U down-line-or-beginning-search
+  zle -N up-line-or-beginning-search
+  zle -N down-line-or-beginning-search
+  bindkey "^[[A" up-line-or-beginning-search # Up
+  bindkey "^[[B" down-line-or-beginning-search # Down
 fi
 
 # misc
