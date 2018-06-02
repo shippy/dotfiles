@@ -1,7 +1,5 @@
-#!/usr/bin/env zsh
 # Assume the antigen.zsh script was already called
 antigen use oh-my-zsh
-antigen
 antigen bundle git
 antigen bundle pip
 antigen bundle command-not-found

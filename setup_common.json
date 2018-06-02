@@ -3,8 +3,9 @@
 
   "link": {
     "zshrc":  "~/.zshrc",
-    "zshenv":  "~/.zshenv",
+    "zshenv": "~/.zshenv",
     "zitrc": "~/.zitrc",
+    "antigenrc": "~/.antigenrc",
     "zimrc": "~/.zimrc",
     "shell/bashrc": "~/.bashrc",
     "shell/inputrc": "~/.inputrc",
@@ -14,7 +15,6 @@
     "dotvim/vimrc_minimal": "~/.sshrc.d/vimrc_minimal",
     "Gemfile": "~/Gemfile",
     "dotvim/gvimrc":  "~/.gvimrc",
-    "dotvim/git-hooks/post-checkout": ".git/modules/dotvim/hooks/post-checkout",
     "dotvim/":    "~/.vim",
     "ackrc":  "~/.ackrc",
     "agignore": "~/.ignore",

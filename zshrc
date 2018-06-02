@@ -7,6 +7,7 @@ bindkey -e
 ## Load zit (plugin manager)
 # Based on zsh version, zit sets up zim or falls back
 source "${HOME}/.zitrc"
+[ ! -z "$ADOTDIR" ] && antigen init ~/.antigenrc
 
 # Set distribution-specific things (ZSH, PATH, BROWSER, TERM, ...)
 # dotty takes care of the initial setup -- only sync the file to home
@@ -48,7 +49,7 @@ setopt hist_expire_dups_first
 setopt nobeep
 
 # Hook direnv
-[ type foobar &> /dev/null ] && eval "$(direnv hook zsh)"
+[ type direnv &> /dev/null ] && eval "$(direnv hook zsh)"
 
 # Hook autojump
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
@@ -58,6 +59,7 @@ setopt nobeep
 # [ -f /usr/local/etc/grc.zsh ] && . /usr/local/etc/grc.zsh
 # Colorize LS
 LS_COLORS=$LS_COLORS:'di=0;35:' ; export LS_COLORS
+[ -z "$USER" ] && export USER=`whoami`
 
 ## General aliasess
 # Try to define them in a bash-compatible manner in an external file
@@ -89,7 +91,7 @@ alias bcl='brew cask list'
 
 alias k='k -h'
 alias ka='k -Ah'
-alias ls='ls -GFh'
+alias ls='ls -GFh --color=auto'
 
 # Commonly used aliases from oh-my-zsh/common-aliases
 alias -g H='| head'
