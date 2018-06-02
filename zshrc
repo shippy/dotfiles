@@ -38,12 +38,7 @@ bindkey '^x^e' edit-command-line
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
 
-# Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='vim'
-fi
+export EDITOR='vim'
 
 # try to cd if the command is not found
 setopt auto_cd
@@ -53,7 +48,7 @@ setopt hist_expire_dups_first
 setopt nobeep
 
 # Hook direnv
-eval "$(direnv hook zsh)"
+[ type foobar &> /dev/null ] && eval "$(direnv hook zsh)"
 
 # Hook autojump
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
@@ -65,6 +60,11 @@ eval "$(direnv hook zsh)"
 LS_COLORS=$LS_COLORS:'di=0;35:' ; export LS_COLORS
 
 ## General aliasess
+# Try to define them in a bash-compatible manner in an external file
+source_sh () {
+  emulate -LR sh
+  . "$@"
+}
 [[ `type -w ag` =~ "alias$" ]] && unalias ag # ubuntu plugin enables it, zshrc_local loads too early to overrule
 alias jn='jupyter notebook'
 alias sz='source ~/.zshrc'
