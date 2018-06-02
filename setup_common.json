@@ -6,6 +6,9 @@
     "zshenv":  "~/.zshenv",
     "zitrc": "~/.zitrc",
     "zimrc": "~/.zimrc",
+    "shell/bashrc": "~/.bashrc",
+    "shell/inputrc": "~/.inputrc",
+    "shell/aliases.sh": "~/.aliases.sh",
     "sshrc": "~/.sshrc",
     "shell":  "~/.sshrc.d/shell",
     "dotvim/vimrc_minimal": "~/.sshrc.d/vimrc_minimal",
@@ -21,13 +24,8 @@
     "git/gitignore":  "~/.gitignore",
     "jupyter/ipynb_drop_output.py": "~/bin/ipynb_drop_output.py",
     "jupyter/jupyter_notebook_config.py": "~/.jupyter/jupyter_notebook_config.py",
-    "mutt/muttrc": "~/.muttrc",
-    "mutt/setup-imap.muttrc": "~/.mutt_setup",
-    "mutt/":   "~/.mutt",
-    "mailcap":  "~/.mailcap",
     "tmux/tmux.conf":  "~/.tmux.conf",
-    "tmux/":  "~/.tmux",
-    "crouton/Xmodmap":  "~/.Xmodmap"
+    "tmux/":  "~/.tmux"
   },
 
   "commands": [
