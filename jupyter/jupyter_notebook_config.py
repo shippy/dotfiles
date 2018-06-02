@@ -518,14 +518,16 @@
 # (which was modified from: https://github.com/ipython/ipython/issues/8009 )
 import os
 from subprocess import check_call
+import re
 
 def save_html_and_script(model, os_path, contents_manager):
     """post-save hook for converting notebooks to .py scripts"""
     if model['type'] != 'notebook':
         return # only do this for notebooks
     d, fname = os.path.split(os_path)
-    check_call(['jupyter', 'nbconvert', '--to', 'script', fname], cwd=d)
-    check_call(['jupyter', 'nbconvert', '--to', 'html', fname], cwd=d)
+    if not fname.startswith("Untitled"):
+        check_call(['jupyter', 'nbconvert', '--to', 'script', fname], cwd=d)
+        check_call(['jupyter', 'nbconvert', '--to', 'html', fname], cwd=d)
 
 c.FileContentsManager.post_save_hook = save_html_and_script
 # c.FileContentsManager.root_dir = ''
@@ -573,3 +575,8 @@ c.FileContentsManager.post_save_hook = save_html_and_script
 # 
 # By default, all installed kernels are allowed.
 # c.KernelSpecManager.whitelist = set()
+
+#------------------------------------------------------------------------------
+# Interactive config
+#------------------------------------------------------------------------------
+c.InteractiveShell.ast_node_interactivity = "all"
