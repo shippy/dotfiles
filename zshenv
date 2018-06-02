@@ -22,11 +22,18 @@ fi
 typeset -U path # only unique entries
 
 # Prepending
-path=($HOME/anaconda/bin /usr/local/opt/gdal2/bin $path)
+path=($HOME/anaconda/bin \
+      /usr/local/opt/coreutils/libexec/gnubin \
+      /usr/local/opt/gdal2/bin \
+      $path)
 
 # Appending
-path+=(/usr/local/sbin $HOME/bin /usr/local/mysql/bin /usr/local/bin \
-  /usr/local/heroku/bin $HOME/bin/pybib )
+path+=(/usr/local/sbin \
+       $HOME/bin \
+       /usr/local/mysql/bin \
+       /usr/local/bin \
+       /usr/local/heroku/bin \
+       $HOME/bin/pybib)
 if [ -d ${MATLAB_EXECUTABLE:h} ]; then
   path+=(${MATLAB_EXECUTABLE:h})
 fi
