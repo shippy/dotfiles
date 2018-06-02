@@ -21,7 +21,6 @@ zmodules=(input \
           ssh \
           history \
           utility \
-          meta \
           custom \
           prompt \
           completion)

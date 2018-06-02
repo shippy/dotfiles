@@ -8,19 +8,29 @@ fi
 source "${ZIT_MODULES_PATH}/zit/zit.zsh"
 
 # let zit manage zit
-zit-in "https://github.com/m45t3r/zit" "zit"
+zit-il "https://github.com/m45t3r/zit" "zit"
 
 # zim
-# export ZIM_HOME="${ZIT_MODULES_PATH}/zim"
-# zit-il "https://github.com/Eriner/zim" "zim" "init.zsh"
+autoload -U is-at-least
+if is-at-least 5.2; then
+  export ZIM_HOME="${ZIT_MODULES_PATH}/zim"
+  zit-il "https://github.com/Eriner/zim" "zim" "init.zsh"
+elif is-at-least 4.3.9; then
+  zit-il "https://github.com/zsh-users/antigen" "antigen" "antigen.zsh"
+  source "${0:a:h}/antigenrc"
+fi
 
 # misc
-zit-il "https://github.com/supercrabtree/k" "k" "k.sh"
-zit-il "https://github.com/djui/alias-tips" "alias-tips" "alias-tips.plugin.zsh"
+zit-il "https://github.com/supercrabtree/k" \
+  "k" "k.sh"
+zit-il "https://github.com/djui/alias-tips" \
+  "alias-tips" "alias-tips.plugin.zsh"
 zit-il "https://github.com/Tarrasch/zsh-autoenv" \
   "zsh-autoenv" "autoenv.zsh"
-zit-il "https://github.com/desyncr/auto-ls" "auto-ls" "auto-ls.zsh"
-zit-il "https://github.com/willghatch/zsh-saneopt" "sane-defaults" "saneopt.plugin.zsh"
+zit-il "https://github.com/desyncr/auto-ls" \
+  "auto-ls" "auto-ls.zsh"
+zit-il "https://github.com/willghatch/zsh-saneopt" \
+  "sane-defaults" "saneopt.plugin.zsh"
 
 # script to compile ZSH files
 # should be called last

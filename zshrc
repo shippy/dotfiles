@@ -5,16 +5,8 @@
 bindkey -e
 
 ## Load zit (plugin manager)
+# Based on zsh version, zit sets up zim or falls back
 source "${HOME}/.zitrc"
-
-## Load zim
-# Change default zim location 
-export ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
-
-# Source zim
-if [[ -s ${ZIM_HOME}/init.zsh ]]; then
-  source ${ZIM_HOME}/init.zsh
-fi
 
 # Set distribution-specific things (ZSH, PATH, BROWSER, TERM, ...)
 # dotty takes care of the initial setup -- only sync the file to home
@@ -67,8 +59,10 @@ eval "$(direnv hook zsh)"
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 
 # Hook grc (colorify standard commands)
-unalias grc
-[ -f /usr/local/etc/grc.zsh ] && . /usr/local/etc/grc.zsh
+# unalias grc
+# [ -f /usr/local/etc/grc.zsh ] && . /usr/local/etc/grc.zsh
+# Colorize LS
+LS_COLORS=$LS_COLORS:'di=0;35:' ; export LS_COLORS
 
 ## General aliasess
 [[ `type -w ag` =~ "alias$" ]] && unalias ag # ubuntu plugin enables it, zshrc_local loads too early to overrule
@@ -95,6 +89,7 @@ alias bcl='brew cask list'
 
 alias k='k -h'
 alias ka='k -Ah'
+alias ls='ls -GFh'
 
 # Commonly used aliases from oh-my-zsh/common-aliases
 alias -g H='| head'
