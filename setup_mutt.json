@@ -1,0 +1,8 @@
+{
+  "directories": ["~/.mutt"],
+  "link": {
+    "mutt/muttrc": "~/.muttrc",
+    "mutt/setup-imap.muttrc": "~/.mutt_setup",
+    "mutt/":   "~/.mutt"
+  }
+}
