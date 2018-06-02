@@ -61,7 +61,7 @@ alias gp='git push'
 alias glum='git pull upstream master'
 
 # Homebrew aliases
-if [[ `type brew 2> /dev/null` ]]; then
+if  type direnv >/dev/null 2>&1 ; then
   alias b='brew'
   alias bi='brew install'
   alias bu='brew uninstall'

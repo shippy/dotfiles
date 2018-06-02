@@ -31,7 +31,7 @@ setopt hist_expire_dups_first
 setopt nobeep
 
 # Hook direnv
-[[ `type direnv &> /dev/null` ]] && eval "$(direnv hook zsh)"
+type direnv >/dev/null 2>&1 && eval "$(direnv hook zsh)"
 
 # Hook autojump
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
