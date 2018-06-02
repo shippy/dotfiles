@@ -24,7 +24,7 @@
 [pull]
   ff = only
 [push]
-  default = simple
+  default = matching
   followTags = true
 [help]
   autocorrect = 3

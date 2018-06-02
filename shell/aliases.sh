@@ -6,6 +6,7 @@ alias ll="ls -ABGGhl --group-directories-first"
 alias lt="ls -ABGGhlt --group-directories-first"
 alias lr="ls -ABGGh --group-directories-first | less"
 alias jn='jupyter notebook'
+alias njn='nohup jupyter notebook --ip=127.0.0.1 &'
 alias reload='source ~/.bashrc'
 
 alias ...="cd ../.."
@@ -42,7 +43,7 @@ alias gdcw='git diff --cached --word-diff'
 alias gdw='git diff --word-diff'
 
 alias glg='git log --stat'
-alias glga='git log --oneline --decorate --graph --all'
+alias glga='GIT_PAGER=less git log --oneline --decorate --graph --all'
 
 alias grbm='git rebase master'
 

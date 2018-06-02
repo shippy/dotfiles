@@ -1,3 +1,4 @@
+#!/bin/bash
 if [ ! -z "$SSHHOME" ]; then
   DOTHOME="$SSHHOME/.sshrc.d"
 elif [ ! -z "$SHHOME" ]; then
@@ -9,3 +10,9 @@ if [ ! -z "$DOTHOME" ]; then
   export INPUTRC=$DOTHOME/shell/inputrc
   export VIMINIT="let \$MYVIMRC='$DOTHOME/vimrc_minimal' | source \$MYVIMRC"
 fi
+
+# if [ ! -z "$DOTHOME/shell/gitconfig" ]; then
+#   if [ $(hostname | grep ncanda | wc -l) != 1 ]; then
+#     cp $DOTHOME/shell/gitconfig ~/.gitconfig
+#   fi
+# fi
