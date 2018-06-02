@@ -32,6 +32,8 @@ if [ -z "$ZIM_HOME" ]; then
     "fast-syntax-highlighting" "fast-syntax-highlighting.plugin.zsh"
   zit-il "https://github.com/zsh-users/zsh-history-substring-search" \
     "zsh-history-substring-search" "zsh-history-substring-search.zsh"
+  bindkey '^[[A' history-substring-search-up
+  bindkey '^[[B' history-substring-search-down
 fi
 
 # misc
