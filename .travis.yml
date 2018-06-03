@@ -5,6 +5,6 @@ services:
 
 install:
   - docker build -t dotfiles setup
-  - docker run -it --user test --name dotfiles /bin/zsh
+  - docker run -it --user test dotfiles /bin/zsh
 script:
   - docker ps | grep -q dotfiles
