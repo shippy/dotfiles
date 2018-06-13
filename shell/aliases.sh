@@ -17,6 +17,11 @@ alias ......="cd ../../../../.."
 
 alias jsonpp="python -m json.tool"
 
+# Docker
+dockerexec() {
+  sudo docker exec -it --env COLUMNS=`tput cols` --env LINES=`tput lines` "$@"
+}
+
 # Self-referential
 alias eb="vim ~/.bashrc && source ~/.bashrc"
 alias ea="vim ~/dotfiles/shell/aliases.sh && source ~/dotfiles/shell/aliases.sh"
