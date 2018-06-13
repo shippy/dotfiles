@@ -1,11 +1,12 @@
 # These aliases should be readable by any shell rc file
 
 # General aliases
-alias l="ls -ABGGh --group-directories-first"
+alias l="ls -ABGh --group-directories-first"
 alias ls='ls -GFh --color=auto'
-alias ll="ls -ABGGhl --group-directories-first"
-alias lt="ls -ABGGhlt --group-directories-first"
-alias lr="ls -ABGGh --group-directories-first | less"
+alias ll="ls -ABhl --group-directories-first"
+alias la="ll"
+alias lt="ls -ABGhlt --group-directories-first"
+alias lr="ls -ABGhR --group-directories-first | less"
 alias jn='jupyter notebook'
 alias njn='nohup jupyter notebook --ip=127.0.0.1 &'
 alias reload='source ~/.bashrc'
