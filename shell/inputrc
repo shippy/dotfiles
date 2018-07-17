@@ -6,6 +6,7 @@ $include /etc/inputrc
 set colored-stats On
 set visible-stats On
 set completion-ignore-case On
+set completion-map-case On
 set mark-symlinked-directories On
 set skip-completed-text on
 set show-all-if-ambiguous On
@@ -20,6 +21,16 @@ set output-meta on
 set editing-mode emacs
 set colored-completion-prefix on
 set enable-bracketed-paste on
+
+# Autocompetion rules
+set show-all-if-ambiguous on
+set menu-complete-display-prefix on
+C-f: menu-complete
+C-b: menu-complete-backward
+# set completion-display-width 1
+# TAB: menu-complete
+# "\e[Z": menu-complete-backward
+# shift-tab
 
 # Partial history search, courtesy of https://askubuntu.com/a/59855
 # arrow up
@@ -42,3 +53,4 @@ set enable-bracketed-paste on
 "\ec": "git diff --cached\015"
 
 # other cool ideas: http://brettterpstra.com/2015/07/09/shell-tricks-inputrc-binding-fun/
+# macros: http://info2html.sourceforge.net/cgi-bin/info2html-demo/info2html?(bash.info.gz)Sample%2520Init%2520File
