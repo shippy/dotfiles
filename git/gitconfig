@@ -11,8 +11,8 @@
   pager = less --tabs=4 -RFX
 [pager]
   diff = diff-so-fancy | less --tabs=4 -RFX --pattern '^(Date|added|deleted|modified): '
-[interactive]
-	diffFilter = diff-so-facy --patch-moden
+; [interactive]
+;   diffFilter = "diff-highlight"
 [color]
   ui = auto
   interactive = auto
