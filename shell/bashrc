@@ -29,9 +29,22 @@ export EDITOR=vim
 # TODO: Use https://github.com/RichVel/nicer-bash-prompt
 # This somehow prevents conda env modification from messing up PS1:
 PROMPT_COMMAND="history -a; printf ''"
+# Taken from: http://hocuspokus.net/2009/07/add-git-and-svn-branch-to-bash-prompt/
+# Update with: https://blog.petdance.com/2013/04/24/my-bash-prompt-with-gitsvn-branchstatus-display/
 parse_git_branch() {
 	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
+parse_svn_branch() {
+  # parse_svn_url | sed -e 's#^'"$(parse_svn_repository_root)"'##g' | awk '{print " (svn::"$1")" }'
+  parse_svn_url | sed -e 's#^'"$(parse_svn_repository_root)"'##g' | awk '{print " (svn)" }'
+}
+parse_svn_url() {
+  svn info 2>/dev/null | sed -ne 's#^URL: ##p'
+}
+parse_svn_repository_root() {
+  svn info 2>/dev/null | sed -ne 's#^Repository Root: ##p'
+}
+
 COLOR_RED=$(tput setaf 1)
 COLOR_GREEN=$(tput setaf 2)
 COLOR_YELLOW=$(tput setaf 3)
@@ -57,6 +70,7 @@ PS1="\[$COLOR_GREEN\]\u\[$COLOR_RESET\]@"
 # TODO: possible conditional on what the hostname is
 PS1+="\[$COLOR_GREEN\]\[$COLOR_BOLD\]\h: \[$COLOR_RESET\]"
 PS1+="\[$COLOR_YELLOW\]\[$COLOR_BOLD\]\w\[$COLOR_RESET\]"
+PS1+="\$(parse_svn_branch)"
 PS1+="\[\$(git_color)\]\$(parse_git_branch)\[$COLOR_RESET\]"
 PS1+="\\$ "
 export PS1
@@ -89,7 +103,14 @@ elif [ -f /etc/bash_completion ]; then
 	. /etc/bash_completion
 fi
 
-## Load aliases
+
+
+# ## Try cycling through substrings
+# n() {
+#       mapfile -t COMPREPLY < <(ls -d */ | grep "${COMP_WORDS[COMP_CWORD]}")
+# }
+# complete -F _cd_completion cd
+
 if [ -f ~/dotfiles/shell/aliases.sh ]; then
 	. ~/dotfiles/shell/aliases.sh
 fi
@@ -100,7 +121,9 @@ fi
 if [ ! -z "$SSHHOME" ] && [ -f $SSHHOME/.sshrc.d/shell/aliases.sh ]; then
   . $SSHHOME/.sshrc.d/shell/aliases.sh
 fi
-
+if [ ! -z "$SSHHOME" ]; then
+  export GIT_PAGER=less
+fi
 ## Load autojump
 if [ -f /usr/share/autojump/autojump.sh ]; then
 	. /usr/share/autojump/autojump.sh
