@@ -67,6 +67,11 @@ fancy-ctrl-z () {
 zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
 
+## "Hold this command while I run this other one"
+# Courtesy of: https://sgeb.io/posts/2016/11/til-bash-zsh-half-typed-commands/
+# More on ZLE widgets: https://sgeb.io/posts/2014/04/zsh-zle-custom-widgets/
+bindkey '^q' push-line-or-edit
+
 ## FZF
 export FZF_DEFAULT_COMMAND='ag --hidden -g ""'
 # Blacklisted useless folders in .ignore

@@ -7,6 +7,8 @@ set colored-stats On
 set visible-stats On
 set completion-ignore-case On
 set completion-map-case On
+set completion-query-items 0
+set page-completions off
 set mark-symlinked-directories On
 set skip-completed-text on
 set show-all-if-ambiguous On
