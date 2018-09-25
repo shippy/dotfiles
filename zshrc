@@ -28,13 +28,74 @@ export EDITOR='vim'
 setopt auto_cd
 setopt share_history
 setopt hist_expire_dups_first
+setopt incappendhistory
 setopt nobeep
+# setopt correct
+
+HISTFILE=~/.zsh_history
+HISTSIZE=50000
+SAVEHIST=50000
+
+## From https://github.com/yous/vanilli.sh/blob/master/vanilli.zsh
+# If a completion is performed with the cursor within a word, and a full
+# # completion is inserted, the cursor is moved to the end of the word.
+setopt always_to_end
+# If unset, the cursor is set to the end of the word if completion is started.
+# # Otherwise it stays there and completion is done from both ends.
+setopt complete_in_word
+unsetopt list_beep
+unsetopt flow_control
+zstyle ':completion:*' list-prompt   ''
+zstyle ':completion:*' select-prompt ''
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' menu select
+zstyle ':completion:*:*:*:default' menu yes select
+# This seems to allow for cd /f/s/l/n to expand
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Z}{a-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+# ...but, if it matches a directory, don't double-guess
+zstyle ':completion:*' accept-exact-dirs true
+zstyle -e ':completion:*:default' list-colors 'reply=("${PREFIX:+=(#bi)($PREFIX:t)(?)*==02=01}:${(s.:.)LS_COLORS}")'
+# zstyle ':completion:*:parameters'  list-colors '=*=32'
+# zstyle ':completion:*:commands' list-colors '=*=1;31'
+# zstyle ':completion:*:aliases' list-colors '=*=2;38;5;128'
+# zstyle ':completion:*:options:*' list-colors '=(#b) #(--[a-z-]#)=34=36=33'
+# zstyle ':completion:*:default' list-colors '=(#b)*(XX *)=32=31' '=*=32'
+zstyle ':completion:*:descriptions' format "%B--- %d%b"
+# Select an option immediately, even if the list is long
+unsetopt listambiguous
+setopt autolist
+# Fixes the annoying Bash autocompletion issue where after TAB, line would reprint
+setopt alwayslastprompt
+setopt listpacked
+
+# Autocomplete corrections
+zstyle ':completion:*' completer _complete _approximate 
+zstyle ':completion:*' group-order original corrections
+
+autoload -Uz compinit
+compinit
+compdef sshrc=ssh
+# Without this, need to explicitly specify . if I want to autocomplete to a hidden file/dir
+_comp_options+=(globdots)
+# Use Shift-Tab
+zmodload zsh/complist
+bindkey -M menuselect '^[[Z' reverse-menu-complete
+
+
+setopt autopushd
+setopt autocd
+setopt chaselinks
+setopt pushd_ignore_dups
+setopt pushd_minus
+unsetopt posixcd
+DIRSTACKSIZE=10
 
 # Hook direnv
 type direnv >/dev/null 2>&1 && eval "$(direnv hook zsh)"
 
 # Hook autojump
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+[ -f /usr/share/autojump/autojump.zsh ] && source /usr/share/autojump/autojump.zsh
 
 # Colorize LS
 LS_COLORS=$LS_COLORS:'di=0;35:'; export LS_COLORS

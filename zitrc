@@ -16,6 +16,7 @@ if is-at-least 5.2; then
   export ZIM_HOME="${ZIT_MODULES_PATH}/zim"
   zit-il "https://github.com/Eriner/zim" "zim" "init.zsh"
 elif is-at-least 4.3.9; then
+  true
   # The plan was to use antigen as a poor man's zim, but the setup seems more
   # involved than I'd like.
 
@@ -25,32 +26,74 @@ elif is-at-least 4.3.9; then
 fi
 
 ## Fallback theme & plugins
+# WARNING: All plugins that conflict with ZIM built-ins should be here!
 if [ -z "$ZIM_HOME" ]; then
   zit-il "https://github.com/dotcode/multi-shell-repo-prompt" \
     "theme-multi" "prompt.sh"
   zit-il "https://github.com/zdharma/fast-syntax-highlighting" \
     "fast-syntax-highlighting" "fast-syntax-highlighting.plugin.zsh"
+  zit-il "https://github.com/zsh-users/zsh-history-substring-search" \
+    "history-substring-search" "zsh-history-substring-search.zsh"
 
   # Without zim, still need a history search
   autoload -U up-line-or-beginning-search
   autoload -U down-line-or-beginning-search
   zle -N up-line-or-beginning-search
   zle -N down-line-or-beginning-search
-  bindkey "^[[A" up-line-or-beginning-search # Up
-  bindkey "^[[B" down-line-or-beginning-search # Down
+	bindkey '^[OA' up-line-or-beginning-search # Up
+  bindkey '^[OB' down-line-or-beginning-search # Down
+  # ...and for GNOME Terminal:
+  bindkey '^[[A' up-line-or-beginning-search # Up
+  bindkey '^[[B' down-line-or-beginning-search # Down
+  # Ctrl + left/right arrow
+  bindkey '^[[1;5C' forward-word
+  bindkey '^[[1;5D' backward-word
+  # Ctrl + up/down arrow
+  bindkey '^[[1;5A' history-substring-search-up
+  bindkey '^[[1;5B' history-substring-search-down
 fi
 
 # misc
-# zit-il "https://github.com/supercrabtree/k" \
-#   "k" "k.sh"
+zit-il "https://github.com/willghatch/zsh-saneopt" \
+  "sane-defaults" "saneopt.plugin.zsh"
+zit-il "https://github.com/thetic/extract" "extract" "extract.plugin.zsh"
+
+zit-il "https://github.com/zlsun/solarized-man" "solarized-man" "solarized-man.plugin.zsh"
+zit-il "https://github.com/hcgraf/zsh-sudo" "sudo"  "sudo.plugin.zsh"
+zit-il "https://github.com/mdumitru/last-working-dir" "last-working-dir" "last-working-dir.zsh"
+zit-il "https://github.com/peterhurford/up.zsh" "up" "up.plugin.zsh"
+zit-il "https://github.com/oz/safe-paste" "safe-paste" "safe-paste.plugin.zsh"
 zit-il "https://github.com/djui/alias-tips" \
   "alias-tips" "alias-tips.plugin.zsh"
 zit-il "https://github.com/Tarrasch/zsh-autoenv" \
   "zsh-autoenv" "autoenv.zsh"
 zit-il "https://github.com/desyncr/auto-ls" \
   "auto-ls" "auto-ls.zsh"
-zit-il "https://github.com/willghatch/zsh-saneopt" \
-  "sane-defaults" "saneopt.plugin.zsh"
+
+auto-ls-customfunction () {
+  ls --color=always
+  if [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == true ]]; then
+    git status -s
+  fi
+}
+AUTO_LS_COMMANDS=(customfunction)
+
+zit-il  "https://github.com/zsh-users/zsh-completions" \
+  "completions" "zsh-completions.plugin.zsh"
+# zit-il "https://github.com/hchbaw/auto-fu.zsh" "auto-fu" "auto-fu.zsh"
+# Invoked in zshrc later:
+# autoload -U compinit && compinit
+
+# Potentially super-useful - investigate further?
+zit-il "https://github.com/psprint/zsh-editing-workbench" \
+  "zsh-editing-workbench" "zsh-editing-workbench.plugin.zsh"
+
+forgit_log=fglo
+forgit_diff=fgd
+forgit_add=fga
+forgit_restore=fgcf
+# forgit_clean=fgclean
+zit-il "https://github.com/wfxr/forgit" "forgit" "forgit.plugin.zsh"
 
 # zsh-async is a prereq for fuzzy search
 # zit-il "https://github.com/mafredri/zsh-async" \
