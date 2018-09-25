@@ -579,4 +579,4 @@ c.FileContentsManager.post_save_hook = save_html_and_script
 #------------------------------------------------------------------------------
 # Interactive config
 #------------------------------------------------------------------------------
-c.InteractiveShell.ast_node_interactivity = "all"
+# c.InteractiveShell.ast_node_interactivity = "all"

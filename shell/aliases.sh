@@ -60,6 +60,7 @@ alias gdc='git diff --cached'
 alias gdca='git diff --cached'
 alias gdcw='git diff --cached --word-diff'
 alias gdw='git diff --word-diff'
+alias gdpy='git diff **/*.py'
 
 alias glg='git log --stat'
 alias glga='GIT_PAGER=less git log --oneline --decorate --graph --all'
