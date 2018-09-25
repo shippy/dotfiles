@@ -59,6 +59,7 @@
   ci = commit
   d = diff --color-words
   st = status
+  kill = checkout --
   unstage = reset HEAD --
   last = log -1 HEAD
   staged = diff --cached
