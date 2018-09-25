@@ -32,10 +32,6 @@ setopt incappendhistory
 setopt nobeep
 # setopt correct
 
-HISTFILE=~/.zsh_history
-HISTSIZE=50000
-SAVEHIST=50000
-
 ## From https://github.com/yous/vanilli.sh/blob/master/vanilli.zsh
 # If a completion is performed with the cursor within a word, and a full
 # # completion is inserted, the cursor is moved to the end of the word.
@@ -89,6 +85,12 @@ setopt pushd_ignore_dups
 setopt pushd_minus
 unsetopt posixcd
 DIRSTACKSIZE=10
+
+if [ -z "$HISTFILE" ]; then
+  export HISTFILE=~/.zhistory
+  export HISTSIZE=50000
+  export SAVEHIST=50000
+fi
 
 # Hook direnv
 type direnv >/dev/null 2>&1 && eval "$(direnv hook zsh)"
@@ -155,3 +157,6 @@ fbr() {
 }
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+# added by pipsi (https://github.com/mitsuhiko/pipsi)
+export PATH="/home/simon/.local/bin:$PATH"

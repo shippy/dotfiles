@@ -5,6 +5,9 @@
 # zsh config
 skip_global_compinit=1
 
+# Due to a WSL bug: Microsoft/BashOnWindows#1887
+unsetopt BG_NICE
+
 # zsh-related globals
 if [ -d /usr/local/share/zsh-completions ]; then
   fpath=(/usr/local/share/zsh-completions $fpath)
@@ -23,6 +26,7 @@ typeset -U path # only unique entries
 
 # Prepending
 path=($HOME/anaconda/bin \
+      $HOME/anaconda2/bin \
       /usr/local/opt/coreutils/libexec/gnubin \
       /usr/local/opt/gdal2/bin \
       $path)
