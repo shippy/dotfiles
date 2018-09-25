@@ -136,7 +136,7 @@ bindkey '^Z' fancy-ctrl-z
 bindkey '^q' push-line-or-edit
 
 ## FZF
-export FZF_DEFAULT_COMMAND='ag --hidden -g ""'
+type ag >/dev/null 2>&1 && export FZF_DEFAULT_COMMAND='ag --hidden -g ""'
 # Blacklisted useless folders in .ignore
 
 # Courtesy of junngunn & fzf
