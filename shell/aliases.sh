@@ -22,6 +22,19 @@ alias jsonpp="python -m json.tool"
 dockerexec() {
   sudo docker exec -it --env COLUMNS=`tput cols` --env LINES=`tput lines` "$@"
 }
+dps() {
+  sudo docker ps --format 'table {{.Names}}\t{{.Image}}\t{{.RunningFor}} ago\t{{.Status}}\t{{.Ports}}'
+}
+
+# vim
+alias vp="vim -p"
+alias vo="vim -o"
+alias vO="vim -O"
+
+# IPython
+pandas () {
+  python -c "from IPython import embed; import pandas as pd; df = pd.read_csv('$1'); embed()"
+}
 
 # Self-referential
 alias eb="vim ~/.bashrc && source ~/.bashrc"
