@@ -157,12 +157,23 @@ type ag >/dev/null 2>&1 && export FZF_DEFAULT_COMMAND='ag --hidden -g ""'
 
 # Courtesy of junegunn & fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-fe() {
-  local files
-  IFS=$'\n' files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0))
-  [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
+# fe() {
+#   local files
+#   IFS=$'\n' files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0))
+#   [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
+# }
+# alias v='fe'
+
+vg() {
+  local file
+
+  file="$(ag --nobreak --noheading $@ | fzf -0 -1 | awk -F: '{print $1 " +" $2}')"
+
+  if [[ -n $file ]]
+  then
+     vim $file
+  fi
 }
-alias v='fe'
 
 # Taken from sodiumjoe/dotfiles
 fbr() {
@@ -170,6 +181,15 @@ fbr() {
   branches=$(git branch --format="%(refname:short)" --sort=-committerdate) &&
     branch=$(echo "$branches" | fzf) &&
     git checkout $branch
+}
+
+# Courtesy of junegunn/fzf
+j() {
+    if [[ "$#" -ne 0 ]]; then
+        cd $(autojump $@)
+        return
+    fi
+    cd "$(autojump -s | sed '/_____/Q; s/^[0-9,.:]*\s*//' |  fzf --height 40% --reverse --inline-info)" 
 }
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
