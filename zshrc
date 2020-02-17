@@ -25,6 +25,16 @@ alias zmv="noglob zmv -W"
 export LANG=en_US.UTF-8
 export EDITOR='vim'
 
+# Make zsh ctrl-w act as it does in bash  - i.e. stop at special characters
+tcsh-backward-delete-word () {
+  # local WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
+  local WORDCHARS="${WORDCHARS:s#-#}"
+  local WORDCHARS="${WORDCHARS:s#/#}"
+  zle backward-delete-word
+}
+zle -N tcsh-backward-delete-word tcsh-backward-delete-word
+bindkey '^W' tcsh-backward-delete-word
+
 setopt auto_cd
 setopt share_history
 setopt hist_expire_dups_first
