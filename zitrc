@@ -56,19 +56,19 @@ fi
 # misc
 zit-il "https://github.com/willghatch/zsh-saneopt" \
   "sane-defaults" "saneopt.plugin.zsh"
-zit-il "https://github.com/thetic/extract" "extract" "extract.plugin.zsh"
+# zit-il "https://github.com/thetic/extract" "extract" "extract.plugin.zsh"
 
 zit-il "https://github.com/zlsun/solarized-man" "solarized-man" "solarized-man.plugin.zsh"
 zit-il "https://github.com/hcgraf/zsh-sudo" "sudo"  "sudo.plugin.zsh"
-zit-il "https://github.com/mdumitru/last-working-dir" "last-working-dir" "last-working-dir.zsh"
-zit-il "https://github.com/peterhurford/up.zsh" "up" "up.plugin.zsh"
+# zit-il "https://github.com/mdumitru/last-working-dir" "last-working-dir" "last-working-dir.zsh"
+# zit-il "https://github.com/peterhurford/up.zsh" "up" "up.plugin.zsh"
 zit-il "https://github.com/oz/safe-paste" "safe-paste" "safe-paste.plugin.zsh"
-zit-il "https://github.com/djui/alias-tips" \
-  "alias-tips" "alias-tips.plugin.zsh"
-zit-il "https://github.com/Tarrasch/zsh-autoenv" \
-  "zsh-autoenv" "autoenv.zsh"
-zit-il "https://github.com/desyncr/auto-ls" \
-  "auto-ls" "auto-ls.zsh"
+# zit-il "https://github.com/djui/alias-tips" \
+#   "alias-tips" "alias-tips.plugin.zsh"
+# zit-il "https://github.com/Tarrasch/zsh-autoenv" \
+#   "zsh-autoenv" "autoenv.zsh"
+# zit-il "https://github.com/desyncr/auto-ls" \
+#   "auto-ls" "auto-ls.zsh"
 
 auto-ls-customfunction () {
   ls --color=always
@@ -85,15 +85,15 @@ zit-il  "https://github.com/zsh-users/zsh-completions" \
 # autoload -U compinit && compinit
 
 # Potentially super-useful - investigate further?
-zit-il "https://github.com/psprint/zsh-editing-workbench" \
-  "zsh-editing-workbench" "zsh-editing-workbench.plugin.zsh"
+# zit-il "https://github.com/psprint/zsh-editing-workbench" \
+#   "zsh-editing-workbench" "zsh-editing-workbench.plugin.zsh"
 
-forgit_log=fglo
-forgit_diff=fgd
-forgit_add=fga
-forgit_restore=fgcf
+# forgit_log=fglo
+# forgit_diff=fgd
+# forgit_add=fga
+# forgit_restore=fgcf
 # forgit_clean=fgclean
-zit-il "https://github.com/wfxr/forgit" "forgit" "forgit.plugin.zsh"
+# zit-il "https://github.com/wfxr/forgit" "forgit" "forgit.plugin.zsh"
 
 # zsh-async is a prereq for fuzzy search
 # zit-il "https://github.com/mafredri/zsh-async" \
