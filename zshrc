@@ -79,7 +79,13 @@ zstyle ':completion:*' completer _complete _approximate
 zstyle ':completion:*' group-order original corrections
 
 autoload -Uz compinit
-compinit
+if [[ -n ${HOME}/.zcompdump(#qN.mh+24)  ]]; then
+  compinit
+  # and update timestamp
+  compdump
+else
+  compinit -C
+fi
 compdef sshrc=ssh
 # Without this, need to explicitly specify . if I want to autocomplete to a hidden file/dir
 _comp_options+=(globdots)
