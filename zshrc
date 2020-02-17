@@ -139,7 +139,7 @@ bindkey '^q' push-line-or-edit
 type ag >/dev/null 2>&1 && export FZF_DEFAULT_COMMAND='ag --hidden -g ""'
 # Blacklisted useless folders in .ignore
 
-# Courtesy of junngunn & fzf
+# Courtesy of junegunn & fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 fe() {
   local files
