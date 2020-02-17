@@ -20,16 +20,31 @@ alias jsonpp="python -m json.tool"
 
 # Docker
 dockerexec() {
+  # TODO: Test if sudo is needed?
   sudo docker exec -it --env COLUMNS=`tput cols` --env LINES=`tput lines` "$@"
 }
 dps() {
-  sudo docker ps --format 'table {{.Names}}\t{{.Image}}\t{{.RunningFor}} ago\t{{.Status}}\t{{.Ports}}'
+  sudo docker ps --format 'table {{.Names}}\t{{.Image}}\t{{.RunningFor}}\t{{.Status}}\t{{.Ports}}' "$@"
 }
 
 # vim
 alias vp="vim -p"
 alias vo="vim -o"
 alias vO="vim -O"
+
+# tmux
+
+tmuxclsession() {
+  for pane in $(tmux list-panes -s -t $1 -F '#{pane_id}'); do
+    tmux send-keys -t $pane 'C-l'
+  done
+}
+abcdcl() {
+  tmuxclsession abcd
+  # for pane in $(tmux list-panes -s -t abcd -F '#{pane_id}'); do
+  #   tmux send-keys -t $pane 'C-l'
+  # done
+}
 
 # IPython
 pandas () {
@@ -42,17 +57,14 @@ alias ea="vim ~/dotfiles/shell/aliases.sh && source ~/dotfiles/shell/aliases.sh"
 
 # Git aliases
 alias ga='git add'
-alias gaa='git add --all'
 alias gapa='git add --patch'
 
 alias gc='git commit -v'
 alias gc!='git commit -v --amend'
-alias gcam='git commit -a -m'
 
 alias gcm='git checkout master'
 alias gco='git checkout'
 alias gc-='git checkout --'
-alias gcd='git checkout develop'
 alias gcmsg='git commit -m'
 
 alias gd='git diff'
@@ -67,6 +79,7 @@ alias glga='GIT_PAGER=less git log --oneline --decorate --graph --all'
 
 alias grbm='git rebase master'
 
+alias grh='git reset HEAD'
 alias grhh='git reset HEAD --hard'
 alias gru='git reset --'
 
@@ -77,8 +90,15 @@ alias stash='git stash'
 alias unstash='git stash pop'
 
 alias gp='git push'
+parse_git_branch_bare() {
+	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
+}
+gpuo() {
+  git push -u origin "$(parse_git_branch_bare)"
+}
 
-alias glum='git pull upstream master'
+alias gl='git pull'
+alias branches='git branch -vvv'
 
 # Homebrew aliases
 if  type direnv >/dev/null 2>&1 ; then

@@ -9,6 +9,8 @@ if [ ! -z "$DOTHOME" ]; then
   source $DOTHOME/shell/bashrc
   export INPUTRC=$DOTHOME/shell/inputrc
   export VIMINIT="let \$MYVIMRC='$DOTHOME/vimrc_minimal' | source \$MYVIMRC"
+  export ALL_SITES="UCSD UCLA YALE WUSTL VCU UVM UTAH UPMC UMN UMICH UFL CUB SRI OHSU LIBR FIU CHLA MUSC UWM UMB ROC"
+  # export VIMINIT="let \$MYVIMRC='$DOTHOME/vimrc_minimal' | let \$VIMHOME='$DOTHOME' | source \$MYVIMRC"
 fi
 
 # if [ -z "~/.gitconfig" ]; then
