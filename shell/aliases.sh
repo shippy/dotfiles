@@ -27,6 +27,18 @@ dps() {
   sudo docker ps --format 'table {{.Names}}\t{{.Image}}\t{{.RunningFor}}\t{{.Status}}\t{{.Ports}}' "$@"
 }
 
+## MySQLdump-specific arguments; assumes that $MYSQL_ROOT_PASSWORD is defined inside container
+# Make sure you redirect to a file
+# $1=container
+backup_mysql_container_to_stdout() {
+  sudo docker exec -i ${1:-hivalc_rc_db_1} bash -c "/usr/bin/mysqldump --all-databases --events -u root --password=\${MYSQL_ROOT_PASSWORD}" | gzip -7c
+}
+# $1=container
+# $2=path out 
+backup_mysql_container() {
+  sudo docker exec -i ${1:-hivalc_rc_db_1} bash -c "/usr/bin/mysqldump --all-databases --events -u root --password=\${MYSQL_ROOT_PASSWORD}" | gzip -7c > ${2-mysql_backup_$(date +'%Y%m%d_%H%M').sql.gz}
+}
+
 # vim
 alias vp="vim -p"
 alias vo="vim -o"
