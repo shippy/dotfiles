@@ -1,0 +1,10 @@
+sudo: required
+
+services:
+  - docker
+
+install:
+  - docker build -t dotfiles setup
+  - docker run -it -d --user test dotfiles /bin/zsh
+script:
+  - docker ps | grep -q dotfiles
