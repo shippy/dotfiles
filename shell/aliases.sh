@@ -26,6 +26,9 @@ dockerexec() {
 dps() {
   sudo docker ps --format 'table {{.Names}}\t{{.Image}}\t{{.RunningFor}}\t{{.Status}}\t{{.Ports}}' "$@"
 }
+dockermounts() {
+  sudo docker inspect --format '{{ range .Mounts }}{{ .Source  }} -> {{ .Destination }}{{ println }}{{ end }}' "$@"
+}
 
 ## MySQLdump-specific arguments; assumes that $MYSQL_ROOT_PASSWORD is defined inside container
 # Make sure you redirect to a file
@@ -36,7 +39,7 @@ backup_mysql_container_to_stdout() {
 # $1=container
 # $2=path out 
 backup_mysql_container() {
-  sudo docker exec -i ${1:-hivalc_rc_db_1} bash -c "/usr/bin/mysqldump --all-databases --events -u root --password=\${MYSQL_ROOT_PASSWORD}" | gzip -7c > ${2-mysql_backup_$(date +'%Y%m%d_%H%M').sql.gz}
+  sudo docker exec -i ${1:-hivalc_rc_db_1} bash -c "/usr/bin/mysqldump --all-databases --events -u root --password=\${MYSQL_ROOT_PASSWORD}" | gzip -7c > ${2:-mysql_backup_$(date +'%Y%m%d_%H%M').sql.gz}
 }
 
 # vim
@@ -60,7 +63,8 @@ abcdcl() {
 
 # IPython
 pandas () {
-  python -c "from IPython import embed; import pandas as pd; df = pd.read_csv('$1'); embed()"
+  python -c "from IPython import embed; import pandas as pd; pd.set_option('display.max_rows', None); pd.set_option('display.max_columns', None); pd.set_option('display.max_colwidth', 300); df = pd.read_csv('$1'); embed()"
+  
 }
 
 # Self-referential
@@ -85,6 +89,7 @@ alias gdca='git diff --cached'
 alias gdcw='git diff --cached --word-diff'
 alias gdw='git diff --word-diff'
 alias gdpy='git diff **/*.py'
+alias gd,='git diff --word-diff --word-diff-regex="[^[:space:],]+"'
 
 alias glg='git log --stat'
 alias glga='GIT_PAGER=less git log --oneline --decorate --graph --all'
