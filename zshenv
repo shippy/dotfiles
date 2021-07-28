@@ -24,15 +24,24 @@ fi
 ## Path!
 typeset -U path # only unique entries
 
-# Prepending
-path=($HOME/anaconda/bin \
-      $HOME/anaconda2/bin \
-      /usr/local/opt/coreutils/libexec/gnubin \
-      /usr/local/opt/gdal2/bin \
-      $path)
+# # Prepending
+# path=($HOME/anaconda/bin \
+#       $HOME/anaconda2/bin \
+#       ~/.linuxbrew/bin \
+#       ~/.linuxbrew/sbin \
+#       /usr/local/opt/coreutils/libexec/gnubin \
+#       /usr/local/opt/gdal2/bin \
+#       $path)
 
 # Appending
-path+=(/usr/local/sbin \
+path+=($HOME/anaconda/bin \
+       $HOME/anaconda2/bin \
+       ~/.linuxbrew/bin \
+       ~/.linuxbrew/sbin \
+       /usr/local/opt/coreutils/libexec/gnubin \
+       /usr/local/opt/gdal2/bin \
+       /usr/local/sbin \
+       /home/simon/.local/bin \
        $HOME/bin \
        /usr/local/mysql/bin \
        /usr/local/bin \
