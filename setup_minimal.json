@@ -12,7 +12,7 @@
         "dotvim/":    "~/.vim",
         "ackrc":  "~/.ackrc",
         "git/gitconfig":  "~/.gitconfig",
-        "git/gitignore":  "~/.gitignore",
+        "git/gitignore":  "~/.gitignore"
     },
 
     "commands": []
