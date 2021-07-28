@@ -35,7 +35,7 @@ zmodules=(input \
 #
 
 # Set your desired prompt here
-zprompt_theme='eriner'
+zprompt_theme='steeef'
 
 #
 # Completion

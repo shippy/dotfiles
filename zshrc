@@ -193,6 +193,3 @@ j() {
 }
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-# added by pipsi (https://github.com/mitsuhiko/pipsi)
-export PATH="/home/simon/.local/bin:$PATH"
